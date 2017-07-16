@@ -1,0 +1,822 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"name",
+				"name"
+			],
+			[
+				"Rout",
+				"Route::post\tBasic Post Route."
+			],
+			[
+				"rout",
+				"Route"
+			],
+			[
+				"mysqli",
+				"mysqli_prepare"
+			],
+			[
+				"_",
+				"_SESSION"
+			],
+			[
+				"fetch",
+				"fetchMessages"
+			],
+			[
+				"html",
+				"htmlentities"
+			],
+			[
+				"rs",
+				"results"
+			],
+			[
+				"nFilas",
+				"nFilasPorResultado"
+			],
+			[
+				"particle",
+				"particleCreator"
+			],
+			[
+				"rand",
+				"randMinMax"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"b",
+				"bgLava"
+			],
+			[
+				"ban",
+				"bandejaPrelavado"
+			],
+			[
+				"ga",
+				"garantia"
+			],
+			[
+				"bg",
+				"bg_lava"
+			],
+			[
+				"banj",
+				"bandejaPrelavado"
+			],
+			[
+				"bandeja",
+				"bandejaPrelavado"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"wp_",
+				"wp_enqueue_style"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"doc",
+				"docHeight"
+			],
+			[
+				"bl",
+				"block"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"form",
+				"contactForm"
+			],
+			[
+				"data",
+				"dataType"
+			],
+			[
+				"mail",
+				"mail_exitoso"
+			],
+			[
+				"glob",
+				"glob_selectedForm"
+			],
+			[
+				"res",
+				"responseSuccess"
+			],
+			[
+				"response",
+				"responseFail"
+			],
+			[
+				"upload",
+				"uploaddir"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/mingo/Documents/UTP 2017 1er Semestre/Desarrollo Soft. 9/RawSQL Laravel tarea",
+			"settings":
+			{
+				"buffer_size": 56,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "RawSQL Laravel"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/TaskController.php",
+			"settings":
+			{
+				"buffer_size": 2274,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 765,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/HomeController.php",
+			"settings":
+			{
+				"buffer_size": 656,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "reinden",
+		"selected_items":
+		[
+			[
+				"reinden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"Laravel ",
+				"Laravel Artisan 5: Migrate"
+			],
+			[
+				"package Control: l",
+				"Package Control: List Packages"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"snippe",
+				"Snippet: html"
+			],
+			[
+				"comment",
+				"Toggle Comment"
+			],
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"",
+				"Set Syntax: HTML"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Controllers",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/routes"
+	],
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Controllers/HomeController.php",
+		"/Users/mingo/.Trash/register.blade.php",
+		"/Users/mingo/.Trash/login.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/home.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/layouts/main.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/layouts/app.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/storage/framework/views/c79b08187862d1cdd2717227248adbc122c71561.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/config/cache.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/welcome.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/login.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Controllers/Auth/LoginController.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/register.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/.env",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Controllers/TaskController.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Controllers/Auth/RegisterController.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Http/Requests/StoreTaskRequest.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Console/Commands/DestroyTaskCommand.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/tasks.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/show.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/edit.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Console/Commands/StoreTaskCommand.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/routes/web.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/wel.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/create.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Console/Commands/PurchasePodcast.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/storage/framework/views/f57a0f8c1d3431aaa911df186bd4fd69190fbf66.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Commands/StoreTaskCommand.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Commands/command.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/public/css/style.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/database/migrations/2017_05_14_225728_create_tasks_table.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Task.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Providers/AppServiceProvider.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/layouts/create.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/resources/views/form.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/vendor/laravel/framework/src/Illuminate/Foundation/Http/FormRequest.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Providers/AuthServiceProvider.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/app/Exceptions/Handler.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/config/app.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/vendor/symfony/http-foundation/Request.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/vendor/laravel/framework/src/Illuminate/Http/Request.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/routes/web.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/coffeeshop/routes/web.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/coffeeshop/coffeeshop/resources/views/welcome.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Http/Controllers/ArticulosController.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Http/Controllers/FormularioController.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/resources/views/html.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/resources/views/lista.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/config/database.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Articulo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Http/Controllers/Controller.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/.env",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Providers/RouteServiceProvider.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/app/Providers/AppServiceProvider.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/vendor/league/flysystem/src/Config.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog/resources/views/welcome.blade.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/phpinfo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lavarel/composer.json",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/user_guide/general/autoloader.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/admin/dashboard.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/admin/Pages.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/Pages.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/admin/Subjects.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/config/routes.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/admin/Dashboard.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/Welcome.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/libraries/Template.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/public/pages/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/public/pages/show.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/admin/pages/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/admin/users/add.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/admin/users/edit.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/controllers/admin/Users.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/views/admin/users/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/codeigniter/vendor/ellislab/codeigniter/application/config/config.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/composerTest/composer.json",
+		"/Users/mingo/Desktop/untitled folder/info.txt",
+		"/Users/mingo/Downloads/books/Server - Linux debian - centos - other/COMMANDS DEBIAN.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/js/index.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/js/myanim.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/js/chat.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/ajax/chat.php",
+		"/Users/mingo/Documents/Visual Studio 2015/Projects/NaveEspacial/NaveEspacial/Form1.vb",
+		"/Users/mingo/Documents/Visual Studio 2015/Projects/Juego2/instrucciones.txt",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/chatapp/test.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/chatapp/php/get_functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/chatapp/css/optional.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/chatapp/js/chat.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/chatapp/css/styles.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/core/classes/Chat.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/css/styles.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/php/get_functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/js/chat.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/ajax/chat.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/php/auth.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/core/init.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/test.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/core/classes/Core.php",
+		"/Users/mingo/Documents/UTP 2016 Segundo Semestre/Redes Computacionales/COMMANDS DEBIAN",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/logout.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/chatapp/js/chat.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/css/estilo.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/css/styles.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11/chatapp/ajax/chat.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/pro/lab/crud.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/boostrap/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lab8/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lab8/lab82.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lab8/lab81.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11a/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/Lab11a/logout.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/LAB131/lab131.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/core/init.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/core/classes/Core.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/finalpro/core/classes/Chat.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/pro/lab/proy12.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/pro/lab/encuesta.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/pro/lab/estilos.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/pro/lab/header.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/parcial2/processForm.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/parcial2/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/parcial2/db_connection.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lab7/lab71.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/ds7/lab9/lab9.php"
+	],
+	"find":
+	{
+		"height": 29.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Applications/XAMPP/xamppfiles/htdocs/ds7/laravel/blog"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"storage_path(",
+			"                \n",
+			"/",
+			"email",
+			"homestead",
+			"date",
+			"StoreTaskRequest",
+			"input(",
+			"input",
+			"contact",
+			"forge",
+			"FormularioController@add",
+			"textfield",
+			"1",
+			"NaveEspacial",
+			"kevin",
+			"InitializeComponent",
+			"contVidas",
+			"PicBasura",
+			"BaseEspacial",
+			"estacion",
+			"Graficos",
+			"contVidas",
+			"acumBasura",
+			"contVidasCtrl",
+			"contVidas",
+			"\"",
+			"login",
+			"\\n\");",
+			"print (\"",
+			"NAME",
+			"TEXT",
+			"TYPE",
+			"INPUT",
+			"LABEL",
+			"FORM",
+			"CLASS",
+			"\"",
+			"\" . ",
+			"\\n\");",
+			"<BR>\" .",
+			"print(\"",
+			"`",
+			"[$i]",
+			".\"",
+			";",
+			"[$i]",
+			"row",
+			"$row[$i]",
+			"td",
+			"'",
+			">",
+			"Respuesta",
+			"th",
+			"_",
+			"</option>",
+			"`",
+			"imagen",
+			"`",
+			"'",
+			"nombre_archivo_cliente",
+			"- ",
+			"► ",
+			"[editar]",
+			"id",
+			"#",
+			"isInitialized",
+			"INIT",
+			"initAd",
+			"handleAdInitialized",
+			"handleWebComponentsReady",
+			"handleDomContentLoaded",
+			"initAd",
+			".site-branding",
+			"# Widgets",
+			"caption",
+			"ol, ul",
+			"_setup",
+			"HP Production",
+			"velodromo",
+			"</img>",
+			"footer",
+			"postScript",
+			"page-services",
+			"form-control",
+			"contactForm",
+			"featured footer",
+			"#main",
+			"index.html",
+			"contact-us.html",
+			"index.html",
+			"contact-us.html"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"class",
+			".",
+			"HP Beats ON",
+			"index.php",
+			"contact-us.php",
+			"index.php",
+			"contact-us.php"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/mingo/Documents/UTP 2017 1er Semestre/Desarrollo Soft. 9/RawSQL Laravel tarea",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 56,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								56,
+								56
+							]
+						],
+						"settings":
+						{
+							"auto_name": "RawSQL Laravel",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/TaskController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								797,
+								797
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/Http/Controllers/HomeController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 656,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 37.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 29.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "taskManager.sublime-project",
+	"replace":
+	{
+		"height": 54.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"c79b08187862d1cdd2717227248adbc122c71561.php",
+				"storage/framework/views/c79b08187862d1cdd2717227248adbc122c71561.php"
+			],
+			[
+				"taskcontroller",
+				"app/Http/Controllers/TaskController.php"
+			],
+			[
+				"f57a0f8c1d3431aaa911df186bd4fd69190fbf66.php",
+				"storage/framework/views/f57a0f8c1d3431aaa911df186bd4fd69190fbf66.php"
+			],
+			[
+				"purchasepodcast",
+				"app/Console/Commands/PurchasePodcast.php"
+			],
+			[
+				"connection.php",
+				"vendor/laravel/framework/src/Illuminate/Database/Connection.php"
+			],
+			[
+				"appserviceprovider",
+				"app/Providers/AppServiceProvider.php"
+			],
+			[
+				"handler.php",
+				"app/Exceptions/Handler.php"
+			],
+			[
+				"config/app",
+				"config/app.php"
+			],
+			[
+				"routes.php",
+				"laravel/blog/app/Providers/RouteServiceProvider.php"
+			],
+			[
+				"config",
+				"laravel/blog/vendor/league/flysystem/src/Config.php"
+			],
+			[
+				"rweb",
+				"laravel/blog/routes/web.php"
+			],
+			[
+				"",
+				"lavarel/composer.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 318.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
