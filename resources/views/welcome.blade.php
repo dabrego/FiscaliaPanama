@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Sistema de Expedientes de la Fiscalia</title>
+
+        <title>Fiscalía de la República de Panamá</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,28 +63,223 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            ----------------------------------------------
+            -------------------------------------------------
+         /*   * {box-sizing:border-box}
+          body {font-family: Verdana,sans-serif;margin:0}
+          .mySlides {display:none}*/  
+
+          /* Slideshow container */
+          .slideshow-container {
+          max-width: 100px;
+          position: relative;
+          margin: auto;
+
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+              }
+
+          /* Position the "next button" to the right */
+        .next {
+         right: 0;
+        border-radius: 3px 0 0 3px;
+          }
+
+          /* On hover, add a black background color with a little bit see-through */
+          .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+          }
+
+          /* Caption text */
+          .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+          }
+
+          /* Number text (1/3 etc) */
+          .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+            }
+
+          /* The dots/bullets/indicators */
+          .dot {
+          cursor:pointer;
+          height: 13px;
+          width: 13px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+          }
+
+          .active, .dot:hover {
+          background-color: #717171;
+          }
+
+          /* Fading animation */
+          .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+            }
+
+          @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+          }
+
+          @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+          }
+
+          /* On smaller screens, decrease text size */
+          @media only screen and (max-width: 300px) {
+          .prev, .next,.text {font-size: 11px}
+          }
+
+
         </style>
     </head>
-    <body>
+    <body >
+
+
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Inicio</a>
+                        <a href="{{ url('/home') }}">Fiscalía</a>
                     @else
-                        <a href="{{ url('/login') }}">Entrar   </a>
-                        <a href="{{ url('/register') }}">Registrar</a>
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
                     @endif
                 </div>
             @endif
+         
+             <div class="slideshow-container">
 
-            <div class="content">
-                <div class="h1 m-b-md">
-                    Sistema de Expedientes de la Fiscalia de Panamá
-                </div>
-                
-                
+            <div class="mySlides fade" align="center">
+              <div class="numbertext">1 / 3</div>
+                <img src="images/womenlawyer.jpg" style="width:75%;height:350px" >
+              <div class="text">Caption Text</div>
             </div>
+
+            <div class="mySlides fade" align="center">
+              <div class="numbertext">2 / 3</div>
+             <img src="images/table.jpg" style="width:75%;height:350px">
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade" align="center">
+            <div class="numbertext">3 / 3</div>
+            <img src="images/hands.jpg" style="width:75%;height:375px">
+            <div class="text">Caption Three</div>
+          </div>
+
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+           <div style="text-align:center">
+         <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+          </div>
         </div>
+          <br>
+
+        
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</br>
+ </div>
+            <div class="content">
+                <div class="title m-b-md">
+                    Fiscalía de la </br> República de Panamá
+                </div>
+
+                <div class="links">
+
+
+                    <a href="{{ url('/') }}">Sucursales</a>
+                    <a href="{{ url('/') }}">Directorio Medico</a>
+                   <a href="{{ url('/') }}">Atención al Cliente</a>
+                     <a href="{{ url('/') }}">Panel de Atención</a>
+
+                </div>
+               
+                <div class="links">
+                    <!-- <a href="{{ url('/index') }}">
+                   <img src="images/maletin.png"  style="width:100px;height:100px;border:0;" />
+                    </a>
+                     <a href="{{ url('/index') }}">
+                    <img src="images/estetoscopio.png"  style="width:100px;height:100px;border:0;" />
+                    </a>
+                     <a href="{{ url('/carepanel') }}">
+                    <img src="images/ambulancia.png"  style="width:100px;height:100px;border:0;" />
+                    </a>
+                      </a>
+                     <a href="{{ url('/dashboard') }}">
+                    <img src="images/estadistica.png"  style="width:100px;height:100px;border:0;" />
+                    </a>-->
+                  </div>
+            </div>
+        </br>
+</br>
+</br>
+</br>
+</br>
+
     </body>
 </html>

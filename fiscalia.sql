@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2017 at 11:02 PM
+-- Generation Time: Jul 17, 2017 at 12:13 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -23,6 +23,67 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `casetype`
+--
+
+CREATE TABLE `casetype` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `case_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `court`
+--
+
+CREATE TABLE `court` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `court_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `filerecords`
+--
+
+CREATE TABLE `filerecords` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `court_id` int(10) UNSIGNED NOT NULL,
+  `location_id` int(10) UNSIGNED NOT NULL,
+  `casetype_id` int(10) UNSIGNED NOT NULL,
+  `titulo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `involucrados` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_inicio` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE `location` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `provincia` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `distrito` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `corregimiento` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -37,14 +98,17 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(1, '2014_10_12_000000_create_users_table', 1),
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2016_01_15_105324_create_roles_table', 1),
-(4, '2016_01_15_114412_create_role_user_table', 1),
-(5, '2016_01_26_115212_create_permissions_table', 1),
-(6, '2016_01_26_115523_create_permission_role_table', 1),
-(7, '2016_02_09_132439_create_permission_user_table', 1),
-(8, '2017_05_14_225728_create_tasks_table', 1);
+(9, '2014_10_12_000000_create_users_table', 1),
+(10, '2014_10_12_100000_create_password_resets_table', 1),
+(11, '2016_01_15_105324_create_roles_table', 1),
+(12, '2016_01_15_114412_create_role_user_table', 1),
+(13, '2016_01_26_115212_create_permissions_table', 1),
+(14, '2016_01_26_115523_create_permission_role_table', 1),
+(15, '2016_02_09_132439_create_permission_user_table', 1),
+(16, '2017_07_16_190455_create_location_table', 1),
+(17, '2017_07_16_190812_create_court_table', 1),
+(18, '2017_07_16_191557_create_casetype_table', 1),
+(19, '2017_07_16_194715_create_filerecords_table', 1);
 
 -- --------------------------------------------------------
 
@@ -74,16 +138,6 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `permissions`
---
-
-INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `model`, `created_at`, `updated_at`) VALUES
-(1, 'Can View Users', 'view.users', 'Can view users', 'Permission', '2017-07-17 01:39:59', '2017-07-17 01:39:59'),
-(2, 'Can Create Users', 'create.users', 'Can create new users', 'Permission', '2017-07-17 01:39:59', '2017-07-17 01:39:59'),
-(3, 'Can Edit Users', 'edit.users', 'Can edit users', 'Permission', '2017-07-17 01:39:59', '2017-07-17 01:39:59'),
-(4, 'Can Delete Users', 'delete.users', 'Can delete users', 'Permission', '2017-07-17 01:39:59', '2017-07-17 01:39:59');
-
 -- --------------------------------------------------------
 
 --
@@ -97,16 +151,6 @@ CREATE TABLE `permission_role` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `permission_role`
---
-
-INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(9, 1, 13, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(10, 2, 13, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(11, 3, 13, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(12, 4, 13, '2017-07-17 01:52:49', '2017-07-17 01:52:49');
 
 -- --------------------------------------------------------
 
@@ -137,17 +181,6 @@ CREATE TABLE `roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `roles`
---
-
-INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `level`, `created_at`, `updated_at`) VALUES
-(13, 'Admin', 'admin', 'Admin Role', 5, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(14, 'Juez', 'juez', 'Acceso a sus casos pendientes de resolucion, biblioteca de consulta de casos, opcion de seguimiento de caso, cierre de caso o cambio de estado', 4, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(15, 'Abogado', 'abogado', 'Acceso a sus casos asignaddos, biblioteca de consulta de casos, opcion de seguimiento de caso', 3, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(16, 'User', 'user', 'Se encarga de regisrar los expendientes, asignar los casos a los abogados o juez', 1, '2017-07-17 01:52:49', '2017-07-17 01:52:49'),
-(17, 'Unverified', 'unverified', 'Unverified Role', 0, '2017-07-17 01:52:49', '2017-07-17 01:52:49');
 
 -- --------------------------------------------------------
 
@@ -180,15 +213,35 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'dabrego', 'dabrego@gmail.com', '$2y$10$ZDD5ZKDoVyQiAS.ooECSdOYxlvpVVta0M68aA5Ig8V0FFxmcxuRMu', NULL, '2017-07-17 01:14:22', '2017-07-17 01:14:22');
-
---
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `casetype`
+--
+ALTER TABLE `casetype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `court`
+--
+ALTER TABLE `court`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `filerecords`
+--
+ALTER TABLE `filerecords`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `filerecords_court_id_foreign` (`court_id`),
+  ADD KEY `filerecords_location_id_foreign` (`location_id`),
+  ADD KEY `filerecords_casetype_id_foreign` (`casetype_id`);
+
+--
+-- Indexes for table `location`
+--
+ALTER TABLE `location`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -252,20 +305,40 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `casetype`
+--
+ALTER TABLE `casetype`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `court`
+--
+ALTER TABLE `court`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `filerecords`
+--
+ALTER TABLE `filerecords`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `location`
+--
+ALTER TABLE `location`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `permission_user`
 --
@@ -275,7 +348,7 @@ ALTER TABLE `permission_user`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `role_user`
 --
@@ -285,10 +358,18 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `filerecords`
+--
+ALTER TABLE `filerecords`
+  ADD CONSTRAINT `filerecords_casetype_id_foreign` FOREIGN KEY (`casetype_id`) REFERENCES `casetype` (`id`),
+  ADD CONSTRAINT `filerecords_court_id_foreign` FOREIGN KEY (`court_id`) REFERENCES `court` (`id`),
+  ADD CONSTRAINT `filerecords_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`);
 
 --
 -- Constraints for table `permission_role`
