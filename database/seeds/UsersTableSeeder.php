@@ -23,7 +23,6 @@ class UsersTableSeeder extends Seeder
 
 	    /**
 	     * Add Users
-	     *
 	     */
         if (User::where('email', '=', 'admin@admin.com')->first() === null) {
 
