@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.6.6
+-- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2017 at 05:56 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- Generation Time: Jul 20, 2017 at 04:18 PM
+-- Server version: 5.7.17-log
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -247,7 +247,10 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (3, 7, 5, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
-(4, 8, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
+(4, 8, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(5, 6, 1, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
+(6, 6, 4, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
+(7, 9, 7, '2017-07-21 02:09:46', '2017-07-21 02:09:46');
 
 -- --------------------------------------------------------
 
@@ -270,11 +273,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', NULL, '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
-(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', '5YltNHJwd0RB0ARCzoiYQItnDjIcRHedvHv2SGGbzxyEfLdhr3XeFZmfod3l', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
-(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', NULL, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
-(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', NULL, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', NULL, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
+(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 'duhpVpnbneJozm7eLijHwEm1jjHYtBTzVxwZALBLwyuRkwbgoJ9BuFHjunug', '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
+(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 'oubjSsNsi5wafQuoy3zsSZUGBcVegXi0gcYndaAhei7IW22eYyDjyXLf65A8', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
+(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'tMt7YV7HDJEfC3ZNdt1Qa6PB3ap6ACUGXST8Yk2OknX1Cm6865TS6cbV1cgq', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
+(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 'gO01Rvi20NORxSqaO00R70l7LvdH8OqqU0RAZ5CphG0AsDK0ok28gMIdeHgo', '2017-07-20 08:54:51', '2017-07-20 08:54:51');
 
 --
 -- Indexes for dumped tables
@@ -417,7 +420,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --

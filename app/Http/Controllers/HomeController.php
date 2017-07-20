@@ -38,37 +38,41 @@ class HomeController extends Controller
         $user = User::where('email', '=', $user->email)->first();
         if ( $user->hasRole('admin') ) { 
         // if ( true ) { // for testing
-            echo 'admin';
+           
              $userRole = 'admin';
              return view('administradores.dashboard', 
-                ['role' => $userRole]);
-                // ['role' => $userRole, 'Administrador' => $user->name]);
+                ['role' => $userRole, 'administrador_nombre' => $user->name]);
         }
 
         if ($user->hasRole('juez')) { // you can pass an id or slug
         // elseif (false) { // for testing
              $userRole = 'juez';
-             return view('jueces.dashboard', ['role' => $userRole]);
-                // ['role' => $userRole, 'Juez' => $user->name]);
+             return view('jueces.dashboard', 
+                ['role' => $userRole, 'juez_nombre' => $user->name]);
         }
 
         if ($user->hasRole('abogado')) { // you can pass an id or slug
         // elseif (false) { // for testing
              $userRole = 'abogado';
-             return view('abogados.dashboard', ['role' => $userRole]);
-                // ['role' => $userRole, 'Abogado' => $user->name]);
+             return view('abogados.dashboard',  
+                ['role' => $userRole, 'abogado_nombre' => $user->name]);
         }
 
-        elseif ($user->hasRole('usuario')) { // you can pass an id or slug
+        if ($user->hasRole('usuario')) { // you can pass an id or slug
         // elseif (true) { for testing
              $userRole = 'usuario';
-             return view('usuarios.dashboard', ['role' => $userRole]);
-                // ['role' => $userRole, 'Usuario' => $user->name]);
+             return view('usuarios.dashboard',  
+                ['role' => $userRole, 'usuario_nombre' => $user->name]);
         }
 
-         else {
+        if ( !(Auth::guest()) ){
+            $userRole = 'pendiente';
+            return view('guest',
+                ['role' => $userRole, 'usuario_nombre' => 'visitante']);
+        }
 
-            return view('/welcome');
+        else {
+            return view('welcome');
         }
 
         // $task_path = resource_path('views/task.blade.php');

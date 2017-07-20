@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder
         $adminRole 			= Role::where('name', '=', 'Admin')->first();
         $juezRole 			= Role::where('name', '=', 'Juez')->first();
         $abogadoRole 		= Role::where('name', '=', 'Abogado')->first();
-        $userRole 			= Role::where('name', '=', 'User')->first();
-        $pendienteRole 		= Role::where('name', '=', 'Unverified')->first();
+        $userRole 			= Role::where('name', '=', 'Usuario')->first();
+        $pendienteRole 		= Role::where('name', '=', 'Pendiente')->first();
 
 
 		$permissions 		= Permission::all();
@@ -34,20 +34,20 @@ class UsersTableSeeder extends Seeder
 	    /**
 	     * Add Users
 	     */
-        /*if (User::where('email', '=', 'admin@admin.com')->first() === null) {
+        if ($newUser = User::where('email', '=', 'admin@admin.com')->first() ) {
 
-	        $newUser = User::create([
+	        /*$newUser = User::create([
 	            'name' => 'Admin',
 	            'email' => 'admin@admin.com',
 	            'password' => bcrypt('password'),
-	        ]);
+	        ]);*/
 
 	        $newUser->attachRole($adminRole);
-			foreach ($permissions as $permission) {
+			/*foreach ($permissions as $permission) {
 				$newUser->attachPermission($permission);
-			}
+			}*/
 
-        }*/
+        }
 
         /*if (User::where('email', '=', 'user@user.com')->first() === null) {
 
@@ -61,53 +61,54 @@ class UsersTableSeeder extends Seeder
 	        $newUser->attachRole($userRole);
 
         }*/
-        if (User::where('email', '=', 'dabrego@gmail.com')->first() === null) {
+        if ($newUser = User::where('email', '=', 'dabrego@gmail.com')->first() ) {
 	        
-	        $newUser = User::create([
-	            'name' => 'dabrego',
-	            'email' => 'dabrego@gmail.com',
-	            'password' => bcrypt('1'),
-	        ]);
+	        // $newUser = User::create([
+	        //     'name' => 'dabrego',
+	        //     'email' => 'dabrego@gmail.com',
+	        //     'password' => bcrypt('1'),
+	        // ]);
         	$newUser->attachRole($adminRole);
-			foreach ($permissions as $permission) {
-				$newUser->attachPermission($permission);
-			}
+			// foreach ($permissions as $permission) {
+			// 	$newUser->attachPermission($permission);
+			// }
+			$newUser->attachPermission($adminRole);
         }
-        if (User::where('email', '=', 'juez@gmail.com')->first() === null) {
+  //       if (User::where('email', '=', 'juez@gmail.com')->first() === null) {
 	        
-	        $newUser = User::create([
-	            'name' => 'juez',
-	            'email' => 'juez@gmail.com',
-	            'password' => bcrypt('1'),
-	        ]);
-        	$newUser->attachRole($juezRole);
-			$newUser->attachPermission($ver);
-			$newUser->attachPermission($editar);
-        }
+	 //        $newUser = User::create([
+	 //            'name' => 'juez',
+	 //            'email' => 'juez@gmail.com',
+	 //            'password' => bcrypt('1'),
+	 //        ]);
+  //       	$newUser->attachRole($juezRole);
+		// 	$newUser->attachPermission($ver);
+		// 	$newUser->attachPermission($editar);
+  //       }
         
-		if (User::where('email', '=', 'abogado@gmail.com')->first() === null) {
+		// if (User::where('email', '=', 'abogado@gmail.com')->first() === null) {
 
-	        $newUser = User::create([
-	            'name' => 'abogado',
-	            'email' => 'abogado@gmail.com',
-	            'password' => bcrypt('1'),
-	        ]);
-        	$newUser->attachRole($abogadoRole );
-			$newUser->attachPermission($ver);
+	 //        $newUser = User::create([
+	 //            'name' => 'abogado',
+	 //            'email' => 'abogado@gmail.com',
+	 //            'password' => bcrypt('1'),
+	 //        ]);
+  //       	$newUser->attachRole($abogadoRole );
+		// 	$newUser->attachPermission($ver);
 			
-        }
+  //       }
 
-        if (User::where('email', '=', 'user@gmail.com')->first() === null) {
+        if ( $newUser = User::where('email', '=', 'user@gmail.com')->first() ) {
 	        
-	        $newUser = User::create([
+	       /* $newUser = User::create([
 	            'name' => 'user',
 	            'email' => 'user@gmail.com',
 	            'password' => bcrypt('1'),
-	        ]);
+	        ]);*/
         	$newUser->attachRole($userRole  );
-			foreach ($permissions as $permission) {
+			/*foreach ($permissions as $permission) {
 				$newUser->attachPermission($permission);
-			}
+			}*/
         }
     }
 }

@@ -5,14 +5,17 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Sistema de Expendientes « Dashboard Usuario</div>
+                <div class="panel-heading">Sistema de Expendientes « Dashboard {{$administrador_nombre}}</div>
                 <div class="panel-body">
                     <div class='container'>
-                        <div class="row"></div>
+                        <div class="row">
+                            @php
+                                echo $role .' ' .$administrador_nombre;
+                            @endphp
 
-                        @php
-                            echo $role;
-                        @endphp
+                        </div>
+
+                        
                         
                     </div>
                 </div>
