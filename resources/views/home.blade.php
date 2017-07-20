@@ -9,6 +9,10 @@
                 <div class="panel-body">
                     <div class='container'>
                         <div class="row"></div>
+
+                        @php
+                            echo $role;
+                        @endphp
                         
                     </div>
                 </div>

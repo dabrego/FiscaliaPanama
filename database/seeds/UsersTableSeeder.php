@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
 	    /**
 	     * Add Users
 	     */
-        if (User::where('email', '=', 'admin@admin.com')->first() === null) {
+        /*if (User::where('email', '=', 'admin@admin.com')->first() === null) {
 
 	        $newUser = User::create([
 	            'name' => 'Admin',
@@ -37,9 +37,9 @@ class UsersTableSeeder extends Seeder
 				$newUser->attachPermission($permission);
 			}
 
-        }
+        }*/
 
-        if (User::where('email', '=', 'user@user.com')->first() === null) {
+        /*if (User::where('email', '=', 'user@user.com')->first() === null) {
 
 	        $newUser = User::create([
 	            'name' => 'User',
@@ -49,6 +49,19 @@ class UsersTableSeeder extends Seeder
 
 	        $newUser;
 	        $newUser->attachRole($userRole);
+
+        }*/
+        if (User::where('email', '=', 'dabrego@gmail.com')->first() === null) {
+
+	        $newUser = User::create([
+	            'name' => 'dabrego',
+	            'email' => 'dabrego@gmail.com',
+	            'password' => bcrypt('1'),
+	        ]);
+        	$newUser->attachRole($adminRole);
+			foreach ($permissions as $permission) {
+				$newUser->attachPermission($permission);
+			}
 
         }
 

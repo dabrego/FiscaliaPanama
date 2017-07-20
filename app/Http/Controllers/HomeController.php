@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,9 +24,31 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+
+        // Get the currently authenticated user...
+        $user = Auth::user();
+
+        // Get the currently authenticated user's ID...
+        $id = Auth::id();
+        echo '<pre>';
+        print_r($user->email .' id: '.$id);
+        echo '</pre>';
+        
+        $user = User::where('email', '=', $user->email)->first();
+        
+        if ($user->hasRole('admin')) { // you can pass an id or slug
+             $userRole = 'admin';
+             return view('home', ['role' => $userRole]);
+        }
+
+        if ($user->hasRole('admin')) { // you can pass an id or slug
+             $userRole = 'admin';
+             return view('home', ['role' => $userRole]);
+        }
+
         // $task_path = resource_path('views/task.blade.php');
-        return view('home');
+        
         // $task_controller = new Taskcontroller();
         // return $task_controller->index();
         // return Route::get('task');

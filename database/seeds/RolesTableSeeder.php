@@ -21,9 +21,9 @@ class RolesTableSeeder extends Seeder
 	     */
     	if (Role::where('name', '=', 'Admin')->first() === null) {
 	        $adminRole = Role::create([
-	            'name' => 'Admin',
+	            'name' => 'Administrador',
 	            'slug' => 'admin',
-	            'description' => 'Admin Role',
+	            'description' => 'Perfil administrativo con control total',
 	            'level' => 5,
         	]);
 	    }
@@ -48,20 +48,20 @@ class RolesTableSeeder extends Seeder
 	        ]);
 	    }
 
-	    if (Role::where('name', '=', 'User')->first() === null) {
+	    if (Role::where('name', '=', 'Usuario')->first() === null) {
 	        $userRole = Role::create([
-	            'name' => 'User',
-	            'slug' => 'user',
+	            'name' => 'Usuario',
+	            'slug' => 'usuario',
 	            'description' => 'Se encarga de regisrar los expendientes, asignar los casos a los abogados o juez',
 	            'level' => 1,
 	        ]);
 	    }
 
-    	if (Role::where('name', '=', 'Unverified')->first() === null) {
+    	if (Role::where('name', '=', 'Pendiente')->first() === null) {
 	        $userRole = Role::create([
-	            'name' => 'Unverified',
-	            'slug' => 'unverified',
-	            'description' => 'Unverified Role',
+	            'name' => 'Pendiente',
+	            'slug' => 'pendiente',
+	            'description' => 'Perfil pendiente o sin verificar',
 	            'level' => 0,
 	        ]);
 	    }
