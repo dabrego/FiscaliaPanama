@@ -21,7 +21,7 @@ class RolesTableSeeder extends Seeder
 	     */
     	if (Role::where('name', '=', 'Admin')->first() === null) {
 	        $adminRole = Role::create([
-	            'name' => 'Administrador',
+	            'name' => 'Admin',
 	            'slug' => 'admin',
 	            'description' => 'Perfil administrativo con control total',
 	            'level' => 5,

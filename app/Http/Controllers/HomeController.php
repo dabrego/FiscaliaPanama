@@ -30,21 +30,32 @@ class HomeController extends Controller
         $user = Auth::user();
 
         // Get the currently authenticated user's ID...
-        $id = Auth::id();
-        echo '<pre>';
-        print_r($user->email .' id: '.$id);
-        echo '</pre>';
+        // $id = Auth::id();
+        // echo '<pre>';
+        // // print_r($user->email .' id: '.$id);
+        // echo '</pre>';
         
-        $user = User::where('email', '=', $user->email)->first();
-        
-        if ($user->hasRole('admin')) { // you can pass an id or slug
+        // $user = User::where('email', '=', $user->email)->first();
+        // if ( $user->hasRole('admin') ) { 
+        if ( false ) { 
              $userRole = 'admin';
-             return view('home', ['role' => $userRole]);
+             return view('administradores.dashboard', ['role' => $userRole]);
         }
 
-        if ($user->hasRole('admin')) { // you can pass an id or slug
-             $userRole = 'admin';
-             return view('home', ['role' => $userRole]);
+        // if ($user->hasRole('juez')) { // you can pass an id or slug
+        elseif (false) { // you can pass an id or slug
+             $userRole = 'juez';
+             return view('jueces.dashboard', ['role' => $userRole]);
+        }
+
+        // elseif ($user->hasRole('usuario')) { // you can pass an id or slug
+        elseif (true) {
+             $userRole = 'usuario';
+             return view('usuarios.dashboard', ['role' => $userRole]);
+        }
+
+         else {
+            return view('/welcome');
         }
 
         // $task_path = resource_path('views/task.blade.php');
