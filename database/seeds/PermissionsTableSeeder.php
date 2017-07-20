@@ -20,16 +20,61 @@ class PermissionsTableSeeder extends Seeder
 	     * Add Permissions
 	     *
 	     */
-        if (Permission::where('name', '=', 'Can View Users')->first() === null) {
+        /*if (Permission::where('name', '=', 'Can View Users')->first() === null) {
 			Permission::create([
 			    'name' => 'Can View Users',
 			    'slug' => 'view.users',
 			    'description' => 'Can view users',
 			    'model' => 'Permission',
 			]);
+        }*/
+
+        if (Permission::where('name', '=', 'Control Total')->first() === null) {
+			Permission::create([
+			    'name' => 'Control Total',
+			    'slug' => 'ver.todo',
+			    'description' => 'Control Total',
+			    'model' => 'Permission',
+			]);
         }
 
-        if (Permission::where('name', '=', 'Can Create Users')->first() === null) {
+        if (Permission::where('name', '=', 'Registrar Expendientes')->first() === null) {
+			Permission::create([
+			    'name' => 'Registrar Expendientes',
+			    'slug' => 'registrar.expendientes',
+			    'description' => 'Registrar Expendientes',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Ver Expendientes')->first() === null) {
+			Permission::create([
+			    'name' => 'Ver Expendientes',
+			    'slug' => 'ver.expendientes',
+			    'description' => 'Ver Expendientes',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Editar Expendientes')->first() === null) {
+			Permission::create([
+			    'name' => 'Editar Expendientes',
+			    'slug' => 'editar.expendientes',
+			    'description' => 'Editar Expendientes',
+			    'model' => 'Permission',
+			]);
+        }
+
+        if (Permission::where('name', '=', 'Asignar Casos')->first() === null) {
+			Permission::create([
+			    'name' => 'Asignar Casos',
+			    'slug' => 'asignar.casos',
+			    'description' => 'Asignar Casos',
+			    'model' => 'Permission',
+			]);
+        }
+
+        /*if (Permission::where('name', '=', 'Can Create Users')->first() === null) {
 			Permission::create([
 			    'name' => 'Can Create Users',
 			    'slug' => 'create.users',
@@ -54,7 +99,7 @@ class PermissionsTableSeeder extends Seeder
 			    'description' => 'Can delete users',
 			    'model' => 'Permission',
 			]);
-        }
+        }*/
 
     }
 }

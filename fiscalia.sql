@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 17, 2017 at 12:13 AM
+-- Generation Time: Jul 20, 2017 at 05:56 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -138,6 +138,17 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `model`, `created_at`, `updated_at`) VALUES
+(5, 'Control Total', 'ver.todo', 'Control Total', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(6, 'Registrar Expendientes', 'registrar.expendientes', 'Registrar Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(7, 'Ver Expendientes', 'ver.expendientes', 'Ver Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(8, 'Editar Expendientes', 'editar.expendientes', 'Editar Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(9, 'Asignar Casos', 'asignar.casos', 'Asignar Casos', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00');
+
 -- --------------------------------------------------------
 
 --
@@ -152,6 +163,17 @@ CREATE TABLE `permission_role` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `permission_role`
+--
+
+INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `updated_at`) VALUES
+(5, 5, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(6, 6, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(7, 7, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(8, 8, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(9, 9, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00');
+
 -- --------------------------------------------------------
 
 --
@@ -165,6 +187,18 @@ CREATE TABLE `permission_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permission_user`
+--
+
+INSERT INTO `permission_user` (`id`, `permission_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 7, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(2, 5, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(3, 6, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(4, 7, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(5, 8, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(6, 9, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
 
 -- --------------------------------------------------------
 
@@ -182,6 +216,17 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `level`, `created_at`, `updated_at`) VALUES
+(6, 'Admin', 'admin', 'Perfil administrativo con control total', 5, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(7, 'Juez', 'juez', 'Acceso a sus casos pendientes de resolucion, biblioteca de consulta de casos, opcion de seguimiento de caso, cierre de caso o cambio de estado', 4, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(8, 'Abogado', 'abogado', 'Acceso a sus casos asignaddos, biblioteca de consulta de casos, opcion de seguimiento de caso', 3, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(9, 'Usuario', 'usuario', 'Se encarga de regisrar los expendientes, asignar los casos a los abogados o juez', 1, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
+(10, 'Pendiente', 'pendiente', 'Perfil pendiente o sin verificar', 0, '2017-07-20 08:43:00', '2017-07-20 08:43:00');
+
 -- --------------------------------------------------------
 
 --
@@ -195,6 +240,14 @@ CREATE TABLE `role_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `role_user`
+--
+
+INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(3, 7, 5, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
+(4, 8, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
 
 -- --------------------------------------------------------
 
@@ -211,6 +264,17 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', NULL, '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
+(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', '5YltNHJwd0RB0ARCzoiYQItnDjIcRHedvHv2SGGbzxyEfLdhr3XeFZmfod3l', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
+(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', NULL, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
+(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', NULL, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', NULL, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
 
 --
 -- Indexes for dumped tables
@@ -333,32 +397,32 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `permission_user`
 --
 ALTER TABLE `permission_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
