@@ -36,20 +36,20 @@ class HomeController extends Controller
         // echo '</pre>';
         
         // $user = User::where('email', '=', $user->email)->first();
-        // if ( $user->hasRole('admin') ) { 
-        if ( false ) { 
+        if ( $user->hasRole('admin') ) { 
+        // if ( false ) { // for testing
              $userRole = 'admin';
              return view('administradores.dashboard', ['role' => $userRole]);
         }
 
-        // if ($user->hasRole('juez')) { // you can pass an id or slug
-        elseif (false) { // you can pass an id or slug
+        if ($user->hasRole('juez')) { // you can pass an id or slug
+        // elseif (false) { // for testing
              $userRole = 'juez';
              return view('jueces.dashboard', ['role' => $userRole]);
         }
 
-        // elseif ($user->hasRole('usuario')) { // you can pass an id or slug
-        elseif (true) {
+        elseif ($user->hasRole('usuario')) { // you can pass an id or slug
+        // elseif (true) { for testing
              $userRole = 'usuario';
              return view('usuarios.dashboard', ['role' => $userRole]);
         }
