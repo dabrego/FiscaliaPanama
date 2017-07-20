@@ -59,8 +59,13 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-<li><a class="nav-link" href='/task'>Inicio <span class="sr-only">(current)</span></a></li>
-<li><a class="nav-link" href='/task/create'>Crear <span class="sr-only">(current)</span></a></li>
+
+                                    <li>
+                                        <a class="nav-link" href='/home'>Inicio <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href='/home'>Crear <span class="sr-only">(current)</span></a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

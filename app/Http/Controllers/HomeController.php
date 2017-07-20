@@ -30,34 +30,44 @@ class HomeController extends Controller
         $user = Auth::user();
 
         // Get the currently authenticated user's ID...
-        // $id = Auth::id();
+        $id = Auth::id();
         // echo '<pre>';
-        // // print_r($user->email .' id: '.$id);
+        // print_r($user->email .' id: '.$id);
         // echo '</pre>';
         
         $user = User::where('email', '=', $user->email)->first();
         if ( $user->hasRole('admin') ) { 
-        // if ( false ) { // for testing
+        // if ( true ) { // for testing
+            echo 'admin';
              $userRole = 'admin';
              return view('administradores.dashboard', 
-                ['role' => $userRole, 'Administrador' => $user->name]);
+                ['role' => $userRole]);
+                // ['role' => $userRole, 'Administrador' => $user->name]);
         }
 
         if ($user->hasRole('juez')) { // you can pass an id or slug
         // elseif (false) { // for testing
              $userRole = 'juez';
-             return view('jueces.dashboard', 
-                ['role' => $userRole, 'Juez' => $user->name]]);
+             return view('jueces.dashboard', ['role' => $userRole]);
+                // ['role' => $userRole, 'Juez' => $user->name]);
+        }
+
+        if ($user->hasRole('abogado')) { // you can pass an id or slug
+        // elseif (false) { // for testing
+             $userRole = 'abogado';
+             return view('abogados.dashboard', ['role' => $userRole]);
+                // ['role' => $userRole, 'Abogado' => $user->name]);
         }
 
         elseif ($user->hasRole('usuario')) { // you can pass an id or slug
         // elseif (true) { for testing
              $userRole = 'usuario';
-             return view('usuarios.dashboard', 
-                ['role' => $userRole, 'Usuario' => $user->name]]);
+             return view('usuarios.dashboard', ['role' => $userRole]);
+                // ['role' => $userRole, 'Usuario' => $user->name]);
         }
 
          else {
+
             return view('/welcome');
         }
 
