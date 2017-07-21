@@ -5,14 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use App\Filerecords;
 
 class HomeController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
+    
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -47,8 +52,12 @@ class HomeController extends Controller
         if ($user->hasRole('juez')) { // you can pass an id or slug
         // elseif (false) { // for testing
              $userRole = 'juez';
+             
+
+              $data = Filerecords::all();
+             // return Route::get('jueces/dashboard');
              return view('jueces.dashboard', 
-                ['role' => $userRole, 'juez_nombre' => $user->name]);
+                ['role' => $userRole, 'juez_nombre'=>$user->name, 'data'=>$data]);
         }
 
         if ($user->hasRole('abogado')) { // you can pass an id or slug
@@ -60,9 +69,10 @@ class HomeController extends Controller
 
         if ($user->hasRole('usuario')) { // you can pass an id or slug
         // elseif (true) { for testing
+            $data = Filerecords::all();
              $userRole = 'usuario';
              return view('usuarios.dashboard',  
-                ['role' => $userRole, 'usuario_nombre' => $user->name]);
+            ['role'=> $userRole, 'usuario_nombre'=>$user->name,'data'=>$data]);
         }
 
         if ( !(Auth::guest()) ){

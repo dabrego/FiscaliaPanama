@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2017 at 04:18 PM
--- Server version: 5.7.17-log
--- PHP Version: 5.6.30
+-- Generation Time: Jul 21, 2017 at 06:17 AM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fiscalia`
+-- Database: `newfiscalia`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,15 @@ CREATE TABLE `casetype` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `casetype`
+--
+
+INSERT INTO `casetype` (`id`, `case_type`, `created_at`, `updated_at`) VALUES
+(1, 'Robo', '2017-07-20 20:00:11', '2017-07-20 20:01:47'),
+(2, 'Homicidio', '2017-07-20 20:01:44', '2017-07-20 20:01:47'),
+(3, 'Extorción', '2017-07-20 20:01:50', '2017-07-20 20:01:51');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +55,21 @@ CREATE TABLE `court` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `court`
+--
+
+INSERT INTO `court` (`id`, `court_name`, `created_at`, `updated_at`) VALUES
+(1, 'JUZGADO 1° DE CIRCUITO CIVIL, PANAMÁ', '2017-07-17 10:27:09', '2017-07-17 10:27:09'),
+(2, 'JUZGADO 2° DE CIRCUITO CIVIL, PANAMÁ', '2017-07-17 10:27:46', '2017-07-17 10:27:46'),
+(3, 'JUZGADO 3° DE CIRCUITO CIVIL, PANAMÁ', '2017-07-17 10:27:56', '2017-07-17 10:27:56'),
+(4, 'JUZGADO 4° DE CIRCUITO CIVIL, PANAMÁ', '2017-07-17 10:28:07', '2017-07-17 10:28:07'),
+(5, 'JUZGADO 1° DE CIRCUITO CIVIL, SAN MIGUELITO', '2017-07-17 10:28:55', '2017-07-17 10:28:55'),
+(6, 'JUZGADO 2° DE CIRCUITO CIVIL, SAN MIGUELITO', '2017-07-17 10:29:10', '2017-07-17 10:29:10'),
+(7, 'JUZGADO 1° DE CIRCUITO CIVIL, LA CHORRERA', '2017-07-17 10:30:39', '2017-07-17 10:30:39'),
+(8, 'JUZGADO 2° DE CIRCUITO CIVIL, LA CHORRERA', '2017-07-17 10:30:55', '2017-07-17 10:30:55'),
+(9, 'JUZGADO 1° DE CIRCUITO PENAL, LA CHORRERA', '2017-07-17 10:31:05', '2017-07-17 10:31:05');
+
 -- --------------------------------------------------------
 
 --
@@ -55,16 +79,25 @@ CREATE TABLE `court` (
 CREATE TABLE `filerecords` (
   `id` int(10) UNSIGNED NOT NULL,
   `court_id` int(10) UNSIGNED NOT NULL,
-  `location_id` int(10) UNSIGNED NOT NULL,
   `casetype_id` int(10) UNSIGNED NOT NULL,
-  `titulo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `involucrados` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fecha_inicio` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provinciafk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `distritofk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `corregimientofk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titulo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `involucrados` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_inicio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `filerecords`
+--
+
+INSERT INTO `filerecords` (`id`, `court_id`, `casetype_id`, `provinciafk`, `distritofk`, `corregimientofk`, `titulo`, `descripcion`, `involucrados`, `fecha_inicio`, `status`, `created_at`, `updated_at`) VALUES
+(2, 1, 1, 'Panama', 'Panama', 'Las Lomas', 'Robo', 'Robo a mano armada por Luis Muñoz.', 'Tiendita de Chino', '2017-07-20', 'Abierto', '2017-07-21 06:45:18', '2017-07-21 06:45:18');
 
 -- --------------------------------------------------------
 
@@ -80,6 +113,21 @@ CREATE TABLE `location` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `provincia`, `distrito`, `corregimiento`, `created_at`, `updated_at`) VALUES
+(1, 'Los Santos', 'Las Tablas', 'La Palma', '2017-07-17 08:48:59', '2017-07-17 08:48:59'),
+(2, 'Panama', 'Panama', 'Betania', '2017-07-17 09:30:42', '2017-07-17 09:30:42'),
+(3, 'Panama', 'Panama', 'San Francisco', '2017-07-17 09:41:37', '2017-07-17 09:41:37'),
+(4, 'Panama', 'San Miguelito', 'Rufina Alfaro', '2017-07-17 09:42:27', '2017-07-17 09:42:27'),
+(5, 'Panama', 'San Miguelito', 'Arnulfo Arias', '2017-07-17 09:42:56', '2017-07-17 09:42:56'),
+(6, 'Panama Oeste', 'Arraijan', 'Burunga', '2017-07-17 09:44:22', '2017-07-17 09:44:22'),
+(7, 'Panama Oeste', 'La Chorrera', 'Guadalupe', '2017-07-17 09:45:11', '2017-07-17 09:45:11'),
+(8, 'Chiriqui', 'David', 'Las Lomas', '2017-07-17 09:46:03', '2017-07-17 09:46:03'),
+(9, 'Chiriqui', 'Bugaba', 'La Concepción', '2017-07-17 09:46:23', '2017-07-17 09:46:23');
 
 -- --------------------------------------------------------
 
@@ -274,8 +322,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 'duhpVpnbneJozm7eLijHwEm1jjHYtBTzVxwZALBLwyuRkwbgoJ9BuFHjunug', '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
-(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 'oubjSsNsi5wafQuoy3zsSZUGBcVegXi0gcYndaAhei7IW22eYyDjyXLf65A8', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
-(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'tMt7YV7HDJEfC3ZNdt1Qa6PB3ap6ACUGXST8Yk2OknX1Cm6865TS6cbV1cgq', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
+(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 'nqM6TxVripsxmi0rx1QShLh1aO9vlHNwqj3NEt3rSIHmx65S48CTQLBP0UdU', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
+(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'rmYV3CCi5aLcQBOvCvmAoTw0tR9donlqpzCtx1hAPgnSbgI7cQj7LxllKfpE', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
 (6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
 (7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 'gO01Rvi20NORxSqaO00R70l7LvdH8OqqU0RAZ5CphG0AsDK0ok28gMIdeHgo', '2017-07-20 08:54:51', '2017-07-20 08:54:51');
 
@@ -301,7 +349,6 @@ ALTER TABLE `court`
 ALTER TABLE `filerecords`
   ADD PRIMARY KEY (`id`),
   ADD KEY `filerecords_court_id_foreign` (`court_id`),
-  ADD KEY `filerecords_location_id_foreign` (`location_id`),
   ADD KEY `filerecords_casetype_id_foreign` (`casetype_id`);
 
 --
@@ -375,22 +422,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `casetype`
 --
 ALTER TABLE `casetype`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `court`
 --
 ALTER TABLE `court`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `filerecords`
 --
 ALTER TABLE `filerecords`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -435,8 +482,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `filerecords`
   ADD CONSTRAINT `filerecords_casetype_id_foreign` FOREIGN KEY (`casetype_id`) REFERENCES `casetype` (`id`),
-  ADD CONSTRAINT `filerecords_court_id_foreign` FOREIGN KEY (`court_id`) REFERENCES `court` (`id`),
-  ADD CONSTRAINT `filerecords_location_id_foreign` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`);
+  ADD CONSTRAINT `filerecords_court_id_foreign` FOREIGN KEY (`court_id`) REFERENCES `court` (`id`);
 
 --
 -- Constraints for table `permission_role`
