@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class RoleUserModel extends Model
 {
-    protected $table = "location";
-    protected $fillable = [ ];	
+    protected $table = "role_user";
+    protected $fillable = [ ];
 }

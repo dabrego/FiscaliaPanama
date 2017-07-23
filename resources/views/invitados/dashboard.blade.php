@@ -154,8 +154,6 @@ thead{
   </div>
 </nav>
 </br>
-    
-
 
 
     <hr>

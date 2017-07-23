@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 23, 2017 at 03:51 PM
+-- Generation Time: Jul 23, 2017 at 08:29 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -292,7 +292,8 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 (5, 6, 1, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
 (6, 6, 4, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
 (7, 9, 7, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
-(8, 10, 8, '2017-07-23 03:58:53', '2017-07-23 03:58:53');
+(8, 10, 8, '2017-07-23 03:58:53', '2017-07-23 03:58:53'),
+(9, 7, 9, '2017-07-23 19:06:32', '2017-07-23 19:06:32');
 
 -- --------------------------------------------------------
 
@@ -320,7 +321,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `creat
 (5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'dJzYdwefM81O2PSYRkHk7rGxYk9gwYNrEePhBqgoYFUDo1tSPZ1TfdcC0ESb', '2017-07-20 13:45:26', '2017-07-20 13:45:26'),
 (6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 13:54:51', '2017-07-20 13:54:51'),
 (7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 'gO01Rvi20NORxSqaO00R70l7LvdH8OqqU0RAZ5CphG0AsDK0ok28gMIdeHgo', '2017-07-20 13:54:51', '2017-07-20 13:54:51'),
-(8, 'Venito Varsallo', 'userme@gmail.com', '$2y$10$hp/EQwAkazxNYmJumm1JBOJp2BI9xrr04yUcEK/v7fGHK49kENFNm', 'rAUW1so9rc6IM3nhxdelGZ7CVS4KUFaMCvzwlQuWWDJFyd89eqJqf7JNmZw2', '2017-07-23 03:58:53', '2017-07-23 03:58:53');
+(8, 'Venito Varsallo', 'userme@gmail.com', '$2y$10$hp/EQwAkazxNYmJumm1JBOJp2BI9xrr04yUcEK/v7fGHK49kENFNm', 'rAUW1so9rc6IM3nhxdelGZ7CVS4KUFaMCvzwlQuWWDJFyd89eqJqf7JNmZw2', '2017-07-23 03:58:53', '2017-07-23 03:58:53'),
+(9, 'Gutierrez Alfredo', 'gutierrez@juez.com', '$2y$10$MaSHnAYnLlx4K6tDk2Gf3.4eNzHMrAI8g/IXIpnI5EUm7tWv7S5IO', NULL, '2017-07-23 19:06:32', '2017-07-23 19:06:32');
 
 --
 -- Indexes for dumped tables
@@ -476,12 +478,12 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Constraints for dumped tables
 --

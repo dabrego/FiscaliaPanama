@@ -9,6 +9,7 @@ use App\Court;
 use DB;
 use Auth;
 use Exception;
+use RoleUserModel;
 
 class FilerecordsController extends Controller
 {
@@ -22,16 +23,14 @@ class FilerecordsController extends Controller
     public function index()
     {
         
-        
         if (Auth::check()){
             $data = Filerecords::all();
+
             //Enviamos esos registros a la vista.
-
             return view($this->path.'.dashboard', compact('data'));
-    }
-    return redirect('/login');
-    
-
+        }
+        
+        return redirect('/login');
     }
 
 
@@ -71,13 +70,46 @@ class FilerecordsController extends Controller
      */
     public function create()
     {
-        //
-             $data = Court::all();
+        $debug = false;
+        //  Getting all users_id's with role_id = 7 (jueces);
+        $roles_users = DB::table('role_user')
+        ->select('user_id')
+        ->where('role_id', '=', '7')
+        ->get();
 
+        if (isset($roles_users)){
+            // echo '<pre>';
+            // print_r($roles_users);
+            // echo '</pre>';
 
+            $usuarios_juez = array();
+            $juez = array();
+
+            foreach($roles_users as $key => $value){
+                // Accessing an object information
+                $usuarios_juez = DB::table('users')
+                ->select('name', 'email')
+                ->where('id', '=', $value->user_id)
+                ->get(); 
+
+                // Passing information from object to a std array
+                foreach($usuarios_juez as $key => $value){
+                    // array_push($juez, $value->name);
+                    array_push($juez, ['name'=>$value->name, 'email'=>$value->email]);
+                }
+            } 
+        }
+        if($debug == true){
+            echo '<pre>';
+            print_r($juez);
+            echo '</pre>';
+        }
+        
+        $data = Court::all();
         //Enviamos esos registros a la vista.
 
-        return view($this->path.'.expediente', compact('data'));
+        return view($this->path.'.expediente', 
+            ['data'=>$data, 'juez'=>$juez]);
         // return view ($this->path.'.expediente');
     }
 
