@@ -70,6 +70,7 @@ class FilerecordsController extends Controller
      */
     public function create()
     {
+        $debug = false;
         //  Getting all users_id's with role_id = 7 (jueces);
         $roles_users = DB::table('role_user')
         ->select('user_id')
