@@ -121,7 +121,7 @@ thead{
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+      <a class="navbar-brand" href="{{ url('/home') }}">Home</a>
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="/estadistica">Estadísticas</a></li>
@@ -154,67 +154,15 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></h4>
 
-    <!--<div class="btn-group btn-group-justified">
-  <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Panel de Mantenimiento</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Manejo de Usuarios</a>
-</div>-->
 
     <hr>
 
-        <div    class="table-responsive">
-        @if($data)
-        <table class="table">
-        <thead>
-        <tr>
-            <td>Titulo de Caso</td>
-            <td>No. de Juzgado</td>
-            <td>Juzgado</td>
-            <td>Descripción de Caso</td>
-            <td>Partes Involucradas</td>
-             <td>Fecha de Inicio</td>
-            <td>Estado</td>
-            <td>Ubicación: Provincia</td>
-            <td>Distrito</td>
-            <td>Corregimiento</td>
-            <td>Tipo de Caso</td>
-            <td></td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($data as $row)
-            <tr>
-              <td>{{ $row->titulo }}</td>
-                 <td>{{ $row->court_id }}</td>
-                 <td>{{ $row->court_id }}</td>
-                <td>{{ $row->descripcion }}</td>
-                <td>{{ $row->involucrados }}</td>
-                <td>{{ $row->fecha_inicio }}</td>
-                <td>{{ $row->status }}</td>
-                <td>{{ $row->provinciafk }}</td>
-                <td>{{ $row->distritofk }}</td>
-                 <td>{{ $row->corregimientofk }}</td>
-                <td>{{ $row->casetype_id }}</td>
-
-                <td>
-
-               <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
-
-
-                <td>
-                
-              
-                
-                <a href="{{url('/diagnosis',[$row->id])}}" class="btn-btn-info">Detalle</a>
-               
-                </td>-->
-            </tr>
-            </tbody>
-            @endforeach
-        </table>
-        @endif
+        <div  class="table-responsive">
+          <p>Hola <b>{{$nombre}}</b> por el momento estamos validando su información, cuando esto ocurra un administrador gestionara su cuenta en breve!!
+           </p>
+            
+      
         </div>
 
 

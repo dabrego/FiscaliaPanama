@@ -46,7 +46,7 @@ class HomeController extends Controller
            
              $userRole = 'admin';
              return view('administradores.dashboard', 
-                ['role' => $userRole, 'administrador_nombre' => $user->name]);
+                ['role' => $userRole, 'nombre' => $user->name]);
         }
 
         if ($user->hasRole('juez')) { // you can pass an id or slug
@@ -57,28 +57,28 @@ class HomeController extends Controller
               $data = Filerecords::all();
              // return Route::get('jueces/dashboard');
              return view('jueces.dashboard', 
-                ['role' => $userRole, 'juez_nombre'=>$user->name, 'data'=>$data]);
+                ['role' => $userRole, 'nombre'=>$user->name, 'data'=>$data]);
         }
 
         if ($user->hasRole('abogado')) { // you can pass an id or slug
-        // elseif (false) { // for testing
+        // if (false) { // for testing
              $userRole = 'abogado';
              return view('abogados.dashboard',  
-                ['role' => $userRole, 'abogado_nombre' => $user->name]);
+                ['role' => $userRole, 'nombre' => $user->name]);
         }
 
         if ($user->hasRole('usuario')) { // you can pass an id or slug
-        // elseif (true) { for testing
+        // if (true) { for testing
             $data = Filerecords::all();
              $userRole = 'usuario';
              return view('usuarios.dashboard',  
-            ['role'=> $userRole, 'usuario_nombre'=>$user->name,'data'=>$data]);
+            ['role'=> $userRole, 'nombre'=>$user->name,'data'=>$data]);
         }
 
         if ( !(Auth::guest()) ){
             $userRole = 'pendiente';
-            return view('guest',
-                ['role' => $userRole, 'usuario_nombre' => 'visitante']);
+            return view('invitados.dashboard',
+                ['role' => $userRole, 'nombre' => $user->name]);
         }
 
         else {

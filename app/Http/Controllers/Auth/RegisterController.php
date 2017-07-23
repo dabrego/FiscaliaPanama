@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use jeremykenedy\LaravelRoles\Models\Role;
+use Illuminate\Database\Eloquent\Model;
+
 class RegisterController extends Controller
 {
     /*
@@ -62,12 +65,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $pendienteRole = Role::where('name', '=', 'Pendiente')->first();
+
         $newUser = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        $newUser->attachRole($adminRole);
+        $newUser->attachRole($pendienteRole);
         return $newUser;
 
     }
