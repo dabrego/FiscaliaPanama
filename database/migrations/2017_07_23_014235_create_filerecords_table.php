@@ -13,7 +13,7 @@ class CreateFilerecordsTable extends Migration
      */
     public function up()
     {
-        Schema::create('filerecords', function (Blueprint $table) {
+       Schema::create('filerecords', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('court_id')->unsigned();
             $table->integer('casetype_id')->unsigned();

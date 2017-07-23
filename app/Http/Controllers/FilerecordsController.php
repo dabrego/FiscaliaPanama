@@ -9,6 +9,7 @@ use App\Court;
 use DB;
 use Auth;
 use Exception;
+use App\Estadistica;
 
 class FilerecordsController extends Controller
 {
@@ -58,7 +59,7 @@ class FilerecordsController extends Controller
         public function showEstadisticData()
     {
         
-            $data = Filerecords::all();
+            $data = Estadistica::all();
         //Enviamos esos registros a la vista.
 
         return view($this->path.'.estadistica', compact('data'));

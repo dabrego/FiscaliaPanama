@@ -43,15 +43,11 @@ thead{
     vertical-align: middle;
     border-color: inherit;
 }
-
-
 </style>
-
-
     </head>
     <body class="bgimg">
 
-  <nav  class="navcolor navbar navbar-default navbar-static-top">
+  <nav class=" navcolor navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -113,21 +109,20 @@ thead{
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 
-
      <div class="container">
 
-          <h1>Dashboard</h1>
+          <h1>Mantenimiento de Ubicación</h1>
           </br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
     <ul class="nav navbar-nav">
       <li ><a href="/estadistica">Estadísticas</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="/showubicacion">Ubicación</a></li>
+    <li><a href="/showubicacion">Ubicación</a></li>
           <li><a href="/showcourt">Juzgado</a></li>
           <li><a href="/register">Usuarios </a></li>
         </ul>
@@ -136,7 +131,7 @@ thead{
       <li><a href="#">Seguimientos</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
       <ul class="dropdown-menu">
-          <li><a href="/reportejuez">Por Juez</a></li>
+        <li><a href="/reportejuez">Por Juez</a></li>
           <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
         </ul>
         </li>
@@ -154,7 +149,7 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></h4>
+    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -163,40 +158,28 @@ thead{
 </div>-->
 
     <hr>
-
-        <div    class="table-responsive">
+        <div class="table-responsive">
         @if($data)
         <table class="table">
         <thead>
         <tr>
-            <td>Titulo de Caso</td>
-            <td>No. de Juzgado</td>
-            <td>Juzgado</td>
-            <td>Descripción de Caso</td>
-            <td>Partes Involucradas</td>
-             <td>Fecha de Inicio</td>
-            <td>Estado</td>
-            <td>Ubicación: Provincia</td>
+           <td>Num.</td>
+            <td>Provincia</td>
             <td>Distrito</td>
             <td>Corregimiento</td>
-            <td>Tipo de Caso</td>
+            <td>Fecha de Creacion</td>
+          
             <td></td>
             </tr>
             </thead>
             <tbody>
             @foreach($data as $row)
             <tr>
-              <td>{{ $row->titulo }}</td>
-                 <td>{{ $row->court_id }}</td>
-                 <td>{{ $row->court_id }}</td>
-                <td>{{ $row->descripcion }}</td>
-                <td>{{ $row->involucrados }}</td>
-                <td>{{ $row->fecha_inicio }}</td>
-                <td>{{ $row->status }}</td>
-                <td>{{ $row->provinciafk }}</td>
-                <td>{{ $row->distritofk }}</td>
-                 <td>{{ $row->corregimientofk }}</td>
-                <td>{{ $row->casetype_id }}</td>
+             <td>{{ $row->id }}</td>
+              <td>{{ $row->provincia }}</td>
+                 <td>{{ $row->distrito }}</td>
+                 <td>{{ $row->corregimiento }}</td>
+                <td>{{ $row->created_at }}</td>
 
                 <td>
 
@@ -216,10 +199,6 @@ thead{
         </table>
         @endif
         </div>
-
-
-
-
          <br>
        <br>
        <br>

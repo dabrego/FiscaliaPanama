@@ -8,7 +8,7 @@ class Filerecords extends Model
 {
     //
     protected $table = "filerecords";
-     protected $fillable = [
-	'id', 'titulo','court_id','court','descripcion','involucrados','fecha_inicio','status','location_id','casetype_id'
+      protected $fillable = [
+	'id', 'titulo','court_id','descripcion','involucrados','fecha_inicio','status','provinciafk','distritofk','corregimientofk','casetype_id'
 	];
 }
