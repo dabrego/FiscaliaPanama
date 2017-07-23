@@ -161,8 +161,10 @@ thead{
     <hr>
 
         <div  class="table-responsive">
-        
-       
+          <p>Hola <b>{{$nombre}}</b> por el momento estamos validando su información, cuando esto ocurra un administrador gestionara su cuenta en breve!!
+           </p>
+            
+      
         </div>
 
 

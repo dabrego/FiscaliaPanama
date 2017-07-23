@@ -78,7 +78,7 @@ class HomeController extends Controller
         if ( !(Auth::guest()) ){
             $userRole = 'pendiente';
             return view('invitados.dashboard',
-                ['role' => $userRole, 'nombre' => 'visitante']);
+                ['role' => $userRole, 'nombre' => $user->name]);
         }
 
         else {
