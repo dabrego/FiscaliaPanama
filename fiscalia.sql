@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2017 at 06:17 AM
+-- Generation Time: Jul 23, 2017 at 03:51 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `newfiscalia`
+-- Database: `fiscalia`
 --
 
 -- --------------------------------------------------------
@@ -80,14 +80,14 @@ CREATE TABLE `filerecords` (
   `id` int(10) UNSIGNED NOT NULL,
   `court_id` int(10) UNSIGNED NOT NULL,
   `casetype_id` int(10) UNSIGNED NOT NULL,
-  `provinciafk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `distritofk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `corregimientofk` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `titulo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `involucrados` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `fecha_inicio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provinciafk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `distritofk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `corregimientofk` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `titulo` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `involucrados` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_inicio` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -146,17 +146,18 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(9, '2014_10_12_000000_create_users_table', 1),
-(10, '2014_10_12_100000_create_password_resets_table', 1),
-(11, '2016_01_15_105324_create_roles_table', 1),
-(12, '2016_01_15_114412_create_role_user_table', 1),
-(13, '2016_01_26_115212_create_permissions_table', 1),
-(14, '2016_01_26_115523_create_permission_role_table', 1),
-(15, '2016_02_09_132439_create_permission_user_table', 1),
-(16, '2017_07_16_190455_create_location_table', 1),
-(17, '2017_07_16_190812_create_court_table', 1),
-(18, '2017_07_16_191557_create_casetype_table', 1),
-(19, '2017_07_16_194715_create_filerecords_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2016_01_15_105324_create_roles_table', 1),
+(4, '2016_01_15_114412_create_role_user_table', 1),
+(5, '2016_01_26_115212_create_permissions_table', 1),
+(6, '2016_01_26_115523_create_permission_role_table', 1),
+(7, '2016_02_09_132439_create_permission_user_table', 1),
+(8, '2017_07_16_190455_create_location_table', 1),
+(9, '2017_07_16_190812_create_court_table', 1),
+(10, '2017_07_16_191557_create_casetype_table', 1),
+(11, '2017_07_20_235150_create_filerecords_table', 1),
+(12, '2017_07_23_125720_create_role_user_filerecord_table', 1);
 
 -- --------------------------------------------------------
 
@@ -191,11 +192,11 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `slug`, `description`, `model`, `created_at`, `updated_at`) VALUES
-(5, 'Control Total', 'ver.todo', 'Control Total', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(6, 'Registrar Expendientes', 'registrar.expendientes', 'Registrar Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(7, 'Ver Expendientes', 'ver.expendientes', 'Ver Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(8, 'Editar Expendientes', 'editar.expendientes', 'Editar Expendientes', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(9, 'Asignar Casos', 'asignar.casos', 'Asignar Casos', 'Permission', '2017-07-20 08:43:00', '2017-07-20 08:43:00');
+(5, 'Control Total', 'ver.todo', 'Control Total', 'Permission', '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(6, 'Registrar Expendientes', 'registrar.expendientes', 'Registrar Expendientes', 'Permission', '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(7, 'Ver Expendientes', 'ver.expendientes', 'Ver Expendientes', 'Permission', '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(8, 'Editar Expendientes', 'editar.expendientes', 'Editar Expendientes', 'Permission', '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(9, 'Asignar Casos', 'asignar.casos', 'Asignar Casos', 'Permission', '2017-07-20 13:43:00', '2017-07-20 13:43:00');
 
 -- --------------------------------------------------------
 
@@ -211,17 +212,6 @@ CREATE TABLE `permission_role` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `permission_role`
---
-
-INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`, `created_at`, `updated_at`) VALUES
-(5, 5, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(6, 6, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(7, 7, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(8, 8, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(9, 9, 6, '2017-07-20 08:43:00', '2017-07-20 08:43:00');
-
 -- --------------------------------------------------------
 
 --
@@ -236,17 +226,20 @@ CREATE TABLE `permission_user` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `permission_user`
+-- Table structure for table `pivot`
 --
 
-INSERT INTO `permission_user` (`id`, `permission_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 7, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(2, 5, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(3, 6, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(4, 7, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(5, 8, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(6, 9, 7, '2017-07-20 08:54:51', '2017-07-20 08:54:51');
+CREATE TABLE `pivot` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `filerecord_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -269,11 +262,11 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `level`, `created_at`, `updated_at`) VALUES
-(6, 'Admin', 'admin', 'Perfil administrativo con control total', 5, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(7, 'Juez', 'juez', 'Acceso a sus casos pendientes de resolucion, biblioteca de consulta de casos, opcion de seguimiento de caso, cierre de caso o cambio de estado', 4, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(8, 'Abogado', 'abogado', 'Acceso a sus casos asignaddos, biblioteca de consulta de casos, opcion de seguimiento de caso', 3, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(9, 'Usuario', 'usuario', 'Se encarga de regisrar los expendientes, asignar los casos a los abogados o juez', 1, '2017-07-20 08:43:00', '2017-07-20 08:43:00'),
-(10, 'Pendiente', 'pendiente', 'Perfil pendiente o sin verificar', 0, '2017-07-20 08:43:00', '2017-07-20 08:43:00');
+(6, 'Admin', 'admin', 'Perfil administrativo con control total', 5, '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(7, 'Juez', 'juez', 'Acceso a sus casos pendientes de resolucion, biblioteca de consulta de casos, opcion de seguimiento de caso, cierre de caso o cambio de estado', 4, '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(8, 'Abogado', 'abogado', 'Acceso a sus casos asignaddos, biblioteca de consulta de casos, opcion de seguimiento de caso', 3, '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(9, 'Usuario', 'usuario', 'Se encarga de regisrar los expendientes, asignar los casos a los abogados o juez', 1, '2017-07-20 13:43:00', '2017-07-20 13:43:00'),
+(10, 'Pendiente', 'pendiente', 'Perfil pendiente o sin verificar', 0, '2017-07-20 13:43:00', '2017-07-20 13:43:00');
 
 -- --------------------------------------------------------
 
@@ -294,11 +287,12 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(3, 7, 5, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
-(4, 8, 6, '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(5, 6, 1, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
-(6, 6, 4, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
-(7, 9, 7, '2017-07-21 02:09:46', '2017-07-21 02:09:46');
+(3, 7, 5, '2017-07-20 13:45:26', '2017-07-20 13:45:26'),
+(4, 8, 6, '2017-07-20 13:54:51', '2017-07-20 13:54:51'),
+(5, 6, 1, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
+(6, 6, 4, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
+(7, 9, 7, '2017-07-21 07:09:46', '2017-07-21 07:09:46'),
+(8, 10, 8, '2017-07-23 03:58:53', '2017-07-23 03:58:53');
 
 -- --------------------------------------------------------
 
@@ -321,11 +315,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 'duhpVpnbneJozm7eLijHwEm1jjHYtBTzVxwZALBLwyuRkwbgoJ9BuFHjunug', '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
-(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 'nqM6TxVripsxmi0rx1QShLh1aO9vlHNwqj3NEt3rSIHmx65S48CTQLBP0UdU', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
-(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'rmYV3CCi5aLcQBOvCvmAoTw0tR9donlqpzCtx1hAPgnSbgI7cQj7LxllKfpE', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
-(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 'gO01Rvi20NORxSqaO00R70l7LvdH8OqqU0RAZ5CphG0AsDK0ok28gMIdeHgo', '2017-07-20 08:54:51', '2017-07-20 08:54:51');
+(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 'duhpVpnbneJozm7eLijHwEm1jjHYtBTzVxwZALBLwyuRkwbgoJ9BuFHjunug', '2017-07-20 10:53:59', '2017-07-20 10:53:59'),
+(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 'i6JD8kG2BBqAGVOsYlKF1qBWGxSUFZ1L5O3AXfHXYug2UDGP4USM4mG3T1gY', '2017-07-20 10:56:06', '2017-07-20 10:56:06'),
+(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 'dJzYdwefM81O2PSYRkHk7rGxYk9gwYNrEePhBqgoYFUDo1tSPZ1TfdcC0ESb', '2017-07-20 13:45:26', '2017-07-20 13:45:26'),
+(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 13:54:51', '2017-07-20 13:54:51'),
+(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 'gO01Rvi20NORxSqaO00R70l7LvdH8OqqU0RAZ5CphG0AsDK0ok28gMIdeHgo', '2017-07-20 13:54:51', '2017-07-20 13:54:51'),
+(8, 'Venito Varsallo', 'userme@gmail.com', '$2y$10$hp/EQwAkazxNYmJumm1JBOJp2BI9xrr04yUcEK/v7fGHK49kENFNm', 'rAUW1so9rc6IM3nhxdelGZ7CVS4KUFaMCvzwlQuWWDJFyd89eqJqf7JNmZw2', '2017-07-23 03:58:53', '2017-07-23 03:58:53');
 
 --
 -- Indexes for dumped tables
@@ -393,6 +388,15 @@ ALTER TABLE `permission_user`
   ADD KEY `permission_user_user_id_index` (`user_id`);
 
 --
+-- Indexes for table `pivot`
+--
+ALTER TABLE `pivot`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pivot_role_id_index` (`role_id`),
+  ADD KEY `pivot_user_id_index` (`user_id`),
+  ADD KEY `pivot_filerecord_id_index` (`filerecord_id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -442,7 +446,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
@@ -452,12 +456,17 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `permission_user`
 --
 ALTER TABLE `permission_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `pivot`
+--
+ALTER TABLE `pivot`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -467,12 +476,12 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
@@ -497,6 +506,14 @@ ALTER TABLE `permission_role`
 ALTER TABLE `permission_user`
   ADD CONSTRAINT `permission_user_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `permission_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `pivot`
+--
+ALTER TABLE `pivot`
+  ADD CONSTRAINT `pivot_filerecord_id_foreign` FOREIGN KEY (`filerecord_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pivot_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `pivot_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `role_user`
