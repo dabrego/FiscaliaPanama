@@ -22,7 +22,7 @@
 														<!--Vínculo para ir a la lista de usuarios-->
 														<h4><a href="{{url('/dashboard')}}">Panel de Expedientes</a></h4>
 														<form method="post" action="/fiscalias">
-															
+															{{ csrf_field() }}
 															<div class="row" >
 																<div class= "col-xs-8 form-group">
 										              <label for="titulo">Título del caso</label>
@@ -38,7 +38,7 @@
 										          	<select name="court_id" class="form-control">
 										          		<option  value="#">Seleccione</option>
 										          		@foreach($data_court as $row) 
-										          		<option value="{{ $row->id }}">{{ $row->court_name}}</option>
+										          		<option value="{{$row->id}}">{{ $row->court_name}}</option>
 										          		@endforeach
 										          	</select>
 										          </div>
@@ -119,7 +119,7 @@
 
 															<div class="row">
 																<div class="col-xs-2 form-group">
-																	<label for="exampleInputEmail">Tipo de Caso</label>
+																	<label for="casetype_id">Tipo de Caso</label>
 																	</br>
 																	<select class="form-control" name="casetype_id">
 																		<option  value="#">Seleccione</option>
@@ -132,37 +132,46 @@
 
 															<div class="row">
 																<div class="form-group">
-																	<label for="exampleInputEmail">Jueces</label>
+																	<label for="jueces">Jueces</label>
 																</br>
 																<div class="col-xs-2">
 																	<select class="form-control" name="juez">
 																		<option  value="#">Seleccione</option>
 																		@foreach($jueces as $row) 
-																		<option ">{{ $row->name}}</option>
+																		<option> {{$row->name}}</option>
 																		@endforeach
 																	</select>
 																</div>
 															</div>
 														</div>
-
+														
+														@php
+																print_r($jueces);
+																// print_r($abogados);
+																echo	count($abogados);
+																echo $abogados[0]->name;
+																// exit();
+														@endphp
 
 														<div class="row">
 															<div class="form-group">
-																<label for="exampleInputEmail">Abogados</label>
+																<label for="abogados">Abogados</label>
 																<br>
 																<div class="col-xs-2">
-																	@foreach($abogados as $row) 
-																	<p><input type="checkbox" name="abogados"> {{$row->name}}</p>
-																	@endforeach
+																	@for($i = 0; $i < count($abogados); $i++) 
+																	<p><input type="checkbox" 
+																						value="{{ $abogados[$i]->user_id,'asd' }}" 
+																						name="abogados[{{$i}}]"> {{$abogados[$i]->name}}</p>
+																	@endfor
 																</div>
 															</div>
 														</div>
-															
+
+
 															<button type="submit" class="btn btn-default">Registrar</button>
 														</form>
 										</div>
 								</div>
-
 						</div>
 							<div>	<a class="btn btn-info" href="{{ URL::previous() }}">Back</a></div>
 				</div>

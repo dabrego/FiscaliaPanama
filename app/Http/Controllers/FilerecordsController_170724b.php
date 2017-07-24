@@ -27,13 +27,7 @@ class FilerecordsController extends Controller
     {
         
         if (Auth::check()){
-             $data = DB::table('filerecords')
-                    ->join('court', 'filerecords.court_id','=','court.id')
-                    ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
-                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
-                     'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
-
-                    ->get();
+            $data = Filerecords::all();
 
             //Enviamos esos registros a la vista.
 
@@ -89,17 +83,17 @@ class FilerecordsController extends Controller
 			 $data_casetype = Casetype::all();
 			 $jueces = DB::table('users')
     		            ->join('role_user','user_id','=','users.id')
-    					->select('name', 'role_id', 'user_id')
+    					->select('name')
     					->where('role_id','=',7)
                         ->get();
 
 			 $abogados = DB::table('users')
 			            ->join('role_user','user_id','=','users.id')
-						->select('name', 'role_id', 'user_id')
+						->select('name')
 						->where('role_id','=',8)
                         ->get();
 
-			//dd($abogados);
+			// dd($data_court);
         //Enviamos esos registros a la vista.
 
         return view('usuarios.expediente', compact('data_court','data_location','data_casetype', 'jueces','abogados', 'nombre', 'user'));
@@ -119,7 +113,7 @@ class FilerecordsController extends Controller
         try{
             $registro = new Filerecords();
 
-            /*$registro->titulo = $request->titulo;
+            $registro->titulo = $request->titulo;
             $registro->court_id = $request->court_id;
             $registro->descripcion = $request->descripcion;
             $registro->involucrados = $request->involucrados;
@@ -130,16 +124,8 @@ class FilerecordsController extends Controller
             $registro->corregimientofk = $request->corregimientofk;
             $registro->casetype_id = $request->casetype_id;
 			$registro->juez = $request->juez;
-			$registro->abogados = $request->abogados;*/
+			$registro->abogados = $request->abogados;
             
-            // $abogados = DB::table('users')
-            //             ->join('role_user','user_id','=','users.id')
-            //             ->select('name', 'role_id', 'user_id')
-            //             ->where('role_id','=',8)
-            //             ->get();                
-
-            dd($request->abogados);
-            exit();
             $registro->save();
            // return view('jueces.dashboard');
            return redirect('/dashboard');    
