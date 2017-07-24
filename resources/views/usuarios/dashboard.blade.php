@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 		<div class="row">
-				<div class="panel-heading">Sistema de Expendientes « Dashboard {{$nombre}}</div>
+				<div class="panel-heading">Sistema de Expendientes « Dashboard {{ Auth::user()->name }}</div>
 				<div class="col-md-12">
 						<div class="panel panel-default">
 								<nav class="navbar navbar-inverse col-md-12">
@@ -12,7 +12,7 @@
 												</div>
 												<ul class="nav navbar-nav">
 														<li><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></li>
-														<li ><a href="#">Estadísticas</a></li>
+														<li ><a href="/estadistica">Estadísticas</a></li>
 														<li><a href="#">Seguimientos</a></li>
 												</ul>
 								</nav>
@@ -47,7 +47,7 @@
 															<tr>
 																<td>{{ $row->titulo }}</td>
 																<td>{{ $row->court_id }}</td>
-																<td>{{ $row->court_id }}</td>
+																<td>{{ $row->court_name }}</td>
 																<td>{{ $row->descripcion }}</td>
 																<td>{{ $row->involucrados }}</td>
 																<td>{{ $row->fecha_inicio }}</td>
@@ -55,7 +55,7 @@
 																<td>{{ $row->provinciafk }}</td>
 																<td>{{ $row->distritofk }}</td>
 																<td>{{ $row->corregimientofk }}</td>
-																<td>{{ $row->casetype_id }}</td>
+																<td>{{ $row->case_type }}</td>
 
 																<td>
 																</tr>

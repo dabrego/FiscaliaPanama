@@ -124,7 +124,7 @@ thead{
       <a class="navbar-brand" href="{{ url('/') }}">Home</a>
     </div>
     <ul class="nav navbar-nav">
-      <li ><a href="/estadistica">Estadísticas</a></li>
+      <li ><a href="/estadistica1">Estadísticas</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="/showubicacion">Ubicación</a></li>
@@ -136,8 +136,8 @@ thead{
       <li><a href="#">Seguimientos</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
       <ul class="dropdown-menu">
-          <li><a href="/reportejuez">Por Juez</a></li>
-          <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
+          <li><a href="/reportejuez1">Por Juez</a></li>
+          <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
         </ul>
         </li>
     </ul>
@@ -187,16 +187,17 @@ thead{
             @foreach($data as $row)
             <tr>
               <td>{{ $row->titulo }}</td>
-                 <td>{{ $row->court_id }}</td>
-                 <td>{{ $row->court_id }}</td>
-                <td>{{ $row->descripcion }}</td>
+            <td>{{ $row->court_id }}</td>
+            <td>{{ $row->court_name }}</td>
+              <td>{{ $row->descripcion }}</td>
                 <td>{{ $row->involucrados }}</td>
                 <td>{{ $row->fecha_inicio }}</td>
-                <td>{{ $row->status }}</td>
+               <td>{{ $row->status }}</td>
                 <td>{{ $row->provinciafk }}</td>
-                <td>{{ $row->distritofk }}</td>
+                 <td>{{ $row->distritofk }}</td>
                  <td>{{ $row->corregimientofk }}</td>
-                <td>{{ $row->casetype_id }}</td>
+                  <td>{{ $row->case_type }}</td>
+
 
                 <td>
 

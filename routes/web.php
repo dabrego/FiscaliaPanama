@@ -58,3 +58,23 @@ Route::get('/showdata','CourtController@showFormData');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/task', 'TaskController@index');
+
+//--------------------------------------------------
+//---------------------------------------------------------------
+//ADMINISTRADORES
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//EXPEDIENTE
+//---------------------------------------------------------------
+Route::resource('administrar', 'AdministradorController');
+//Route::get('/ubicacion','FilerecordsController@create');
+
+Route::get('/dashboard','AdministradorController@index');
+Route::get('/expediente1','AdministradorController@create');
+//---------------------------------------------------------------
+//REPORTES
+//---------------------------------------------------------------
+Route::get('/reportejuez1','AdministradorController@showJuecesData');
+Route::get('/reporteprovincia1','AdministradorController@showProvinData');
+Route::get('/estadistica1','AdministradorController@showEstadisticData');
+
