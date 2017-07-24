@@ -33,14 +33,14 @@ class HomeController extends Controller
 
         // Get the currently authenticated user...
         $user = Auth::user();
-
+        $user = User::where('email', '=', $user->email)->first();
         // Get the currently authenticated user's ID...
         $id = Auth::id();
         // echo '<pre>';
         // print_r($user->email .' id: '.$id);
         // echo '</pre>';
         
-        $user = User::where('email', '=', $user->email)->first();
+        
         if ( $user->hasRole('admin') ) { 
         // if ( true ) { // for testing
            

@@ -11,9 +11,11 @@ use App\PivotRoleUserFilerecord_Model;
 use App\Estadistica;
 use App\Location;
 use App\Court;
+
 use DB;
 use Auth;
 use Exception;
+
 
 class FilerecordsController extends Controller
 {
@@ -27,13 +29,7 @@ class FilerecordsController extends Controller
     {
         
         if (Auth::check()){
-             $data = DB::table('filerecords')
-                    ->join('court', 'filerecords.court_id','=','court.id')
-                    ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
-                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
-                     'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
-
-                    ->get();
+            $data = Filerecords::all();
 
             //Enviamos esos registros a la vista.
 
@@ -67,7 +63,7 @@ class FilerecordsController extends Controller
         public function showEstadisticData()
     {
         
-            $data = Estadistica::all();
+            $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
         return view('usuarios.estadistica', compact('data'));
@@ -84,16 +80,16 @@ class FilerecordsController extends Controller
             $user = Auth::user();
             $user = User::where('email', '=', $user->email)->first();
             $nombre = $user->name;
-             $data_court = Court::all();
-             $data_location = Location::all();
-			 $data_casetype = Casetype::all();
-			 $jueces = DB::table('users')
+            $data_court = Court::all();
+            $data_location = Location::all();
+			$data_casetype = Casetype::all();
+			$jueces = DB::table('users')
     		            ->join('role_user','user_id','=','users.id')
     					->select('name')
     					->where('role_id','=',7)
                         ->get();
 
-			 $abogados = DB::table('users')
+			$abogados = DB::table('users')
 			            ->join('role_user','user_id','=','users.id')
 						->select('name')
 						->where('role_id','=',8)

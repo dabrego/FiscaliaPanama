@@ -1,114 +1,22 @@
- <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-         <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
- <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        <title>Fiscalía de la República de Panamá</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
- 
-<style>
- .bgimg {
-    background-image: url('/images/choco.png');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
-
-.navcolor {
-  background-image: url('/images/choco.png');
-}
-table {
-  background-color: #F1EADA;
-   
-  
-    vertical-align: middle;
-    border-color: inherit;
-}
-thead{
-  background-color: #E2D6B9;
-   
-     display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-</style>
-    </head>
-    <body class="bgimg" >
-      <nav class="navcolor navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Fiscalía de la República de Panamá
-                        <!--{{ config('app.name', 'Hospital Medicare') }}-->
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-           <script src="{{ asset('js/app.js') }}"></script>
-           
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->   
-
-
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="panel-heading">Sistema de Expendientes « Dashboard {{$nombre}}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></li>
+                            <li ><a href="#">Estadísticas</a></li>
+                            <li><a href="#">Seguimientos</a></li>
+                        </ul>
+                </nav>
+                <div class="panel-body">
     <div class="container">
     <h1>Registro de Expediente</h1>
     <!--Vínculo para ir a la lista de usuarios-->

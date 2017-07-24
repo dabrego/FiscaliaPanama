@@ -126,7 +126,7 @@ thead{
 
           
         <div class="btn-group" role="group" aria-label="...">
-         <label for="exampleInputEmail">Juzgado</label>
+         <label for="juzgado">Juzgado</label>
          </br>
           <div class="col-xs-2">
              <select name="court_id">
@@ -134,7 +134,7 @@ thead{
          @foreach($data_court as $row) 
            <option value="{{ $row->id }}">{{ $row->court_name}}</option>
            @endforeach
-</select>
+          </select>
 
         </div>
         </div>
@@ -151,7 +151,7 @@ thead{
 
 
               <div class="form-group">
-              <label for="exampleInputEmail">Las parte involucradas</label>
+              <label for="involucrados">Las parte involucradas</label>
               <textarea type="text" name="involucrados" class="form-control" placeholder="Involucrados"></textarea>
           </div>  
 
