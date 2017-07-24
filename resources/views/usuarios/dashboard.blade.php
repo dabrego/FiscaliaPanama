@@ -188,7 +188,7 @@ thead{
             <tr>
               <td>{{ $row->titulo }}</td>
                  <td>{{ $row->court_id }}</td>
-                 <td>{{ $row->court_id }}</td>
+                 <td>{{ $row->court_name}}</td>
                 <td>{{ $row->descripcion }}</td>
                 <td>{{ $row->involucrados }}</td>
                 <td>{{ $row->fecha_inicio }}</td>
@@ -196,7 +196,7 @@ thead{
                 <td>{{ $row->provinciafk }}</td>
                 <td>{{ $row->distritofk }}</td>
                  <td>{{ $row->corregimientofk }}</td>
-                <td>{{ $row->casetype_id }}</td>
+                <td>{{ $row->case_type }}</td>
 
                 <td>
 
