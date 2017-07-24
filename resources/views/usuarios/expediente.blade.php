@@ -131,7 +131,7 @@ thead{
           <div class="col-xs-2">
              <select name="court_id">
              <option  value="#">Seleccione</option>
-         @foreach($data as $row) 
+         @foreach($data_court as $row) 
            <option value="{{ $row->id }}">{{ $row->court_name}}</option>
            @endforeach
 </select>
@@ -189,18 +189,17 @@ thead{
           </div>
       
             </br>
-
-  <div class="form-group">
   <label for="exampleInputEmail" >Ubicación</label>
+  <div class="form-group">
             <label for="exampleInputEmail">Provincia</label>
              </br>
             <div class="col-xs-2">
-          <select class="form-control" name="provinciafk">
-          <option  value="#">Seleccione</option>
-          <option  value="Panama">Panama</option>
-          <option  value="Chiriqui">Chiriqui</option>
-          <option  value="Los Santos">Los Santos</option>
-        </select>
+       <select name="provinciafk">
+             <option  value="#">Seleccione</option>
+         @foreach($data_location as $row) 
+           <option value="{{ $row->id }}">{{ $row->provincia}}</option>
+           @endforeach
+</select>
         </div>
   </br>
         <label for="exampleInputEmail">Distrito</label>
@@ -208,9 +207,9 @@ thead{
             <div class="col-xs-2">
           <select class="form-control" name="distritofk">
           <option  value="#">Seleccione</option>
-          <option  value="Panama">Panama</option>
-          <option  value="David">David</option>
-          <option  value="Las Tablas">Las Tablas</option>
+         @foreach($data_location as $row) 
+           <option value="{{ $row->id }}">{{ $row->distrito}}</option>
+           @endforeach
         </select>
         </div>
   </br>
@@ -219,9 +218,9 @@ thead{
             <div class="col-xs-2">
           <select class="form-control" name="corregimientofk">
           <option  value="#">Seleccione</option>
-          <option  value="San Francisco">San Francisco</option>
-          <option  value="Las Lomas">Las Lomas</option>
-          <option  value="La Palma">La Palma</option>
+         @foreach($data_location as $row) 
+           <option value="{{ $row->id }}">{{ $row->corregimiento}}</option>
+           @endforeach
         </select>
         </div>
           </div>
@@ -232,15 +231,40 @@ thead{
              </br>
             <div class="col-xs-2">
           <select class="form-control" name="casetype_id">
-           <option  value="#">Seleccione</option>
-          <option  value="1">Robo</option>
-          <option  value="2">Homicidio</option>
-          <option  value="3">Extorsion</option>
+            <option  value="#">Seleccione</option>
+         @foreach($data_casetype as $row) 
+           <option value="{{ $row->id }}">{{ $row->case_type}}</option>
+           @endforeach
         </select>
         </div>
           </div>
+		  <br>
+		     <div class="form-group">
+            <label for="exampleInputEmail">Jueces</label>
+             </br>
+            <div class="col-xs-2">
+          <select class="form-control" name="juez">
+            <option  value="#">Seleccione</option>
+         @foreach($jueces as $row) 
+           <option ">{{ $row->name}}</option>
+           @endforeach
+        </select>
+        </div>
+          </div>
+		  
+		  
+		  <br>
+		  <div class="form-group">
+            <label for="exampleInputEmail">Abogados</label>
+             <br>
+            <div class="col-xs-2">
+         @foreach($abogados as $row) 
+          <label><input type="checkbox" name="abogados">{{$row->name}}</label>
+           @endforeach
+        </div>
+          </div>
 
-
+          
           
           </br>
           </br>

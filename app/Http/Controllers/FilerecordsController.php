@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Filerecords;
 use App\Location;
+use App\Casetype;
 use App\Court;
 use DB;
 use Auth;
 use Exception;
-use RoleUserModel;
-use App\Estadistica;
 
 class FilerecordsController extends Controller
 {
 
-    private $path='jueces';
+    
     /**
      * Display a listing of the resource.
      *
@@ -24,14 +23,16 @@ class FilerecordsController extends Controller
     public function index()
     {
         
+        
         if (Auth::check()){
             $data = Filerecords::all();
-
             //Enviamos esos registros a la vista.
-            return view($this->path.'.dashboard', compact('data'));
-        }
-        
-        return redirect('/login');
+
+            return view('usuarios.dashboard', compact('data'));
+    }
+    return redirect('/login');
+    
+
     }
 
 
@@ -41,7 +42,7 @@ class FilerecordsController extends Controller
             $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
-        return view($this->path.'.reportejueces', compact('data'));
+        return view('usuarios.reportejueces', compact('data'));
     
     }
 
@@ -51,17 +52,17 @@ class FilerecordsController extends Controller
             $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
-        return view($this->path.'.reporteprovincia', compact('data'));
+        return view('usuarios.reporteprovincia', compact('data'));
     
     }
 
         public function showEstadisticData()
     {
         
-            $data = Estadistica::all();
+            $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
-        return view($this->path.'.estadistica', compact('data'));
+        return view('usuarios.estadistica', compact('data'));
     
     }
     /**
@@ -71,46 +72,24 @@ class FilerecordsController extends Controller
      */
     public function create()
     {
-        $debug = false;
-        //  Getting all users_id's with role_id = 7 (jueces);
-        $roles_users = DB::table('role_user')
-        ->select('user_id')
-        ->where('role_id', '=', '7')
-        ->get();
-
-        if (isset($roles_users)){
-            // echo '<pre>';
-            // print_r($roles_users);
-            // echo '</pre>';
-
-            $usuarios_juez = array();
-            $juez = array();
-
-            foreach($roles_users as $key => $value){
-                // Accessing an object information
-                $usuarios_juez = DB::table('users')
-                ->select('name', 'email')
-                ->where('id', '=', $value->user_id)
-                ->get(); 
-
-                // Passing information from object to a std array
-                foreach($usuarios_juez as $key => $value){
-                    // array_push($juez, $value->name);
-                    array_push($juez, ['name'=>$value->name, 'email'=>$value->email]);
-                }
-            } 
-        }
-        if($debug == true){
-            echo '<pre>';
-            print_r($juez);
-            echo '</pre>';
-        }
-        
-        $data = Court::all();
+        //
+             $data_court = Court::all();
+             $data_location = Location::all();
+			 $data_casetype = Casetype::all();
+			 $jueces = DB::table('users')
+			             ->join('role_user','user_id','=','users.id')
+						 ->select('name')
+						 ->where('role_id','=',7)
+						 ->get();
+			 $abogados = DB::table('users')
+			             ->join('role_user','user_id','=','users.id')
+						 ->select('name')
+						 ->where('role_id','=',8)
+						 ->get();
+			//dd($abogados);
         //Enviamos esos registros a la vista.
 
-        return view($this->path.'.expediente', 
-            ['data'=>$data, 'juez'=>$juez]);
+        return view('usuarios.expediente', compact('data_court','data_location','data_casetype', 'jueces','abogados'));
         // return view ($this->path.'.expediente');
     }
 
@@ -137,6 +116,8 @@ class FilerecordsController extends Controller
             $registro->distritofk = $request->distritofk;
             $registro->corregimientofk = $request->corregimientofk;
             $registro->casetype_id = $request->casetype_id;
+			$registro->juez = $request->juez;
+			$registro->abogados = $request->abogados;
             
             $registro->save();
            // return view('jueces.dashboard');
