@@ -61,7 +61,11 @@ class HomeController extends Controller
         }
 
         if ($user->hasRole('abogado')) { // you can pass an id or slug
-        // if (false) { // for testing
+            /*
+             * @Abogado de Oficio: Debe tener acceso a sus casos asignados y 
+             * @a la biblioteca de consulta de casos, opción de seguimiento de caso.
+             */
+
              $userRole = 'abogado';
              return view('abogados.dashboard',  
                 ['role' => $userRole, 'nombre' => $user->name]);

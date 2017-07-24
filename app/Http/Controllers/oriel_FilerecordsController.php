@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Filerecords;
 use App\Location;
+use App\Casetype;
 use App\Court;
 use DB;
 use Auth;
 use Exception;
-use RoleUserModel;
-use App\Estadistica;
 
 class FilerecordsController extends Controller
 {
 
+    
     /**
      * Display a listing of the resource.
      *
@@ -23,15 +23,16 @@ class FilerecordsController extends Controller
     public function index()
     {
         
+        
         if (Auth::check()){
             $data = Filerecords::all();
-
             //Enviamos esos registros a la vista.
 
             return view('usuarios.dashboard', compact('data'));
-        }
-        
-        return redirect('/login');
+    }
+    return redirect('/login');
+    
+
     }
 
 
@@ -76,17 +77,15 @@ class FilerecordsController extends Controller
              $data_location = Location::all();
 			 $data_casetype = Casetype::all();
 			 $jueces = DB::table('users')
-    		            ->join('role_user','user_id','=','users.id')
-    					->select('name')
-    					->where('role_id','=',7)
-                        ->get();
-
+			             ->join('role_user','user_id','=','users.id')
+						 ->select('name')
+						 ->where('role_id','=',7)
+						 ->get();
 			 $abogados = DB::table('users')
-			            ->join('role_user','user_id','=','users.id')
-						->select('name')
-						->where('role_id','=',8)
-                        ->get();
-
+			             ->join('role_user','user_id','=','users.id')
+						 ->select('name')
+						 ->where('role_id','=',8)
+						 ->get();
 			//dd($abogados);
         //Enviamos esos registros a la vista.
 

@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
         <meta charset="utf-8">
@@ -37,9 +37,8 @@ table {
     border-color: inherit;
 }
 thead{
-  background-color: #E2D6B9;
-   
-     display: table-header-group;
+    background-color: #E2D6B9;
+    display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
 }

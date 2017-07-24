@@ -41,7 +41,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name', 'Fiscalía de la República de Panamá') }}
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                                 </ul>
                             </li>
                         @endif
-                    </ul>
+                    </ul><!-- End of the Right Side Of Navbar -->
                 </div>
             </div>
         </nav>

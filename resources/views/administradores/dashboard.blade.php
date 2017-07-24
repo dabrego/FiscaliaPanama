@@ -236,29 +236,6 @@ thead{
             </div>
               
         </div>
-   
-
-   
-
-<!--<div class="container">
-        <div class="row">
-            <h1>Agregar Artículo</h1>
-            <form action="/articulo/add" method="post" name="frmadd">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="txttitulo" placeholder="Title">
-                </div>
-                
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="txtresumen" placeholder="description"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default" name="btnsubmit">Submit</button>
-            </form>
-        </div>
-
-    </div>-->
       
 
     </body>
