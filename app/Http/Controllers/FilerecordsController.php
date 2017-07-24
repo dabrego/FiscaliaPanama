@@ -58,7 +58,7 @@ class FilerecordsController extends Controller
         public function showEstadisticData()
     {
         
-            $data = Filerecords::all();
+            $data = Estadistica::all();
         //Enviamos esos registros a la vista.
 
         return view('usuarios.estadistica', compact('data'));

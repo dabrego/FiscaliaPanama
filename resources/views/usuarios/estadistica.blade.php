@@ -149,7 +149,7 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+   <!-- <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>-->
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -163,11 +163,11 @@ thead{
         <table class="table">
         <thead>
         <tr>
-           <td>Num.</td>
-            <td>Provincia</td>
-            <td>Distrito</td>
-            <td>Corregimiento</td>
-            <td>Fecha de Creacion</td>
+          <td>Fecha de Creación</td>
+            <td>Estado</td>
+            <td>Cantidad</td>
+            <td>Tipo de Caso</td>
+       
           
             <td></td>
             </tr>
@@ -175,12 +175,13 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-                 <td>{{ $row->corregimiento }}</td>
-                <td>{{ $row->created_at }}</td>
-
+             <td>{{ $row->created_at }}</td>
+              <td>{{ $row->status }}</td>
+               <td>{{ $row->cantidad }}</td>
+               <td>{{ $row->case_type }}</td>
+                
+                
+            
                 <td>
 
                <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
