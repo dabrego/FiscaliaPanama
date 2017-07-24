@@ -78,3 +78,21 @@ Route::get('/reportejuez1','AdministradorController@showJuecesData');
 Route::get('/reporteprovincia1','AdministradorController@showProvinData');
 Route::get('/estadistica1','AdministradorController@showEstadisticData');
 
+//--------------------------------------------------
+//---------------------------------------------------------------
+//ABOGADOS
+//---------------------------------------------------------------
+//---------------------------------------------------------------
+//EXPEDIENTE
+//---------------------------------------------------------------
+Route::resource('abogar', 'AbogadoController');
+//Route::get('/ubicacion','FilerecordsController@create');
+
+Route::get('/seguimiento2','AbogadoController@index');
+Route::get('/expediente2','AbogadoController@create');
+//---------------------------------------------------------------
+//REPORTES
+//---------------------------------------------------------------
+Route::get('/reportejuez2','AbogadoController@showJuecesData');
+Route::get('/reporteprovincia2','AbogadoController@showProvinData');
+Route::get('/estadistica2','AbogadoController@showEstadisticData');
