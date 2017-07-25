@@ -83,7 +83,7 @@
 																		<select name="provinciafk" class="form-control">
 																			<option  value="#">Seleccione</option>
 																			@foreach($data_location as $row) 
-																			<option value="{{ $row->id }}">{{ $row->provincia}}</option>
+																			<option value="{{ $row->provincia }}">{{ $row->provincia}}</option>
 																			@endforeach
 																		</select>
 																</div>
@@ -94,9 +94,9 @@
 																<label for="distrito">Distrito</label>
 																</br>
 																	<select class="form-control" name="distritofk">
-																		<option  value="#">Seleccione</option>
+																<option  value="#">Seleccione</option>
 																		@foreach($data_location as $row) 
-																		<option value="{{ $row->id }}">{{ $row->distrito}}</option>
+																		<option value="{{ $row->distrito }}">{{ $row->distrito}}</option>
 																		@endforeach
 																	</select>
 																</div>
@@ -109,7 +109,7 @@
 																<select class="form-control" name="corregimientofk">
 																	<option  value="#">Seleccione</option>
 																	@foreach($data_location as $row) 
-																	<option value="{{ $row->id }}">{{ $row->corregimiento}}</option>
+																	<option value="{{ $row->corregimiento }}">{{ $row->corregimiento}}</option>
 																	@endforeach
 																</select>
 															</div>

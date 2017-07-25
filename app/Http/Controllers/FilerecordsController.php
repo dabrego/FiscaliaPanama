@@ -34,7 +34,7 @@ class FilerecordsController extends Controller
                      'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
 
                     ->get();
-
+            
             //Enviamos esos registros a la vista.
 
             return view('usuarios.dashboard', compact('data'));

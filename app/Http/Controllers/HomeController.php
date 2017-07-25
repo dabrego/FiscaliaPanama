@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+
 use App\Filerecords;
+use App\User;
+use App\Casetype;
+use App\PivotRoleUserFilerecord_Model;
+use App\Estadistica;
+use App\Location;
+use App\Court;
+use DB;
+use Exception;
+use Reporteprovincia;
 
 class HomeController extends Controller
 {
@@ -73,7 +82,15 @@ class HomeController extends Controller
 
         if ($user->hasRole('usuario')) { // you can pass an id or slug
         // if (true) { for testing
-            $data = Filerecords::all();
+            $data = DB::table('filerecords')
+                    ->join('court', 'filerecords.court_id','=','court.id')
+                    ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
+                     
+                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
+                     'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
+
+                    ->get();
+
              $userRole = 'usuario';
              return view('usuarios.dashboard',  
             ['role'=> $userRole, 'nombre'=>$user->name,'data'=>$data]);
