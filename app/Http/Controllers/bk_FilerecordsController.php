@@ -70,7 +70,7 @@ class FilerecordsController extends Controller
             $data = Estadistica::all();
         //Enviamos esos registros a la vista.
 
-        return view('usuarios.estadistica', compact('data'));
+        return view('administradores.estadistica', compact('data'));
     
     }
     /**
@@ -113,8 +113,8 @@ class FilerecordsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
+    {   
+
          // //Registro de expediente
         try{
             $registro = new Filerecords();
@@ -169,7 +169,7 @@ class FilerecordsController extends Controller
                     ]
                 ]); 
 
-           return redirect('/home');    
+           return redirect('/dashboard');    
         }
         catch(Exception $e){
 
