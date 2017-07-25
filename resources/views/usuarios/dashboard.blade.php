@@ -12,7 +12,7 @@
 												</div>
 												<ul class="nav navbar-nav">
 														<li><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></li>
-														<li ><a href="/estadistica">Estadísticas</a></li>
+														<li ><a href="/estadistica1">Estadísticas</a></li>
 														<li><a href="#">Seguimientos</a></li>
 												</ul>
 								</nav>
