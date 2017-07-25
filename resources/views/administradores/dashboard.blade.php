@@ -131,7 +131,7 @@ thead{
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
-                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
                                 </ul>
                             </li>
