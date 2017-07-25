@@ -157,16 +157,18 @@ thead{
   <a href="{{ url('/') }}" class="btn btn-primary">Manejo de Usuarios</a>
 </div>-->
 
-    <hr>
+   <hr>
         <div class="table-responsive">
         @if($data)
         <table class="table">
         <thead>
         <tr>
-          <td>Fecha de Creación</td>
+ 
+             <td>Juzgado</td>
+              <td>Tipo de Caso</td>
             <td>Estado</td>
             <td>Cantidad</td>
-            <td>Tipo de Caso</td>
+           
        
           
             <td></td>
@@ -175,10 +177,11 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->created_at }}</td>
+              <td>{{ $row->court_name }}</td>
+              <td>{{ $row->case_type }}</td>
               <td>{{ $row->status }}</td>
                <td>{{ $row->cantidad }}</td>
-               <td>{{ $row->case_type }}</td>
+               
                 
                 
             
@@ -205,6 +208,29 @@ thead{
        <br>
        <br>
        <br>
+       <div id="piechart" style="width: 900px; height: 500px;"></div> 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Tipos de Caso', 'Cantidad'],
+            @foreach($data as $row)
+              ['{{ $row->court_name }}'+' /'+'{{ $row->case_type}}'+' /'+'{{ $row->status}}', {{ $row->cantidad}}],
+            @endforeach
+        ]);
+        var options = {
+          title: 'Representación Gráfica',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script> 
 
         <br>
        <br>
