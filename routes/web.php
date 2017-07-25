@@ -27,7 +27,7 @@ Route::get('/expediente','FilerecordsController@create');
 //REPORTES
 //---------------------------------------------------------------
 Route::get('/reportejuez','FilerecordsController@showJuecesData');
-Route::get('/reporteprovincia','FilerecordsController@showProvinData');
+//Route::get('/reporteprovincia','FilerecordsController@showProvinData');
 Route::get('/estadistica','FilerecordsController@showEstadisticData');
 
 //--------------------------------------------------
@@ -75,7 +75,7 @@ Route::get('/expediente1','AdministradorController@create');
 //REPORTES
 //---------------------------------------------------------------
 Route::get('/reportejuez1','AdministradorController@showJuecesData');
-Route::get('/reporteprovincia1','AdministradorController@showProvinData');
+Route::get('/reporteprovincia','AdministradorController@showProvinData');
 Route::get('/estadistica1','AdministradorController@showEstadisticData');
 
 //--------------------------------------------------

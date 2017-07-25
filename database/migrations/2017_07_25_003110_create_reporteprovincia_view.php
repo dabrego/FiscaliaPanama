@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstadisticaView extends Migration
+
+class CreateReporteprovinciaView extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +14,13 @@ class CreateEstadisticaView extends Migration
      */
     public function up()
     {
-          DB::statement("CREATE VIEW estadistica AS (
-                           SELECT C.court_name, A.status, count(A.status) as cantidad, B.case_type
+           DB::statement("CREATE VIEW reporteprovincia AS (
+        SELECT A.provinciafk, A.distritofk ,A.corregimientofk, A.status, count(A.status) as cantidad, B.case_type
                             from filerecords A
                             inner join casetype B
                             on A.casetype_id = B.id
-                             inner join court C
-                            on A.court_id = C.id
-                            group by  A.status, B.case_type
-                            order by A.status, B.case_type
+                            group by  A.provinciafk, A.distritofk ,A.corregimientofk,A.status, B.case_type
+                            order by  A.provinciafk, A.distritofk ,A.corregimientofk,A.status, B.case_type
                         )");
     }
 
@@ -32,6 +31,6 @@ class CreateEstadisticaView extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estadistica');
+        Schema::dropIfExists('reporteprovincia');
     }
 }

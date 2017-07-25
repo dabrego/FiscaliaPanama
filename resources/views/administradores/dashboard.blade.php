@@ -115,47 +115,35 @@ thead{
 
 
      <div class="container">
+<div class="row">
+  <div class="panel-heading">Sistema de Expendientes « Dashboard {{ Auth::user()->name }}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="/seguimiento2">Casos Asignados</a></li>
 
-          <h1>Dashboard</h1>
-          </br>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/') }}">Home</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="/estadistica1">Estadísticas</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/showubicacion">Ubicación</a></li>
-          <li><a href="/showcourt">Juzgado</a></li>
-          <li><a href="/register">Usuarios </a></li>
-        </ul>
-      </li>
+                            <li><a href="#">Seguimientos</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li ><a href="/estadistica1">Estadísticas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
 
-      <li><a href="#">Seguimientos</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="/reportejuez1">Por Juez</a></li>
-          <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
-        </ul>
-        </li>
-    </ul>
-    <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
+                    
+                </nav>
+
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></h4>
-
+    
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
   <a href="{{ url('/') }}" class="btn btn-primary">Panel de Mantenimiento</a>
@@ -238,7 +226,7 @@ thead{
               
         </div>
       
-
+</duv>
     </body>
 </html>
 

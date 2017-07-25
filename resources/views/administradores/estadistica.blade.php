@@ -43,6 +43,12 @@ thead{
     vertical-align: middle;
     border-color: inherit;
 }
+
+div.chart_div table {
+    width: auto;
+    margin: 0 auto !important;
+}
+
 </style>
     </head>
     <body class="bgimg" >
@@ -118,24 +124,19 @@ thead{
     <div class="navbar-header">
       <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="/estadistica">Estadísticas</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-        <li><a href="/showubicacion">Ubicación</a></li>
-          <li><a href="/showcourt">Juzgado</a></li>
-          <li><a href="/register">Usuarios </a></li>
-        </ul>
-      </li>
+     <ul class="nav navbar-nav">
+                            <li><a href="/seguimiento2">Casos Asignados</a></li>
 
-      <li><a href="#">Seguimientos</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-         <li><a href="/reportejuez">Por Juez</a></li>
-          <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
-        </ul>
-        </li>
-    </ul>
+                            <li><a href="#">Seguimientos</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li ><a href="/estadistica1">Estadísticas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
     <form class="navbar-form navbar-left">
   <div class="input-group">
     <input type="text" class="form-control" placeholder="Search">
@@ -163,10 +164,12 @@ thead{
         <table class="table">
         <thead>
         <tr>
-          <td>Fecha de Creación</td>
+ 
+             <td>Juzgado</td>
+              <td>Tipo de Caso</td>
             <td>Estado</td>
             <td>Cantidad</td>
-            <td>Tipo de Caso</td>
+           
        
           
             <td></td>
@@ -175,10 +178,11 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->created_at }}</td>
+              <td>{{ $row->court_name }}</td>
+              <td>{{ $row->case_type }}</td>
               <td>{{ $row->status }}</td>
                <td>{{ $row->cantidad }}</td>
-               <td>{{ $row->case_type }}</td>
+               
                 
                 
             
@@ -215,13 +219,14 @@ thead{
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Productos', 'mes'],
+          ['Tipos de Caso', 'Cantidad'],
             @foreach($data as $row)
-              ['{{ $row->status}}', {{ $row->cantidad}}],
+              ['{{ $row->court_name }}'+' /'+'{{ $row->case_type}}'+' /'+'{{ $row->status}}', {{ $row->cantidad}}],
             @endforeach
         ]);
         var options = {
-          title: 'Representación Gráfica'
+          title: 'Representación Gráfica',
+          is3D: true,
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);

@@ -14,7 +14,7 @@ use App\Court;
 use DB;
 use Auth;
 use Exception;
-
+use Reporteprovincia;
 class FilerecordsController extends Controller
 {
 
@@ -57,7 +57,7 @@ class FilerecordsController extends Controller
     public function showProvinData()
     {
         
-            $data = Filerecords::all();
+            $data = Reporteprovincia::all();
         //Enviamos esos registros a la vista.
 
         return view('usuarios.reporteprovincia', compact('data'));
@@ -70,7 +70,7 @@ class FilerecordsController extends Controller
             $data = Estadistica::all();
         //Enviamos esos registros a la vista.
 
-        return view('usuarios.estadistica', compact('data'));
+        return view('administradores.estadistica', compact('data'));
     
     }
     /**

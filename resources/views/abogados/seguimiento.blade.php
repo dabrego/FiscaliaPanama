@@ -139,10 +139,10 @@ thead{
                             </li>
                         </ul>
 
-                    
-                </nav>
+         </div>
+</nav>
 </br>
-    <h4><a href="{{ url('/expediente') }}">Crear Nuevo Expediente</a></h4>
+   
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>

@@ -163,7 +163,7 @@ thead{
         <table class="table">
         <thead>
         <tr>
-          <td>Fecha de Creación</td>
+            <td>Juzgado</td>
             <td>Estado</td>
             <td>Cantidad</td>
             <td>Tipo de Caso</td>
@@ -175,7 +175,7 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->created_at }}</td>
+              <td>{{ $row->court_name }}</td>
               <td>{{ $row->status }}</td>
                <td>{{ $row->cantidad }}</td>
                <td>{{ $row->case_type }}</td>

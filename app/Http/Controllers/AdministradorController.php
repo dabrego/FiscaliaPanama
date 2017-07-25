@@ -14,7 +14,7 @@ use App\Court;
 use DB;
 use Auth;
 use Exception;
-
+use App\Reporteprovincia;
 
 class AdministradorController extends Controller
 {
@@ -58,7 +58,7 @@ class AdministradorController extends Controller
     public function showProvinData()
     {
         
-            $data = Filerecords::all();
+            $data = Reporteprovincia::all();
         //Enviamos esos registros a la vista.
 
         return view($this->path.'.reporteprovincia', compact('data'));
