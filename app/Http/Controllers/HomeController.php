@@ -19,6 +19,7 @@ use Reporteprovincia;
 
 class HomeController extends Controller
 {
+    private $debug;
     
     /**
      * Create a new controller instance.
@@ -45,10 +46,19 @@ class HomeController extends Controller
         // Get the current role
         $role = RoleUserModel::get_user_role($user->id);
 
-        // Get the currently authenticated user's ID...
-        // echo "<pre>";
-        // print_r($user->id);
-        // echo "</pre>";
+        # Get the currently authenticated user's ID...
+        /*
+            echo "<pre>";
+            print_r($user->id);
+            echo "</pre>";
+        */
+
+        # Get the role id for a user
+        /*
+            echo "<pre>";
+            print_r($role[0]->id);
+            echo "</pre>";
+        */
         $id = Auth::id();
         
         if ( $user->hasRole('admin') ) { 
@@ -60,8 +70,13 @@ class HomeController extends Controller
 
         if ($user->hasRole('juez')) { 
             $userRole = 'juez';
-            $data = Filerecords::allFileRecords();
-            // return Route::get('jueces/dashboard');
+            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
+            if($this->debug){
+                echo "<pre>";
+                print_r($data);
+                echo "</pre>";
+            }
+            
             return view('jueces.dashboard', 
                 ['role' => $userRole, 'nombre'=>$user->name, 'data'=>$data]);
         }

@@ -1,116 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-         <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
- <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-        <title>Fiscalía de la República de Panamá</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
- 
-<style>
- .bgimg {
-    background-image: url('/images/choco.png');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
-
-.navcolor {
-  background-image: url('/images/choco.png');
-}
-table {
-  background-color: #F1EADA;
-   
-  
-    vertical-align: middle;
-    border-color: inherit;
-}
-thead{
-    background-color: #E2D6B9;
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
-
-
-</style>
-
-
-    </head>
-    <body class="bgimg">
-
-  <nav  class="navcolor navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        Fiscalía de la República de Panamá
-                        <!--{{ config('app.name', 'Hospital Medicare') }}-->
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-           <script src="{{ asset('js/app.js') }}"></script>
-           
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->
-<!-------------------------------------------------------------->
+@section('content')
 
 
      <div class="container">
@@ -195,7 +85,7 @@ thead{
                 <td>{{ $row->provinciafk }}</td>
                 <td>{{ $row->distritofk }}</td>
                  <td>{{ $row->corregimientofk }}</td>
-                <td>{{ $row->casetype_id }}</td>
+                <td>{{ $row->case_type }}</td>
 
                 <td>
 
@@ -236,30 +126,4 @@ thead{
               
         </div>
    
-
-   
-
-<!--<div class="container">
-        <div class="row">
-            <h1>Agregar Artículo</h1>
-            <form action="/articulo/add" method="post" name="frmadd">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="txttitulo" placeholder="Title">
-                </div>
-                
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="txtresumen" placeholder="description"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default" name="btnsubmit">Submit</button>
-            </form>
-        </div>
-
-    </div>-->
-      
-
-    </body>
-</html>
-
+@endsection
