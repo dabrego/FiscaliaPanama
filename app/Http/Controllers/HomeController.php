@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use App\Filerecords;
-
+use DB;
 class HomeController extends Controller
 {
     
@@ -43,7 +43,14 @@ class HomeController extends Controller
         
         if ( $user->hasRole('admin') ) { 
         // if ( true ) { // for testing
-           
+            $data = DB::table('filerecords')
+                    ->join('court', 'filerecords.court_id','=','court.id')
+                    ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
+                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
+                     'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
+
+                    ->get();
+
              $userRole = 'admin';
              return view('administradores.dashboard', 
                 ['role' => $userRole, 'nombre' => $user->name]);

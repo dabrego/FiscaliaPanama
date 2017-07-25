@@ -124,16 +124,16 @@ div.chart_div table {
     <div class="navbar-header">
       <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
-     <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
                             <li><a href="/seguimiento2">Casos Asignados</a></li>
 
                             <li><a href="#">Seguimientos</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez">Reporte Por Juez</a></li>
-                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
-                                    <li ><a href="/reporteprovincia">Estadísticas</a></li>
+                                    <li ><a href="/estadistica1">Estadísticas</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -209,6 +209,7 @@ div.chart_div table {
        <br>
        <br>
        <br>
+
        <div id="piechart" style="width: 900px; height: 500px;"></div> 
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>

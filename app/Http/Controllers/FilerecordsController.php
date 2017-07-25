@@ -70,7 +70,7 @@ class FilerecordsController extends Controller
             $data = Estadistica::all();
         //Enviamos esos registros a la vista.
 
-        return view('usuarios.estadistica', compact('data'));
+        return view('administradores.estadistica', compact('data'));
     
     }
     /**
