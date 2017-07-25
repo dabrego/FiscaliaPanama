@@ -11,6 +11,7 @@ use App\PivotRoleUserFilerecord_Model;
 use App\Estadistica;
 use App\Location;
 use App\Court;
+use App\RoleUserModel;
 use DB;
 use Auth;
 use Exception;
