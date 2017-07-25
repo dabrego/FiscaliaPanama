@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Illuminate\Support\Facades\Auth;
+
 use App\Filerecords;
+use App\User;
+use App\Casetype;
+use App\PivotRoleUserFilerecord_Model;
+use App\Estadistica;
+use App\Location;
+use App\Court;
+use App\RoleUserModel;
 use DB;
+use Exception;
+use Reporteprovincia;
+
 class HomeController extends Controller
 {
+    private $debug;
     
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-
-    
 
     public function __construct()
     {
@@ -28,59 +37,66 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {   
+    public function index() {   
 
         // Get the currently authenticated user...
         $user = Auth::user();
         $user = User::where('email', '=', $user->email)->first();
-        // Get the currently authenticated user's ID...
+
+        // Get the current role
+        $role = RoleUserModel::get_user_role($user->id);
+
+        # Get the currently authenticated user's ID...
+        /*
+            echo "<pre>";
+            print_r($user->id);
+            echo "</pre>";
+        */
+
+        # Get the role id for a user
+        /*
+            echo "<pre>";
+            print_r($role[0]->id);
+            echo "</pre>";
+        */
         $id = Auth::id();
-        // echo '<pre>';
-        // print_r($user->email .' id: '.$id);
-        // echo '</pre>';
-        
         
         if ( $user->hasRole('admin') ) { 
-        // if ( true ) { // for testing
-            $data = DB::table('filerecords')
-                    ->join('court', 'filerecords.court_id','=','court.id')
-                    ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
-                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
-                     'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
-
-                    ->get();
-
              $userRole = 'admin';
+             $data = Filerecords::allFileRecords();
              return view('administradores.dashboard', 
-                ['role' => $userRole, 'nombre' => $user->name]);
+                ['role'=> $userRole, 'nombre'=>$user->name,'data'=>$data]);
         }
 
-        if ($user->hasRole('juez')) { // you can pass an id or slug
-        // elseif (false) { // for testing
-             $userRole = 'juez';
-             
-
-              $data = Filerecords::all();
-             // return Route::get('jueces/dashboard');
-             return view('jueces.dashboard', 
+        if ($user->hasRole('juez')) { 
+            $userRole = 'juez';
+            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
+            if($this->debug){
+                echo "<pre>";
+                print_r($data);
+                echo "</pre>";
+            }
+            
+            return view('jueces.dashboard', 
                 ['role' => $userRole, 'nombre'=>$user->name, 'data'=>$data]);
         }
 
-        if ($user->hasRole('abogado')) { // you can pass an id or slug
+        if ($user->hasRole('abogado')) { 
             /*
              * @Abogado de Oficio: Debe tener acceso a sus casos asignados y 
              * @a la biblioteca de consulta de casos, opción de seguimiento de caso.
              */
-
-             $userRole = 'abogado';
-             return view('abogados.dashboard',  
-                ['role' => $userRole, 'nombre' => $user->name]);
+            // $data = Filerecords::allFileRecords_byProfile($param_user_id, $param_role_id);
+            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
+            // $data = Filerecords::allFileRecords();
+            $userRole = 'abogado';
+            return view('abogados.dashboard',  
+                ['role' => $userRole, 'nombre' => $user->name, 'data'=>$data]);
         }
 
-        if ($user->hasRole('usuario')) { // you can pass an id or slug
-        // if (true) { for testing
-            $data = Filerecords::all();
+        if ($user->hasRole('usuario')) { 
+            $data = Filerecords::allFileRecords();
+
              $userRole = 'usuario';
              return view('usuarios.dashboard',  
             ['role'=> $userRole, 'nombre'=>$user->name,'data'=>$data]);
@@ -97,10 +113,9 @@ class HomeController extends Controller
         }
 
         // $task_path = resource_path('views/task.blade.php');
-        
         // $task_controller = new Taskcontroller();
         // return $task_controller->index();
-        // return Route::get('task');
-        
+        // return Route::get('task');  
     }
-}
+
+} // Fin de la Clase

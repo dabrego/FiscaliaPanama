@@ -29,11 +29,49 @@
                 <div class="panel-body">
                     <div class='container'>
                         
-                            
-                        
-                        @php
-                            echo $role;
-                        @endphp
+                        <div class="row col-sm-12">
+                            <div class="table-responsive ">
+                                @if($data)
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <td>Titulo de Caso</td>
+                                            <td>No. de Juzgado</td>
+                                            <td>Juzgado</td>
+                                            <td>Descripción de Caso</td>
+                                            <td>Partes Involucradas</td>
+                                            <td>Fecha de Inicio</td>
+                                            <td>Estado</td>
+                                            <td>Ubicación: Provincia</td>
+                                            <td>Distrito</td>
+                                            <td>Corregimiento</td>
+                                            <td>Tipo de Caso</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($data as $row)
+                                        <tr>
+                                            <td>{{ $row->titulo }}</td>
+                                            <td>{{ $row->court_id }}</td>
+                                            <td>{{ $row->court_name }}</td>
+                                            <td>{{ $row->descripcion }}</td>
+                                            <td>{{ $row->involucrados }}</td>
+                                            <td>{{ $row->fecha_inicio }}</td>
+                                            <td>{{ $row->status }}</td>
+                                            <td>{{ $row->provinciafk }}</td>
+                                            <td>{{ $row->distritofk }}</td>
+                                            <td>{{ $row->corregimientofk }}</td>
+                                            <td>{{ $row->case_type }}</td>
+
+                                            <td>
+                                            </tr>
+                                        </tbody>
+                                        @endforeach
+                                    </table>
+                                    @endif
+                            </div>
+                        </div>
                         
                     </div>
                 </div>

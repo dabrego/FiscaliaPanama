@@ -11,7 +11,6 @@ use App\PivotRoleUserFilerecord_Model;
 use App\Estadistica;
 use App\Location;
 use App\Court;
-use App\RoleUserModel;
 use DB;
 use Auth;
 use Exception;
@@ -35,7 +34,7 @@ class FilerecordsController extends Controller
                      'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
 
                     ->get();
-            
+
             //Enviamos esos registros a la vista.
 
             return view('usuarios.dashboard', compact('data'));
@@ -114,8 +113,8 @@ class FilerecordsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-       
+    {   
+
          // //Registro de expediente
         try{
             $registro = new Filerecords();
@@ -170,7 +169,7 @@ class FilerecordsController extends Controller
                     ]
                 ]); 
 
-           return redirect('/home');    
+           return redirect('/dashboard');    
         }
         catch(Exception $e){
 
