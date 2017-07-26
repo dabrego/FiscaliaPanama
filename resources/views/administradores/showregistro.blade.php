@@ -124,6 +124,7 @@ thead{
                                 <ul class="dropdown-menu">
                                     <li><a href="/showubicacion">Ubicacion</a></li>
                                     <li><a href="/showcourt">Juzgados</a></li>
+                                    <li><a href="/showregistro">Usuarios</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
@@ -164,7 +165,7 @@ thead{
         <table class="table">
         <thead>
         <tr>
-           <td>Num.</td>
+          
             <td>Nombre de Usuario</td>
             <td>Correo Electrónico</td>
             <td>Rol de Usuario</td>
@@ -176,10 +177,10 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
+            
               <td>{{ $row->name }}</td>
               <td>{{ $row->email }}</td>
-               <td>{{ $row->role_id }}</td>
+               <td>{{ $row->name }}</td>
                 <td>{{ $row->created_at }}</td>
 
                 <td>

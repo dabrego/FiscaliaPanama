@@ -25,6 +25,7 @@ use Auth;
 use Exception;
 use App\Reporteprovincia;
 use App\Rol;
+ 
 
 class AdministradorController extends Controller
 {
@@ -181,14 +182,20 @@ class AdministradorController extends Controller
   public function showRegistro()
     {
         
-        $data = User::all();
-        //Enviamos esos registros a la vista.
+                    $data = DB::table('users')
+                    ->join('roles', 'users.role_id','=','roles.id')
+                     
+                     ->select('users.id', 'users.name','users.email','users.created_at','roles.name')
+
+                    ->get();
+
+    
 
         return view($this->path.'.showregistro', compact('data'));
     
     }
  
-
+    
 
 //-----------------------------------------------------------------------
 //-----------------------------------------------------------------------
