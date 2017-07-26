@@ -32,7 +32,6 @@ class AbogadoController extends Controller
                     ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
                      ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
                      'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
-
                     ->get();
 
             //Enviamos esos registros a la vista.

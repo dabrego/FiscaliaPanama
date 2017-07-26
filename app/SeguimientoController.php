@@ -1,10 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
+namespace App;
 use App\Filerecords;
 use App\User;
 use App\Casetype;
@@ -17,27 +13,12 @@ use DB;
 use Exception;
 use Reporteprovincia;
 
-class HomeController extends Controller
+use Illuminate\Database\Eloquent\Model;
+
+class SeguimientoController extends Model
 {
-    private $debug;
-    
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index() {   
+   private $debug;
+public function index() {   
 
         // Get the currently authenticated user...
         $user = Auth::user();
@@ -110,11 +91,5 @@ class HomeController extends Controller
         else {
             return view('welcome');
         }
-
-        // $task_path = resource_path('views/task.blade.php');
-        // $task_controller = new Taskcontroller();
-        // return $task_controller->index();
-        // return Route::get('task');  
     }
-
-} // Fin de la Clase
+}

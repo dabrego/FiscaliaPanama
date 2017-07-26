@@ -8,15 +8,13 @@
             <div class="panel panel-default">
                 <nav class="navbar navbar-inverse col-md-12">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                            <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="/seguimiento2">Casos Asignados</a></li>
-
                             <li><a href="#">Seguimientos</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reportejuez2">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
                                     <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
@@ -30,6 +28,7 @@
                     <div class='container'>
                         
                         <div class="row col-sm-12">
+                            <h1><a href="/home">Casos Asignados</a></h1>
                             <div class="table-responsive ">
                                 @if($data)
                                 <table class="table table-striped">

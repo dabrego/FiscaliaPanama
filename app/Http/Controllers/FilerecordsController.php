@@ -31,9 +31,8 @@ class FilerecordsController extends Controller
              $data = DB::table('filerecords')
                     ->join('court', 'filerecords.court_id','=','court.id')
                     ->join('casetype', 'filerecords.casetype_id','=','casetype.id')
-                     ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
+                    ->select('filerecords.id', 'filerecords.court_id','filerecords.titulo','court.court_name','filerecords.descripcion','filerecords.involucrados',
                      'filerecords.fecha_inicio','filerecords.status','filerecords.provinciafk','filerecords.distritofk','filerecords.corregimientofk','casetype.case_type')
-
                     ->get();
             
             //Enviamos esos registros a la vista.
@@ -48,7 +47,7 @@ class FilerecordsController extends Controller
     public function showJuecesData()
     {
         
-            $data = Filerecords::all();
+        $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
         return view('usuarios.reportejueces', compact('data'));
