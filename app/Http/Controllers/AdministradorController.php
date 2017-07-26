@@ -185,7 +185,7 @@ class AdministradorController extends Controller
                     $data = DB::table('users')
                     ->join('roles', 'users.role_id','=','roles.id')
                      
-                     ->select('users.id', 'users.name','users.email','users.created_at','roles.name')
+                     ->select('users.id', 'users.name','users.email','users.created_at','roles.slug')
 
                     ->get();
 

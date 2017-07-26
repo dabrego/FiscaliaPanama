@@ -180,7 +180,7 @@ thead{
             
               <td>{{ $row->name }}</td>
               <td>{{ $row->email }}</td>
-               <td>{{ $row->name }}</td>
+               <td>{{ $row->slug }}</td>
                 <td>{{ $row->created_at }}</td>
 
                 <td>
