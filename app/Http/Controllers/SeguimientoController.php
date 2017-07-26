@@ -107,6 +107,7 @@ class SeguimientoController extends Controller
         // Get the current role
         $role = RoleUserModel::get_user_role($user->id);
 
+        
         if ($user->hasRole('abogado')) { 
             /*
              * @Abogado de Oficio: Debe tener acceso a sus casos asignados y 
