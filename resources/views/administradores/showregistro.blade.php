@@ -43,15 +43,11 @@ thead{
     vertical-align: middle;
     border-color: inherit;
 }
-
-
 </style>
-
-
     </head>
-    <body class="bgimg">
+    <body class="bgimg" >
 
-  <nav  class="navcolor navbar navbar-default navbar-static-top">
+  <nav class=" navcolor navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -113,23 +109,21 @@ thead{
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 
-
      <div class="container">
-<div class="row">
-  <div class="panel-heading">Sistema de Expendientes « Dashboard {{ Auth::user()->name }}</div>
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <nav class="navbar navbar-inverse col-md-12">
-                        <div class="navbar-header">
-                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
-                        </div>
-                        <ul class="nav navbar-nav">
+
+          <h1>Registro de Usuario</h1>
+          </br>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
+    </div>
+    <ul class="nav navbar-nav">
                             <li><a href="#">Lista de Casos</a></li>
                              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/showubicacion">Ubicacion</a></li>
                                     <li><a href="/showcourt">Juzgados</a></li>
-                                    <li><a href="/showregistro">Usuarios</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
@@ -143,14 +137,21 @@ thead{
                                 </ul>
                             </li>
                         </ul>
-
-                    
-                </nav>
-
+    <form class="navbar-form navbar-left">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
+    </div>
+  </div>
+</form>
   </div>
 </nav>
 </br>
-    
+    <h4><a href="{{ url('/createregistro') }}">Crear Usuario</a></h4>
+
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
   <a href="{{ url('/') }}" class="btn btn-primary">Panel de Mantenimiento</a>
@@ -158,41 +159,28 @@ thead{
 </div>-->
 
     <hr>
-
-        <div    class="table-responsive">
+        <div class="table-responsive">
         @if($data)
         <table class="table">
         <thead>
         <tr>
-            <td>Titulo de Caso</td>
-            <td>No. de Juzgado</td>
-            <td>Juzgado</td>
-            <td>Descripción de Caso</td>
-            <td>Partes Involucradas</td>
-             <td>Fecha de Inicio</td>
-            <td>Estado</td>
-            <td>Ubicación: Provincia</td>
-            <td>Distrito</td>
-            <td>Corregimiento</td>
-            <td>Tipo de Caso</td>
+           <td>Num.</td>
+            <td>Nombre de Usuario</td>
+            <td>Correo Electrónico</td>
+            <td>Rol de Usuario</td>
+            <td>Fecha de Creacion</td>
+          
             <td></td>
             </tr>
             </thead>
             <tbody>
             @foreach($data as $row)
             <tr>
-              <td>{{ $row->titulo }}</td>
-            <td>{{ $row->court_id }}</td>
-            <td>{{ $row->court_name }}</td>
-              <td>{{ $row->descripcion }}</td>
-                <td>{{ $row->involucrados }}</td>
-                <td>{{ $row->fecha_inicio }}</td>
-               <td>{{ $row->status }}</td>
-                <td>{{ $row->provinciafk }}</td>
-                 <td>{{ $row->distritofk }}</td>
-                 <td>{{ $row->corregimientofk }}</td>
-                  <td>{{ $row->case_type }}</td>
-
+             <td>{{ $row->id }}</td>
+              <td>{{ $row->name }}</td>
+              <td>{{ $row->email }}</td>
+               <td>{{ $row->role_id }}</td>
+                <td>{{ $row->created_at }}</td>
 
                 <td>
 
@@ -212,10 +200,6 @@ thead{
         </table>
         @endif
         </div>
-
-
-
-
          <br>
        <br>
        <br>
@@ -232,8 +216,31 @@ thead{
             </div>
               
         </div>
+   
+
+   
+
+<!--<div class="container">
+        <div class="row">
+            <h1>Agregar Artículo</h1>
+            <form action="/articulo/add" method="post" name="frmadd">
+                {{ csrf_field() }}
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="txttitulo" placeholder="Title">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="txtresumen" placeholder="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-default" name="btnsubmit">Submit</button>
+            </form>
+        </div>
+
+    </div>-->
       
-</duv>
+
     </body>
 </html>
 

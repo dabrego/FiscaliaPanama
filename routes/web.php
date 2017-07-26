@@ -64,15 +64,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 //ADMINISTRADORES
 //---------------------------------------------------------------
 //---------------------------------------------------------------
-//EXPEDIENTE
+//ADMIN - EXPEDIENTE
 //---------------------------------------------------------------
 Route::resource('administrar', 'AdministradorController');
 //Route::get('/ubicacion','FilerecordsController@create');
 
 Route::get('/dashboard','AdministradorController@index');
+Route::get('/showregistro','AdministradorController@showRegistro');
+Route::get('/createregistro','AdministradorController@crearRegistro');
 Route::get('/expediente1','AdministradorController@create');
 //---------------------------------------------------------------
-//REPORTES
+//ADMIN - REPORTES
 //---------------------------------------------------------------
 Route::get('/reportejuez1','AdministradorController@showJuecesData');
 Route::get('/reporteprovincia','AdministradorController@showProvinData');

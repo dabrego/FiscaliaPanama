@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+ 
+ //-------------------------------------------
+ //REGISTRAR USUARIOS
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
+use jeremykenedy\LaravelRoles\Models\Role;
+use Illuminate\Database\Eloquent\Model;
+//-------------------------------------------------
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Filerecords;
@@ -15,6 +24,7 @@ use DB;
 use Auth;
 use Exception;
 use App\Reporteprovincia;
+use App\Rol;
 
 class AdministradorController extends Controller
 {
@@ -44,6 +54,9 @@ class AdministradorController extends Controller
         return redirect('/login');
     }
 
+//-------------------------------------------------------------------------------
+// ---------------------REPORTES --------------------------------------------------
+//----------------------------------------------------------------------------------
 
     public function showJuecesData()
     {
@@ -54,6 +67,7 @@ class AdministradorController extends Controller
         return view($this->path.'.reportejueces', compact('data'));
     
     }
+
 
     public function showProvinData()
     {
@@ -75,11 +89,14 @@ class AdministradorController extends Controller
     
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //-------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------
+
+    //-------------------------------------------------------------------------------
+// ---------------------CREAR EXPEDIENTE --------------------------------------------------
+//----------------------------------------------------------------------------------
+
     public function create()
     {
         //
@@ -144,6 +161,37 @@ class AdministradorController extends Controller
             return "Fatal error = ".$e->getMessage();
         }
     }
+
+//-----------------------------------------------------------------------
+//---------------------REGISTRO DE USUARIOS-----------------------------
+//-----------------------------------------------------------------------
+   
+
+
+    public function crearRegistro()
+    {
+
+         $data = Rol::all();
+        
+          return view ($this->path.'.register', compact('data'));
+    
+    }
+
+
+  public function showRegistro()
+    {
+        
+        $data = User::all();
+        //Enviamos esos registros a la vista.
+
+        return view($this->path.'.showregistro', compact('data'));
+    
+    }
+ 
+
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
     /**
      * Display the specified resource.

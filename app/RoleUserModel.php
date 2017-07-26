@@ -14,7 +14,8 @@ class RoleUserModel extends Model
      *
      * @var array
      */
-    protected $fillable = [       	
+    protected $fillable = [ 
+                    'id',      	
 					'name',
 					'slug',
 					'description',
