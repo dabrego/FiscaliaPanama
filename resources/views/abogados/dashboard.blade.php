@@ -11,7 +11,7 @@
                             <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Seguimientos</a></li>
+                            <li><a href="/seguimientos">Seguimientos</a></li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez2">Reporte Por Juez</a></li>
