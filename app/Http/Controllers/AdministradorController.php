@@ -48,7 +48,7 @@ class AdministradorController extends Controller
     public function showJuecesData()
     {
         
-            $data = Filerecords::all();
+        $data = Filerecords::all();
         //Enviamos esos registros a la vista.
 
         return view($this->path.'.reportejueces', compact('data'));

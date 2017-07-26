@@ -17,32 +17,19 @@ use DB;
 use Exception;
 use Reporteprovincia;
 
-class HomeController extends Controller
-{
-    private $debug;
-    
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
 
-    public function __construct()
-    {
-        $this->middleware('auth');
+class SeguimientoController extends Controller
+{
+    private $debug = false;
+    
+    public function __construct(){
+        //
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index() {   
-
         // Get the currently authenticated user...
         $user = Auth::user();
         $user = User::where('email', '=', $user->email)->first();
-
         // Get the current role
         $role = RoleUserModel::get_user_role($user->id);
 
@@ -70,8 +57,8 @@ class HomeController extends Controller
 
         if ($user->hasRole('juez')) { 
             $userRole = 'juez';
-            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
-            if($this->debug){
+            
+            if($debug){
                 echo "<pre>";
                 print_r($data);
                 echo "</pre>";
@@ -84,20 +71,21 @@ class HomeController extends Controller
         if ($user->hasRole('abogado')) { 
             /*
              * @Abogado de Oficio: Debe tener acceso a sus casos asignados y 
-             * @a la biblioteca de consulta de casos, opción de seguimiento de caso.
+             * @a la biblioteca de consulta de casos, opción de 
+             * @seguimiento de caso.
              */
             
             $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
             $userRole = 'abogado';
-            return view('abogados.dashboard',  
+            return view('abogados.seguimientos',  
                 ['role' => $userRole, 'nombre' => $user->name, 'data'=>$data]);
         }
 
         if ($user->hasRole('usuario')) { 
             $data = Filerecords::allFileRecords();
 
-             $userRole = 'usuario';
-             return view('usuarios.dashboard',  
+            $userRole = 'usuario';
+            return view('usuarios.dashboard',  
             ['role'=> $userRole, 'nombre'=>$user->name,'data'=>$data]);
         }
 
@@ -110,11 +98,27 @@ class HomeController extends Controller
         else {
             return view('welcome');
         }
-
-        // $task_path = resource_path('views/task.blade.php');
-        // $task_controller = new Taskcontroller();
-        // return $task_controller->index();
-        // return Route::get('task');  
     }
 
-} // Fin de la Clase
+    public function comentarSeguimiento(){
+        // Get the currently authenticated user...
+        $user = Auth::user();
+        $user = User::where('email', '=', $user->email)->first();
+        // Get the current role
+        $role = RoleUserModel::get_user_role($user->id);
+
+        if ($user->hasRole('abogado')) { 
+            /*
+             * @Abogado de Oficio: Debe tener acceso a sus casos asignados y 
+             * @a la biblioteca de consulta de casos, opción de 
+             * @seguimiento de caso.
+             */
+            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
+            $userRole = 'abogado';
+            return view('abogados.seguimientos',  
+                ['role' => $userRole, 'nombre' => $user->name, 'data'=>$data]);
+        } else{
+
+        }
+    }
+}

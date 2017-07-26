@@ -91,8 +91,12 @@ Route::resource('abogar', 'AbogadoController');
 Route::get('/seguimiento2','AbogadoController@index');
 Route::get('/expediente2','AbogadoController@create');
 //---------------------------------------------------------------
-//REPORTES
+//REPORTES 
 //---------------------------------------------------------------
 Route::get('/reportejuez2','AbogadoController@showJuecesData');
 Route::get('/reporteprovincia2','AbogadoController@showProvinData');
 Route::get('/estadistica2','AbogadoController@showEstadisticData');
+
+//CONTROLADOR SEGUIMIENTO ruteara a cada perfil a su respectivo dashboard
+Route::get('/seguimientos','SeguimientoController@index');
+Route::get('/seguimientos/comentario','SeguimientoController@comentarSeguimiento');
