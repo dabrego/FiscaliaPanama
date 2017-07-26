@@ -124,15 +124,21 @@ thead{
                             <a class="navbar-brand" href="{{ url('/') }}">Home</a>
                         </div>
                         <ul class="nav navbar-nav">
-                            <li><a href="/seguimiento2">Casos Asignados</a></li>
-
-                            <li><a href="#">Seguimientos</a></li>
+                            <li><a href="#">Lista de Casos</a></li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showubicacion">Ubicacion</a></li>
+                                    <li><a href="/showcourt">Juzgados</a></li>
+                                </ul>
+                            </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
 
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
+
+                                    <li ><a href="/estadistica1">Seguimiento</a></li>
                                 </ul>
                             </li>
                         </ul>
