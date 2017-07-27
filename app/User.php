@@ -51,4 +51,14 @@ class User extends Authenticatable
                     ->get();
             return $data;
     }
+
+    public static function listando_usuarios_registrados_roles(){
+                    $data = DB::table('users')
+                    ->join('role_user', 'role_user.user_id','=','users.id')
+                    ->join('roles', 'roles.id','=','role_user.role_id')
+                    ->select('users.id','users.email','users.name','roles.id','roles.name','roles.slug','roles.description','users.created_at', 'users.updated_at')
+                    // ->where('roles.id', '=', '10') 
+                    ->get();
+            return $data;
+    }
 }   

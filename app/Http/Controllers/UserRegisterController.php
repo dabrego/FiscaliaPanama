@@ -24,20 +24,20 @@ use Auth;
 use Exception;
 use App\Reporteprovincia;
 use App\Rol;
+use App\Http\Controllers\Auth\RegisterController;
+
 
 //-----------------------------------------------------------------------
 //---------------------REGISTRO DE USUARIOS-----------------------------
 //-----------------------------------------------------------------------
    
- 
-
-
 class UserRegisterController extends Controller
 {
     use RegistersUsers;
 
     
     private $path='administradores';
+    private $debug = false;
     /**
      * Display a listing of the resource.
      *
@@ -45,16 +45,14 @@ class UserRegisterController extends Controller
      */
     public function index()
     {
-        //
-         $data = DB::table('users')
-                    ->join('roles', 'users.role_id','=','roles.id')
-                     
-                     ->select('users.id', 'users.name','users.email','users.created_at','roles.slug')
-
-                    ->get();
-
     
-
+        $data = User::listando_usuarios_registrados_roles();
+            if($this->debug){
+                echo '<pre>';
+                print_r($data);
+                echo '</pre>';
+                exit();
+            }
         return view($this->path.'.showregistro', compact('data'));
     }
 
@@ -68,12 +66,9 @@ class UserRegisterController extends Controller
      */
     public function create()
     {
-        //
-
-         $data = Rol::all();
-
-    
-          return view ($this->path.'.register', compact('data'));
+        // Envia rolles de la base de datos a la vista menu desplegable
+        $data = Rol::all();
+        return view ($this->path.'.register', compact('data'));
     }
 
     /**
@@ -95,24 +90,18 @@ class UserRegisterController extends Controller
 
     public function store(Request $request)
     {
-        //
-         try{
-            $registro = new User();
 
-            $registro->name = $request->name;
-            $registro->email = $request->email;
-            $registro->password = $request->password = bcrypt('password');
-            $registro->role_id = $request->role_id; 
-            
-            $registro->save();
-     
-           // return view('jueces.dashboard');
-           return redirect('/showregistro');    
-        }
-        catch(Exception $e){
+        $newUser = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+ 
+        $role = Role::where('name', '=', $request->role_name)->first();
+        $newUser->attachRole($role);
 
-            return "Fatal error = ".$e->getMessage();
-        }
+        $data = User::listando_usuarios_registrados_roles();
+        return view($this->path.'.showregistro', compact('data'));
     }
 
     /**

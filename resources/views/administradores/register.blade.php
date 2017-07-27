@@ -69,10 +69,10 @@
 
                             <div class="col-md-6">
         
-                                <select name="role_id" class="form-control">
+                                <select name="role_name" class="form-control">
                                 <option  value="#">Seleccione</option>
                                 @foreach($data as $row) 
-                                <option value="{{ $row->id }}">{{ $row->name}}</option>
+                                <option value="{{ $row->name }}">{{ $row->name}}</option>
                                 @endforeach
                                 </select>
                             </div>
