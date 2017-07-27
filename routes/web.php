@@ -70,8 +70,6 @@ Route::resource('administrar', 'AdministradorController');
 //Route::get('/ubicacion','FilerecordsController@create');
 
 Route::get('/dashboard','AdministradorController@index');
-Route::get('/showregistro','AdministradorController@showRegistro');
-Route::get('/createregistro','AdministradorController@crearRegistro');
 Route::get('/expediente1','AdministradorController@create');
 //---------------------------------------------------------------
 //ADMIN - REPORTES
@@ -79,8 +77,15 @@ Route::get('/expediente1','AdministradorController@create');
 Route::get('/reportejuez1','AdministradorController@showJuecesData');
 Route::get('/reporteprovincia','AdministradorController@showProvinData');
 Route::get('/estadistica1','AdministradorController@showEstadisticData');
-
+//----------------------------------------------------------------------
+//CREACION DE USUARIOS POR ADMINISTRADOR---------------------------
 //--------------------------------------------------
+Route::resource('registrar', 'UserRegisterController');
+Route::get('/showregistro','UserRegisterController@index');
+Route::get('/createregistro','UserRegisterController@create');
+
+
+
 //---------------------------------------------------------------
 //ABOGADOS
 //---------------------------------------------------------------

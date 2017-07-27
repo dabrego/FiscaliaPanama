@@ -124,7 +124,7 @@ thead{
         <ul class="dropdown-menu">
        <li><a href="/showubicacion">Ubicación</a></li>
           <li><a href="/showcourt">Juzgado</a></li>
-          <li><a href="/register">Usuarios </a></li>
+          <li><a href="/showregistro">Usuarios </a></li>
         </ul>
       </li>
 

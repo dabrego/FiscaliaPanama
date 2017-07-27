@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" method="POST" action="/registrar">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -37,20 +37,6 @@
                                 @endif
                             </div>
                         </div>
-                            <!--ROLES DE USUARIO -------->
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Role de Usuario</label>
-
-                            <div class="col-md-6">
-        
-                                <select name="role_id" class="form-control">
-                                <option  value="#">Seleccione</option>
-                                @foreach($data as $row) 
-                                <option value="{{ $row->id }}">{{ $row->name}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
 
 
 
@@ -68,11 +54,27 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                            <!--ROLES DE USUARIO -------->
+                       <div class="form-group">
+                            <label for="role_id" class="col-md-4 control-label">Role de Usuario</label>
+
+                            <div class="col-md-6">
+        
+                                <select name="role_id" class="form-control">
+                                <option  value="#">Seleccione</option>
+                                @foreach($data as $row) 
+                                <option value="{{ $row->id }}">{{ $row->name}}</option>
+                                @endforeach
+                                </select>
                             </div>
                         </div>
 

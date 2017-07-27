@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
  //REGISTRAR USUARIOS
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Hash;
 
 use jeremykenedy\LaravelRoles\Models\Role;
 use Illuminate\Database\Eloquent\Model;
@@ -163,42 +165,7 @@ class AdministradorController extends Controller
         }
     }
 
-//-----------------------------------------------------------------------
-//---------------------REGISTRO DE USUARIOS-----------------------------
-//-----------------------------------------------------------------------
-   
 
-
-    public function crearRegistro()
-    {
-
-         $data = Rol::all();
-        
-          return view ($this->path.'.register', compact('data'));
-    
-    }
-
-
-  public function showRegistro()
-    {
-        
-                    $data = DB::table('users')
-                    ->join('roles', 'users.role_id','=','roles.id')
-                     
-                     ->select('users.id', 'users.name','users.email','users.created_at','roles.slug')
-
-                    ->get();
-
-    
-
-        return view($this->path.'.showregistro', compact('data'));
-    
-    }
- 
-    
-
-//-----------------------------------------------------------------------
-//-----------------------------------------------------------------------
 
     /**
      * Display the specified resource.
