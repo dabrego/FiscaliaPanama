@@ -30,8 +30,8 @@ class RoleUserModel extends Model
 
     public static function get_user_role($user_id){
     	$role = DB::table('role_user')
-    			->where('user_id', '=', $user_id)
-    			->select('role_id')
+    			->where('role_user.user_id', '=', $user_id)
+    			->select('role_user.role_id')
     			->get();
 
 		return $role;

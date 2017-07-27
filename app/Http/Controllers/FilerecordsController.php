@@ -88,15 +88,15 @@ class FilerecordsController extends Controller
              $data_location = Location::all();
 			 $data_casetype = Casetype::all();
 			 $jueces = DB::table('users')
-    		            ->join('role_user','user_id','=','users.id')
-    					->select('name', 'role_id', 'user_id')
-    					->where('role_id','=',7)
+    		            ->join('role_user','role_user.user_id','=','users.id')
+    					->select('users.name', 'role_user.role_id', 'role_user.user_id')
+    					->where('role_user.role_id','=',7)
                         ->get();
 
 			 $abogados = DB::table('users')
-			            ->join('role_user','user_id','=','users.id')
-						->select('name', 'role_id', 'user_id')
-						->where('role_id','=',8)
+			            ->join('role_user','role_user.user_id','=','users.id')
+						->select('users.name', 'role_user.role_id', 'role_user.user_id')
+						->where('role_user.role_id','=',8)
                         ->get();
 
 			//dd($abogados);
