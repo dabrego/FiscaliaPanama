@@ -16,11 +16,13 @@ use App\RoleUserModel;
 use DB;
 use Exception;
 use Reporteprovincia;
+use App\ComentariosRegistrosModel;
 
 
 class SeguimientoController extends Controller
 {
     private $debug = false;
+   
     
     public function __construct(){
         //
@@ -99,6 +101,26 @@ class SeguimientoController extends Controller
             return view('welcome');
         }
     }
+
+
+
+
+
+public static function showComments ()
+//Se toma el id del registro y se envia a la siguiente vista donde se mostrará la información y los comentarios
+    {
+            $data = ComentariosRegistrosModel::all();
+       return view('abogados.comments', compact('data'));
+    }
+
+
+
+
+
+
+
+
+
 
     public function comentarSeguimiento(){
         // Get the currently authenticated user...

@@ -95,7 +95,6 @@ Route::get('/createregistro','UserRegisterController@create');
 Route::resource('abogar', 'AbogadoController');
 //Route::get('/ubicacion','FilerecordsController@create');
 
-Route::get('/seguimiento2','AbogadoController@index');
 Route::get('/expediente2','AbogadoController@create');
 //---------------------------------------------------------------
 //REPORTES 
@@ -107,3 +106,6 @@ Route::get('/estadistica2','AbogadoController@showEstadisticData');
 //CONTROLADOR SEGUIMIENTO ruteara a cada perfil a su respectivo dashboard
 Route::get('/seguimientos','SeguimientoController@index');
 Route::get('/seguimientos/comentario','SeguimientoController@comentarSeguimiento');
+
+//mostrará la vista de comentarios enviando id de filerecords para mostrar los comentarios y el caso que seleccionó
+Route::get('/comments/{id}','SeguimientoController@showComments'); 

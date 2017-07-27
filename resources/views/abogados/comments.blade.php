@@ -96,7 +96,7 @@
 
     <div class="container">
     <div class="row">
-        <div class="panel-heading">Sistema de Expendientes « Seguimiento {{$nombre}}</div>
+        <div class="panel-heading">Sistema de Expendientes « Dashboard {{ Auth::user()->name }}</div>
         <div class="col-md-12">
             <div class="panel panel-default">
                 <nav class="navbar navbar-inverse col-md-12">
@@ -117,51 +117,33 @@
 
                     
                 </nav>
-
                 <div class="panel-body">
                     <div class='container'>
                     <div class="row col-sm-12">
-                     <h1>Seguimiento de Casos </h1>
-                        <div class="table-responsive">
-                            @if($data)
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <td>Titulo de Caso</td>
-                                        <td>No. de Juzgado</td>
-                                        <td>Juzgado</td>
-                                        <td>Descripción de Caso</td>
-                                        <td>Partes Involucradas</td>
-                                        <td>Fecha de Inicio</td>
-                                        <td>Estado</td>
-                                        <td>Ubicación: Provincia</td>
-                                        <td>Distrito</td>
-                                        <td>Corregimiento</td>
-                                        <td>Tipo de Caso</td>
-                                        <td></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($data as $row)
-                                    <tr>
-                                      <td>{{ $row->titulo }}</td>
-                                      <td>{{ $row->court_id }}</td>
-                                      <td>{{ $row->court_name }}</td>
-                                      <td>{{ $row->descripcion }}</td>
-                                      <td>{{ $row->involucrados }}</td>
-                                      <td>{{ $row->fecha_inicio }}</td>
-                                      <td>{{ $row->status }}</td>
-                                      <td>{{ $row->provinciafk }}</td>
-                                      <td>{{ $row->distritofk }}</td>
-                                      <td>{{ $row->corregimientofk }}</td>
-                                      <td>{{ $row->case_type }}</td>
-                                       <td><a href="{{url('/comments',[$row->id])}}"><i class="material-icons" style="font-size:30px;color:green">assignment</i></a><td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                            @endif
-                        </div>
+                       <h1>Comentarios Sobre el Caso</h1>
+</br></br></br></br></br></br> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+            $('#comment').one("focus", function() {
+                $('#comment').parent().after('<div id="preview-box"><div class="comment-by">Live Comment Preview</div><div id="live-preview"></div></div>');
+            });
+            var $comment = '';
+            $('#comment').keyup(function() {
+            $comment = $(this).val();
+            $comment = $comment.replace(/\n/g, "<br />").replace(/\n\n+/g, '<br /><br />');
+            $('#live-preview').html( $comment );
+        });
+    });
+</script>
+<form action="/seguimientos" method="POST">
+    <p><textarea name="comentarios" id="comentarios" cols="100" rows="7"></textarea></p>
+    <p><input name="submit" value="Submit" type="submit" /></p>
+</form>
+
+ <!--<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comentarios</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1501182040123");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); </script> /*-->
 
 
 <div class="container">

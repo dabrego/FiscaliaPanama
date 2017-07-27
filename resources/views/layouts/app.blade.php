@@ -24,6 +24,7 @@
 .navcolor {
   background-image: url('/images/choco.png');
 }
+
 </style>
 </head>
 <body class="bgimg">
