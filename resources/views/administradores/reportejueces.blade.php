@@ -111,43 +111,39 @@ thead{
 
      <div class="container">
 
-          <h1>Reportes</h1>
-          </br>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-     <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="/estadistica">Estadísticas</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-       <li><a href="/showubicacion">Ubicación</a></li>
-          <li><a href="/showcourt">Juzgado</a></li>
-          <li><a href="/register">Usuarios </a></li>
-        </ul>
-      </li>
+      <div class="row">
+  <div class="panel-heading">Sistema de Expendientes « Reporte de Jueces {{ Auth::user()->name }}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Lista de Casos</a></li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showubicacion">Ubicacion</a></li>
+                                    <li><a href="/showcourt">Juzgados</a></li>
+                                    <li><a href="/showregistro">Usuarios</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
-      <li><a href="#">Seguimientos</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="/reportejuez">Por Juez</a></li>
-          <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
-        </ul>
-        </li>
-    </ul>
-    <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
+                                    <li ><a href="/estadistica1">Estadísticas</a></li>
+
+                                    <li ><a href="/estadistica1">Seguimiento</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    
+                </nav>
+
   </div>
-</form>
-  </div>
-</nav>
 </br>
     <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
 
@@ -164,9 +160,8 @@ thead{
         <thead>
         <tr>
            <td>Num.</td>
-            <td>Provincia</td>
-            <td>Distrito</td>
-            <td>Corregimiento</td>
+            <td>Juez</td>
+            <td>Estado</td>
             <td>Fecha de Creacion</td>
           
             <td></td>
@@ -178,7 +173,7 @@ thead{
              <td>{{ $row->id }}</td>
               <td>{{ $row->provincia }}</td>
                  <td>{{ $row->distrito }}</td>
-                 <td>{{ $row->corregimiento }}</td>
+    
                 <td>{{ $row->created_at }}</td>
 
                 <td>

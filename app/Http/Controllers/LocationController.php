@@ -8,7 +8,7 @@ use App\Location;
 
 class LocationController extends Controller
 {
-    private $path='jueces';
+    private $path='administradores';
     /**
      * Display a listing of the resource.
      *

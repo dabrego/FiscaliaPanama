@@ -7,7 +7,7 @@ use App\Court;
 
 class CourtController extends Controller
 {
-    private $path='jueces';
+    private $path='administradores';
 
     /**
      * Display a listing of the resource.

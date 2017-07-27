@@ -115,7 +115,24 @@ public static function showComments ()
 
 
 
+ public function store(Request $request)
+    {
 
+       try{
+            
+            $registro = new Diagnosis();
+            //var_dump($request);
+            $registro->filerecord_id = $request->filerecord_id;
+            $registro->comentarios = $request->comentarios;
+            $registro->save();
+
+           return redirect('/dashboard');    
+        }
+        catch(Exception $e){
+
+            return "Fatal error = ".$e->getMessage();
+        }
+    }
 
 
 

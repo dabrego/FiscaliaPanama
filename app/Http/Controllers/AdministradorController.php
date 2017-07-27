@@ -78,7 +78,7 @@ class AdministradorController extends Controller
             $data = Reporteprovincia::all();
         //Enviamos esos registros a la vista.
 
-        return view('usuarios.reporteprovincia', compact('data'));
+        return view($this->path.'.reporteprovincia', compact('data'));
     
     }
 

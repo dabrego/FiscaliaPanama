@@ -10,7 +10,8 @@
 
  <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>Fiscalía de la República de Panamá</title>
 
         <!-- Fonts -->
@@ -111,19 +112,20 @@ thead{
 
      <div class="container">
 
-          <h1>Mantenimiento de Ubicación</h1>
-          </br>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
-    </div>
-     <ul class="nav navbar-nav">
+   <div class="panel-heading">Sistema de Expendientes « Ubicación {{ Auth::user()->name }}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/') }}">Home</a>
+                        </div>
+                        <ul class="nav navbar-nav">
                             <li><a href="#">Lista de Casos</a></li>
                              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/showubicacion">Ubicacion</a></li>
                                     <li><a href="/showcourt">Juzgados</a></li>
+                                    <li><a href="/showregistro">Usuarios</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
@@ -137,18 +139,11 @@ thead{
                                 </ul>
                             </li>
                         </ul>
-    <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
+
+                    
+                </nav>
+
   </div>
-</form>
-  </div>
-</nav>
 </br>
     <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
 
@@ -169,7 +164,8 @@ thead{
             <td>Distrito</td>
             <td>Corregimiento</td>
             <td>Fecha de Creacion</td>
-          
+          <td></td>
+          <td></td>
             <td></td>
             </tr>
             </thead>
@@ -181,7 +177,9 @@ thead{
                  <td>{{ $row->distrito }}</td>
                  <td>{{ $row->corregimiento }}</td>
                 <td>{{ $row->created_at }}</td>
+                <td><a href="{{url('#',[$row->id])}}" class="btn-btn-info"><i class="material-icons" style="font-size:20px;color:black">border_color</i></i></a></td>
 
+                <td><a href="{{url('#',[$row->id])}}" class="btn-btn-info"><i class="material-icons" style="font-size:20px;color:red">delete_forever</i></a></td>
                 <td>
 
                <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>

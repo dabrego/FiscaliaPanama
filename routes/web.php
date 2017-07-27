@@ -30,24 +30,7 @@ Route::get('/reportejuez','FilerecordsController@showJuecesData');
 //Route::get('/reporteprovincia','FilerecordsController@showProvinData');
 Route::get('/estadistica','FilerecordsController@showEstadisticData');
 
-//--------------------------------------------------
-//---------------------------------------------------------------
-//LOCATION
-//---------------------------------------------------------------
-Route::resource('locaciones', 'LocationController');
-Route::get('/ubicacion','LocationController@create');
 
-Route::get('/showubicacion','LocationController@index');
-
-
-//--------------------------------------------------
-//---------------------------------------------------------------
-//COURT
-//---------------------------------------------------------------
-Route::resource('juzgados', 'CourtController');
-Route::get('/court','CourtController@create');
-Route::get('/showcourt','CourtController@index');
-Route::get('/showdata','CourtController@showFormData');
 
 //--------------------------------------------------
 
@@ -83,6 +66,23 @@ Route::get('/estadistica1','AdministradorController@showEstadisticData');
 Route::resource('registrar', 'UserRegisterController');
 Route::get('/showregistro','UserRegisterController@index');
 Route::get('/createregistro','UserRegisterController@create');
+//--------------------------------------------------
+//---------------------------------------------------------------
+//LOCATION
+//---------------------------------------------------------------
+Route::resource('locaciones', 'LocationController');
+Route::get('/ubicacion','LocationController@create');
+Route::get('/showubicacion','LocationController@index');
+//--------------------------------------------------
+//---------------------------------------------------------------
+//COURT
+//---------------------------------------------------------------
+Route::resource('juzgados', 'CourtController');
+Route::get('/court','CourtController@create');
+Route::get('/showcourt','CourtController@index');
+Route::get('/showdata','CourtController@showFormData');
+
+
 
 
 

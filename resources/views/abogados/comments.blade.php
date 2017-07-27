@@ -138,6 +138,7 @@
 </script>
 <form action="/seguimientos" method="POST">
     <p><textarea name="comentarios" id="comentarios" cols="100" rows="7"></textarea></p>
+     <input type="hidden" name="created_at" value="{{ Auth::user()->name }}">
     <p><input name="submit" value="Submit" type="submit" /></p>
 </form>
 
