@@ -7,7 +7,7 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
+      <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
     </div>
     <ul class="nav navbar-nav">
         <li><a href="#">Lista de Casos</a></li>
@@ -77,7 +77,7 @@
             @foreach($data as $row)
             <tr>
             
-              <td>{{ $row->name }}</td>
+              <td>{{ $row->username }}</td>
               <td>{{ $row->email }}</td>
               <td>{{ $row->slug }}</td>
               <td>{{ $row->description }}</td>
