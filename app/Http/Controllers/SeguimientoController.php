@@ -120,7 +120,7 @@ public static function showComments ()
 
        try{
             
-            $registro = new Diagnosis();
+            $registro = new ComentariosRegistrosModel();
             //var_dump($request);
             $registro->filerecord_id = $request->filerecord_id;
             $registro->comentarios = $request->comentarios;

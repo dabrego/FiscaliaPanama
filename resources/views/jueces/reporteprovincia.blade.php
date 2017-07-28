@@ -140,7 +140,7 @@ thead{
 
                                     <li ><a href="/estadistica">Estadísticas</a></li>
 
-                                    <li ><a href="/seguimientos/comentario">Seguimiento</a></li>
+                                    <li ><a href="/seguimientos">Seguimiento</a></li>
                                 </ul>
                             </li>
                         </ul>

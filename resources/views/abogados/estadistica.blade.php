@@ -116,7 +116,7 @@ thead{
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
+
     </div>
     <ul class="nav navbar-nav">
       <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
@@ -127,7 +127,7 @@ thead{
 
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
 
-                                    <li ><a href="/seguimientos/comentario">Seguimiento</a></li>
+                                    <li ><a href="/seguimientos">Seguimiento</a></li>
                                 </ul>
                             </li>
     </ul>

@@ -121,6 +121,48 @@
                     <div class='container'>
                     <div class="row col-sm-12">
                        <h1>Comentarios Sobre el Caso</h1>
+                         <hr>
+        <div class="table-responsive">
+        @if($data)
+        <table class="table">
+        <thead>
+        <tr>
+         
+            <td>Num.</td>
+              <td>Comentario</td>
+            <td>Fecha de Creación</td>
+        
+          
+            <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($data as $row)
+            <tr>
+ 
+              <td>{{ $row->id }}</td>
+                <td>{{ $row->comentarios }}</td>
+              <td>{{ $row->created_at }}</td>
+          
+                <td>
+
+               <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
+
+
+                <td>
+                
+              
+                
+                <a href="{{url('/diagnosis',[$row->id])}}" class="btn-btn-info">Detalle</a>
+               
+                </td>-->
+            </tr>
+            </tbody>
+            @endforeach
+        </table>
+        @endif
+        </div>
+         <br>
 </br></br></br></br></br></br> 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
@@ -138,7 +180,7 @@
 </script>
 <form action="/seguimientos" method="POST">
     <p><textarea name="comentarios" id="comentarios" cols="100" rows="7"></textarea></p>
-     <input type="hidden" name="created_at" value="{{ Auth::user()->name }}">
+     <input type="hidden" name="created_at" value="$row->id">
     <p><input name="submit" value="Submit" type="submit" /></p>
 </form>
 

@@ -90,5 +90,6 @@
             </div>
         </div>
     </div>
+    <div>   <a class="btn btn-info" href="{{ URL::previous() }}">Back</a></div>
 </div>
 @endsection
