@@ -111,7 +111,7 @@ thead{
 
      <div class="container">
 
-          <h1>Reportes</h1>
+          <h1>Reportes Juez vs Status</h1>
           </br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -134,7 +134,7 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+    
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -148,10 +148,10 @@ thead{
         <table class="table">
         <thead>
         <tr>
-            <td>Num.</td>
             <td>Juez</td>
             <td>Estado</td>
-            <td>Fecha de Creacion</td>
+              <td>Cantidad</td>
+         
           
             <td></td>
             </tr>
@@ -159,11 +159,10 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-    
-                <td>{{ $row->created_at }}</td>
+             <td>{{ $row->name }}</td>
+              <td>{{ $row->status }}</td>
+                 <td>{{ $row->cantidad }}</td>
+            
 
                 <td>
 

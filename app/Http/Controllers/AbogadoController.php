@@ -15,6 +15,7 @@ use DB;
 use Auth;
 use Exception;
 use App\Reporteprovincia;
+use App\reportejueces;
 
 class AbogadoController extends Controller
 {
@@ -45,7 +46,7 @@ class AbogadoController extends Controller
  public function showJuecesData()
     {
         
-        $data = Filerecords::all();
+        $data = reportejueces::all();
         //Enviamos esos registros a la vista.
 
         return view($this->path.'.reportejueces', compact('data'));

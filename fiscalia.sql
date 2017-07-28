@@ -33,6 +33,20 @@ INSERT INTO `casetype` (`id`, `case_type`, `created_at`, `updated_at`) VALUES
 	(3, 'Extorción', '2017-07-20 15:01:50', '2017-07-20 15:01:51');
 /*!40000 ALTER TABLE `casetype` ENABLE KEYS */;
 
+-- Volcando estructura para tabla fiscalia.comentarios_registros
+CREATE TABLE IF NOT EXISTS `comentarios_registros` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `comentarios` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `filerecord_id` int(10) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Volcando datos para la tabla fiscalia.comentarios_registros: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `comentarios_registros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comentarios_registros` ENABLE KEYS */;
+
 -- Volcando estructura para tabla fiscalia.court
 CREATE TABLE IF NOT EXISTS `court` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -85,9 +99,9 @@ CREATE TABLE IF NOT EXISTS `filerecords` (
   KEY `filerecords_casetype_id_foreign` (`casetype_id`),
   CONSTRAINT `filerecords_casetype_id_foreign` FOREIGN KEY (`casetype_id`) REFERENCES `casetype` (`id`),
   CONSTRAINT `filerecords_court_id_foreign` FOREIGN KEY (`court_id`) REFERENCES `court` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla fiscalia.filerecords: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla fiscalia.filerecords: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `filerecords` DISABLE KEYS */;
 INSERT INTO `filerecords` (`id`, `court_id`, `casetype_id`, `provinciafk`, `distritofk`, `corregimientofk`, `titulo`, `descripcion`, `involucrados`, `fecha_inicio`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 'Panama', 'Panama', 'San Francisco', 'Robo de Casa', 'Se robaron las televisiones y la lavadora', 'Juancito "alimaña" Perez', '2017-07-22', 'Pendiente', '2017-07-22 21:01:57', '2017-07-22 21:01:57'),
@@ -95,7 +109,9 @@ INSERT INTO `filerecords` (`id`, `court_id`, `casetype_id`, `provinciafk`, `dist
 	(3, 2, 2, 'Panama Oeste', 'La Chorrera', 'Guadalupe', 'Estafa de compañia', 'Estafo la compañia por 3 años', 'Mauricio Gonzalez', '2017-07-24', 'Pendiente', '2017-07-24 02:01:57', '2017-07-24 02:01:57'),
 	(4, 2, 2, 'Panama Oeste', 'Arraijan', 'Burunga', 'Homicidio', 'Homicidio premeditado a su vecino', 'Pericarpio Serberio', '2017-07-24', 'Abierto', '2017-07-24 05:01:57', '2017-07-24 05:01:57'),
 	(5, 3, 3, 'Panama Oeste', 'Arraijan', 'Burunga', 'Robo', 'Robo de wallet', 'Juan Perez', '2017-07-24', 'Abierto', '2017-07-24 05:20:57', '2017-07-24 05:20:57'),
-	(6, 2, 2, 'Panama Oeste', 'Arraijan', 'Burunga', 'Robo', 'Robo de dinero', 'Jose Moreno', '2017-07-24', 'Pendiente', '2017-07-24 06:01:57', '2017-07-24 06:01:57');
+	(6, 2, 2, 'Panama Oeste', 'Arraijan', 'Burunga', 'Robo', 'Robo de dinero', 'Jose Moreno', '2017-07-24', 'Pendiente', '2017-07-24 06:01:57', '2017-07-24 06:01:57'),
+	(7, 1, 1, 'Panama', 'Panama', 'San Francisco', 'Robo de Casa', 'Se robaron la television', 'Pablito Malandro Jimenez', '2017-07-27', 'Pendiente', '2017-07-27 16:35:07', '2017-07-27 16:35:07'),
+	(8, 1, 3, 'Chiriqui', 'David', 'Las Lomas', 'Caso de extorsión', 'extorción a un dueño de almacen', 'Pablo Flores', '2017-07-28', 'Abierto', '2017-07-28 16:35:57', '2017-07-28 16:35:57');
 /*!40000 ALTER TABLE `filerecords` ENABLE KEYS */;
 
 -- Volcando estructura para tabla fiscalia.location
@@ -122,16 +138,6 @@ INSERT INTO `location` (`id`, `provincia`, `distrito`, `corregimiento`, `created
 	(8, 'Chiriqui', 'David', 'Las Lomas', '2017-07-17 04:46:03', '2017-07-17 04:46:03'),
 	(9, 'Chiriqui', 'Bugaba', 'La Concepción', '2017-07-17 04:46:23', '2017-07-17 04:46:23');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
-
--- Creando tabla para Seguimiento de Comentarios
-create table if not exists comentarios_registros (
-    `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-    `comentarios` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `filerecord_id` int(10) unsigned not null,
-    `created_at` timestamp NULL DEFAULT NULL,
-    `updated_at` timestamp NULL DEFAULT NULL,
-    PRIMARY KEY(`id`)
-    ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Volcando estructura para tabla fiscalia.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -247,11 +253,26 @@ CREATE TABLE IF NOT EXISTS `pivot` (
   CONSTRAINT `pivot_filerecord_id_foreign` FOREIGN KEY (`filerecord_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pivot_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   CONSTRAINT `pivot_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla fiscalia.pivot: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla fiscalia.pivot: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `pivot` DISABLE KEYS */;
+INSERT INTO `pivot` (`id`, `created_at`, `updated_at`, `role_id`, `user_id`, `filerecord_id`) VALUES
+	(1, NULL, NULL, 8, 6, 7),
+	(2, NULL, NULL, 8, 11, 7),
+	(3, NULL, NULL, 7, 9, 7),
+	(4, NULL, NULL, 8, 6, 8),
+	(5, NULL, NULL, 8, 11, 8),
+	(6, NULL, NULL, 7, 5, 8);
 /*!40000 ALTER TABLE `pivot` ENABLE KEYS */;
+
+-- Volcando estructura para vista fiscalia.reportejueces
+-- Creando tabla temporal para superar errores de dependencia de VIEW
+CREATE TABLE `reportejueces` (
+	`name` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`cantidad` BIGINT(21) NOT NULL,
+	`status` VARCHAR(191) NOT NULL COLLATE 'utf8mb4_unicode_ci'
+) ENGINE=MyISAM;
 
 -- Volcando estructura para vista fiscalia.reporteprovincia
 -- Creando tabla temporal para superar errores de dependencia de VIEW
@@ -299,9 +320,9 @@ CREATE TABLE IF NOT EXISTS `role_user` (
   KEY `role_user_user_id_index` (`user_id`),
   CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
   CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla fiscalia.role_user: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla fiscalia.role_user: ~9 rows (aproximadamente)
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 	(3, 7, 5, '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
@@ -310,7 +331,10 @@ INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`)
 	(6, 6, 4, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
 	(7, 9, 7, '2017-07-21 02:09:46', '2017-07-21 02:09:46'),
 	(8, 10, 8, '2017-07-22 22:58:53', '2017-07-22 22:58:53'),
-	(9, 7, 9, '2017-07-23 14:06:32', '2017-07-23 14:06:32');
+	(9, 7, 9, '2017-07-23 14:06:32', '2017-07-23 14:06:32'),
+	(10, 7, 10, '2017-07-27 10:02:31', '2017-07-27 10:02:34'),
+	(11, 8, 11, '2017-07-27 10:03:04', '2017-07-27 10:03:05'),
+	(12, 7, 12, '2017-07-27 20:34:53', '2017-07-27 20:34:53');
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 
 -- Volcando estructura para tabla fiscalia.users
@@ -327,18 +351,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `filerecords_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla fiscalia.users: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla fiscalia.users: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 6, 'ytHDQ52s5p9wVeSzVuslZGx6aCFMCsOVm867emN5kIr5Euh7kf07HzIvL5F7', '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
+	(1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 6, 'zWTOnSN43G5ACOtIVPU8ipljpqWjqkSjWpiUuWrj3zebWFeho3zOWcahIOfH', '2017-07-20 05:53:59', '2017-07-20 05:53:59'),
 	(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 6, 'i6JD8kG2BBqAGVOsYlKF1qBWGxSUFZ1L5O3AXfHXYug2UDGP4USM4mG3T1gY', '2017-07-20 05:56:06', '2017-07-20 05:56:06'),
-	(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'dJzYdwefM81O2PSYRkHk7rGxYk9gwYNrEePhBqgoYFUDo1tSPZ1TfdcC0ESb', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
-	(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 8, 'jkyFPwD0U0rTmzr4YR8pRdT0rnoTVEvq0Lu70ayeRsmUNmyz0YCsWeBVg1oP', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
-	(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 9, 'P0GcjIKNikGfTcOvrsoIHd3fdCbrpEeT9DASc679KtoELhOHX2TmPIadeVYb', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+	(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'xDabNtG2dzUIEK8UD8V7Rjphc6MeycOCUhxnfQaF0vnuULx0mKYt029evprU', '2017-07-20 08:45:26', '2017-07-20 08:45:26'),
+	(6, 'abogado', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 8, 'CkL1Jg0sjzXo1YLYHb3rKYgqmQ9pHboCf8HqU9LS69k0NX2BU5GyRKs5cjbW', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
+	(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 9, 'zUyZ0wgLhVkJcslYToRKb7JGgQ9o5elsKUIfld14TCthyAJ588SQX1mKCmHQ', '2017-07-20 08:54:51', '2017-07-20 08:54:51'),
 	(8, 'Venito Varsallo', 'userme@gmail.com', '$2y$10$hp/EQwAkazxNYmJumm1JBOJp2BI9xrr04yUcEK/v7fGHK49kENFNm', 10, 'rAUW1so9rc6IM3nhxdelGZ7CVS4KUFaMCvzwlQuWWDJFyd89eqJqf7JNmZw2', '2017-07-22 22:58:53', '2017-07-22 22:58:53'),
-	(9, 'Gutierrez Alfredo', 'gutierrez@juez.com', '$2y$10$MaSHnAYnLlx4K6tDk2Gf3.4eNzHMrAI8g/IXIpnI5EUm7tWv7S5IO', 7, NULL, '2017-07-23 14:06:32', '2017-07-23 14:06:32');
+	(9, 'Gutierrez Alfredo', 'gutierrez@juez.com', '$2y$10$MaSHnAYnLlx4K6tDk2Gf3.4eNzHMrAI8g/IXIpnI5EUm7tWv7S5IO', 7, NULL, '2017-07-23 14:06:32', '2017-07-23 14:06:32'),
+	(10, 'Jose Lopez', 'jose@nocorreo.com', '$2y$10$8pp1S3swzQARpyd4JiGoruXCheDohjAee8C86AQ808FpAL8WEHrwC', 7, NULL, '2017-07-27 14:51:59', '2017-07-27 14:51:59'),
+	(11, 'Mario Santos', 'mario@nocorreo.com', '$2y$10$x0sVrHUAXTeXz2i.lCD.QOcfgIxeX9vJ/890h7H19MbKhxelncCpK', 8, NULL, '2017-07-27 14:54:04', '2017-07-27 14:54:04'),
+	(12, 'Jose Ramirez', 'ramirez@nocorreo.com', '$2y$10$JhAHBTS1e2GvBGSyksNxqeo365YfrWtmVsowlPhBY2WuKx4ncT9k2', NULL, 'l3sBSqmfPPzf44264RRWlrD2kB9H5v0IuqO4cSEQspMqtDKbgI98QeYAooHK', '2017-07-27 20:34:53', '2017-07-27 20:34:53');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Volcando estructura para vista fiscalia.estadistica
@@ -354,6 +381,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `estadistica` AS (
                             group by  C.court_name, A.status, B.case_type
                             order by  C.court_name, A.status, B.case_type
                         ) ;
+
+-- Volcando estructura para vista fiscalia.reportejueces
+-- Eliminando tabla temporal y crear estructura final de VIEW
+DROP TABLE IF EXISTS `reportejueces`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` VIEW `reportejueces` AS ( SELECT C.name, count(A.status) as cantidad, A.status
+						   from filerecords A
+						   inner join pivot B
+						   on A.id = B.filerecord_id
+						   inner join users C
+						   on C.id = B.user_id 
+						   where B.user_id= C.id
+						   group by   A.status, C.name
+                            order by   A.status, C.name
+                            ) ;
 
 -- Volcando estructura para vista fiscalia.reporteprovincia
 -- Eliminando tabla temporal y crear estructura final de VIEW

@@ -112,7 +112,7 @@ thead{
      <div class="container">
 
       <div class="row">
-  <div class="panel-heading">Sistema de Expendientes « Reporte de Jueces {{ Auth::user()->name }}</div>
+  <div class="panel-heading">Sistema de Expendientes « Reportes Juez vs Status {{ Auth::user()->name }}</div>
         <div class="col-md-12">
             <div class="panel panel-default">
                 <nav class="navbar navbar-inverse col-md-12">
@@ -151,7 +151,7 @@ thead{
 
   </div>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+ 
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -165,10 +165,10 @@ thead{
         <table class="table">
         <thead>
         <tr>
-           <td>Num.</td>
-            <td>Juez</td>
+          <td>Juez</td>
             <td>Estado</td>
-            <td>Fecha de Creacion</td>
+              <td>Cantidad</td>
+     
           
             <td></td>
             </tr>
@@ -176,13 +176,11 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-    
-                <td>{{ $row->created_at }}</td>
-
-                <td>
+             <td>{{ $row->name }}</td>
+              <td>{{ $row->status }}</td>
+                 <td>{{ $row->cantidad }}</td>
+     
+                </td>
 
                <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
 

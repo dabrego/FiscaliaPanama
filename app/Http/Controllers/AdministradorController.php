@@ -27,6 +27,7 @@ use Auth;
 use Exception;
 use App\Reporteprovincia;
 use App\Rol;
+use App\Reportejueces;
  
 
 class AdministradorController extends Controller
@@ -64,7 +65,7 @@ class AdministradorController extends Controller
     public function showJuecesData()
     {
         
-        $data = Filerecords::all();
+        $data = Reportejueces::all();
         //Enviamos esos registros a la vista.
 
         return view($this->path.'.reportejueces', compact('data'));

@@ -15,7 +15,8 @@ use App\RoleUserModel;
 use DB;
 use Auth;
 use Exception;
-use Reporteprovincia;
+use App\Reporteprovincia;
+use App\reportejueces;
 class FilerecordsController extends Controller
 {
 
@@ -47,7 +48,7 @@ class FilerecordsController extends Controller
     public function showJuecesData()
     {
         
-        $data = Filerecords::all();
+        $data = reportejueces::all();
         //Enviamos esos registros a la vista.
 
         return view('usuarios.reportejueces', compact('data'));
