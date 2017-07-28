@@ -110,6 +110,15 @@ public static function showComments ($id)
     //Se toma el id del registro y se envia a la siguiente vista donde se mostrará la información y los comentarios
     {
         $data = ComentariosRegistrosModel::get_comentarios_registro($id);
+        $debug = false;
+            if($debug){
+                echo $id;
+                echo '<pre>';
+                print_r($data);
+                echo '</pre>';
+                exit();
+            }
+
         $file_assoc = Filerecords::find($id);
         $user = $user = Auth::user();
         return view('abogados.comments', compact('data', 'file_assoc','user'));
@@ -120,8 +129,7 @@ public static function showComments ($id)
  public function store(Request $request)
     {
        try{
-            print_r($request);
-            exit();
+            
             $registro = new ComentariosRegistrosModel();
             //var_dump($request);
             $registro->filerecord_id = $request->file_id;
@@ -129,7 +137,10 @@ public static function showComments ($id)
             $registro->comentarios = $request->comentarios;
             $registro->save();
 
-           return redirect('/dashboard');    
+            $data = ComentariosRegistrosModel::get_comentarios_registro($request->file_id);
+            $file_assoc = Filerecords::find($request->file_id);
+            $user = $user = Auth::user();
+            return view('abogados.comments', compact('data', 'file_assoc','user'));
         }
         catch(Exception $e){
             return "Fatal error = ".$e->getMessage();
@@ -160,7 +171,7 @@ public static function showComments ($id)
             return view('abogados.seguimientos',  
                 ['role' => $userRole, 'nombre' => $user->name, 'data'=>$data]);
         } else{
-
+            //
         }
     }
 }

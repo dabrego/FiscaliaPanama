@@ -10,7 +10,7 @@ class ComentariosRegistrosModel extends Model
     //
     protected $table = "comentarios_registros";
     protected $fillable = [		
-						'id', 'comentarios','filerecord_id', 'user_id', 'created_at','updated_at'];
+						'comentarios','filerecord_id', 'user_id', 'created_at','updated_at'];
 
 
 	public static function get_comentarios_registro($id){

@@ -110,4 +110,4 @@ Route::get('/seguimientos/comentario','SeguimientoController@comentarSeguimiento
 //mostrará la vista de comentarios enviando id de filerecords para mostrar los comentarios y el caso que seleccionó
 Route::get('/comments/{id}','SeguimientoController@showComments'); 
 
-Route::get('/seguimientoscomentario','SeguimientoController@store'); 
+Route::post('/seguimientoscomentario','SeguimientoController@store'); 

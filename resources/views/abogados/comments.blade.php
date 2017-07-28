@@ -34,11 +34,12 @@
 
         <div class="table-responsive">
         @php
-        $debug = true;
+        $debug = false;
             if($debug){
                 echo '<pre>';
-                print_r($user['id']);
+                print_r($data);
                 echo '</pre>';
+
             }
         @endphp
 
@@ -79,24 +80,24 @@
 
         @if($data)
         
-        <table class="table">
+        <table class="table table-striped">
         <thead>
             <tr>
-            <td>Num.</td>
+           
             <td>Comentario</td>
             <td>Fecha de Creación</td>
             <td></td>
             </tr>
             </thead>
             <tbody>
-            @foreach($data as $row)
-            <tr>
-                <td>{{ $row->id }}</td>
-                <td>{{ $row->comentarios }}</td>
-                <td>{{ $row->created_at }}</td>            
+            @php // exit(); @endphp
+            @for($i = 0; $i< count($data);$i++)
+            <tr>                
+                <td>{{ $data[$i]->comentarios }}</td>
+                <td>{{ $data[$i]->created_at }}</td>          
             </tr>
             </tbody>
-            @endforeach
+            @endfor
         </table>
         @endif
         </div>
@@ -116,12 +117,16 @@
         });
     });
 </script>
+
+
 <form action="/seguimientoscomentario" method="POST">
+{{ csrf_field() }}
     <p><textarea name="comentarios" id="comentarios" cols="100" rows="7"></textarea></p>
     <input type="text" hidden name="user_id" value="{{$user['id']}}">
     <input type="text" hidden name="file_id" value="{{$file_assoc['id']}}">
      <input type="hidden" name="created_at" value="{{date('y-m-d')}}">
     <p><input name="submit" value="Comentar" type="submit" /></p>
+
 </form>
 
 <div class="container">
