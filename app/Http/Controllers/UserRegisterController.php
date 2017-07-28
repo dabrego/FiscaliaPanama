@@ -148,4 +148,16 @@ class UserRegisterController extends Controller
     {
         //
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function usuarios_pendientes()
+    {
+        // Llama una lista de usuarios con role pendiente
+        
+    }
 }

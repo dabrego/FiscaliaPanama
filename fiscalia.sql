@@ -43,6 +43,10 @@ CREATE TABLE IF NOT EXISTS `comentarios_registros` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Creando campo de user id para comentarios_registros
+ALTER TABLE `comentarios_registros` 
+  ADD `user_id` INT(10) UNSIGNED NOT NULL AFTER `filerecord_id`;
+
 -- Volcando datos para la tabla fiscalia.comentarios_registros: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `comentarios_registros` DISABLE KEYS */;
 /*!40000 ALTER TABLE `comentarios_registros` ENABLE KEYS */;

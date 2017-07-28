@@ -106,30 +106,32 @@ class SeguimientoController extends Controller
 
 
 
-public static function showComments ()
-//Se toma el id del registro y se envia a la siguiente vista donde se mostrará la información y los comentarios
+public static function showComments ($id)
+    //Se toma el id del registro y se envia a la siguiente vista donde se mostrará la información y los comentarios
     {
-            $data = ComentariosRegistrosModel::all();
-       return view('abogados.comments', compact('data'));
+        $data = ComentariosRegistrosModel::get_comentarios_registro($id);
+        $file_assoc = Filerecords::find($id);
+        $user = $user = Auth::user();
+        return view('abogados.comments', compact('data', 'file_assoc','user'));
     }
 
 
 
  public function store(Request $request)
     {
-
        try{
-            
+            print_r($request);
+            exit();
             $registro = new ComentariosRegistrosModel();
             //var_dump($request);
-            $registro->filerecord_id = $request->filerecord_id;
+            $registro->filerecord_id = $request->file_id;
+            $registro->user_id = $request->user_id;
             $registro->comentarios = $request->comentarios;
             $registro->save();
 
            return redirect('/dashboard');    
         }
         catch(Exception $e){
-
             return "Fatal error = ".$e->getMessage();
         }
     }
