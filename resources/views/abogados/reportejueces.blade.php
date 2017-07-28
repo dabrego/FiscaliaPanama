@@ -134,7 +134,7 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>

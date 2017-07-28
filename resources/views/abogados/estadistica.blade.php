@@ -122,7 +122,7 @@ thead{
       <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reportejuez1">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
