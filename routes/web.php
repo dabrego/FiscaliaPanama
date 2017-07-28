@@ -26,9 +26,9 @@ Route::get('/expediente','FilerecordsController@create');
 //---------------------------------------------------------------
 //REPORTES
 //---------------------------------------------------------------
-Route::get('/reportejuez','FilerecordsController@showJuecesData');
+//Route::get('/reportejuez','FilerecordsController@showJuecesData');
 //Route::get('/reporteprovincia','FilerecordsController@showProvinData');
-Route::get('/estadistica','FilerecordsController@showEstadisticData');
+Route::get('/estadistica3','FilerecordsController@showEstadisticData');
 
 
 
@@ -57,9 +57,9 @@ Route::get('/expediente1','AdministradorController@create');
 //---------------------------------------------------------------
 //ADMIN - REPORTES
 //---------------------------------------------------------------
-Route::get('/reportejuez1','AdministradorController@showJuecesData');
+Route::get('/reportejuez','AdministradorController@showJuecesData');
 Route::get('/reporteprovincia','AdministradorController@showProvinData');
-Route::get('/estadistica1','AdministradorController@showEstadisticData');
+Route::get('/estadistica','AdministradorController@showEstadisticData');
 //----------------------------------------------------------------------
 //CREACION DE USUARIOS POR ADMINISTRADOR---------------------------
 //--------------------------------------------------
@@ -87,7 +87,7 @@ Route::get('/showdata','CourtController@showFormData');
 
 
 //---------------------------------------------------------------
-//ABOGADOS
+//ABOGADOS Y JUECEZ
 //---------------------------------------------------------------
 //---------------------------------------------------------------
 //EXPEDIENTE
@@ -99,9 +99,9 @@ Route::get('/expediente2','AbogadoController@create');
 //---------------------------------------------------------------
 //REPORTES 
 //---------------------------------------------------------------
-Route::get('/reportejuez2','AbogadoController@showJuecesData');
-Route::get('/reporteprovincia2','AbogadoController@showProvinData');
-Route::get('/estadistica2','AbogadoController@showEstadisticData');
+Route::get('/reportejuez1','AbogadoController@showJuecesData');
+Route::get('/reporteprovincia1','AbogadoController@showProvinData');
+Route::get('/estadistica1','AbogadoController@showEstadisticData');
 
 //CONTROLADOR SEGUIMIENTO ruteara a cada perfil a su respectivo dashboard
 Route::get('/seguimientos','SeguimientoController@index');

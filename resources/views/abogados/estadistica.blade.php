@@ -111,18 +111,19 @@ thead{
 
      <div class="container">
 
-          <h1>Reportes</h1>
+          <h1>Estadística De Casos Por Juzgado Vs Estatus</h1>
           </br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
+      <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
     <ul class="nav navbar-nav">
-        <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
+      <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/reportejuez1">Reporte Por Juez</a></li>
-                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
+                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
 
@@ -134,7 +135,7 @@ thead{
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+   <!-- <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>-->
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -142,16 +143,19 @@ thead{
   <a href="{{ url('/') }}" class="btn btn-primary">Manejo de Usuarios</a>
 </div>-->
 
-    <hr>
+   <hr>
         <div class="table-responsive">
         @if($data)
         <table class="table">
         <thead>
         <tr>
-            <td>Num.</td>
-            <td>Juez</td>
+ 
+             <td>Juzgado</td>
+              <td>Tipo de Caso</td>
             <td>Estado</td>
-            <td>Fecha de Creacion</td>
+            <td>Cantidad</td>
+           
+       
           
             <td></td>
             </tr>
@@ -159,12 +163,14 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-    
-                <td>{{ $row->created_at }}</td>
-
+              <td>{{ $row->court_name }}</td>
+              <td>{{ $row->case_type }}</td>
+              <td>{{ $row->status }}</td>
+               <td>{{ $row->cantidad }}</td>
+               
+                
+                
+            
                 <td>
 
                <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
@@ -188,6 +194,29 @@ thead{
        <br>
        <br>
        <br>
+       <div id="piechart" style="width: 900px; height: 500px;"></div> 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Tipos de Caso', 'Cantidad'],
+            @foreach($data as $row)
+              ['{{ $row->court_name }}'+' /'+'{{ $row->case_type}}'+' /'+'{{ $row->status}}', {{ $row->cantidad}}],
+            @endforeach
+        ]);
+        var options = {
+          title: 'Representación Gráfica',
+          is3D: true,
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script> 
 
         <br>
        <br>

@@ -148,7 +148,7 @@ thead{
         <table class="table">
         <thead>
         <tr>
-            <td>Num.</td>
+           <td>Num.</td>
             <td>Juez</td>
             <td>Estado</td>
             <td>Fecha de Creacion</td>

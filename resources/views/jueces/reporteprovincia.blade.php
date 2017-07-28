@@ -111,45 +111,45 @@ thead{
 
      <div class="container">
 
-          <h1>Mantenimiento de Ubicación</h1>
+          <h1>Reporte Provincia vs Status</h1>
           </br>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li ><a href="/estadistica">Estadísticas</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Panel de Mantenimiento<span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/showubicacion">Ubicación</a></li>
-          <li><a href="/showcourt">Juzgado</a></li>
-          <li><a href="/register">Usuarios </a></li>
-        </ul>
-      </li>
+   <ul class="nav navbar-nav">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Usuarios<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showregistro">Ver Usuarios Registrados</a></li>
+                                    <li><a href="/createregistro">Crear Usuario</a></li>
+                                    <li><a href="/registrar">Usuarios con Registro Pendiente</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showubicacion">Ubicacion</a></li>
+                                    <li><a href="/showcourt">Juzgados</a></li>
+                     
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/reportejuez">Reporte Por Juez</a></li>
+                                    <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
-      <li><a href="#">Seguimientos</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="/reportejuez">Por Juez</a></li>
-          <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
-        </ul>
-        </li>
-    </ul>
-    <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
+                                    <li ><a href="/estadistica">Estadísticas</a></li>
+
+                                    <li ><a href="/seguimientos/comentario">Seguimiento</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+   
   </div>
 </nav>
 </br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+    
 
     <!--<div class="btn-group btn-group-justified">
   <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
@@ -163,11 +163,11 @@ thead{
         <table class="table">
         <thead>
         <tr>
-           <td>Num.</td>
+         
             <td>Provincia</td>
-            <td>Distrito</td>
-            <td>Corregimiento</td>
-            <td>Fecha de Creacion</td>
+              <td>Tipo de Caso</td>
+            <td>Estado</td>
+            <td>Cantidad</td>
           
             <td></td>
             </tr>
@@ -175,11 +175,11 @@ thead{
             <tbody>
             @foreach($data as $row)
             <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-                 <td>{{ $row->corregimiento }}</td>
-                <td>{{ $row->created_at }}</td>
+ 
+              <td>{{ $row->provinciafk }}</td>
+                <td>{{ $row->case_type }}</td>
+              <td>{{ $row->status }}</td>
+               <td>{{ $row->cantidad }}</td>
 
                 <td>
 

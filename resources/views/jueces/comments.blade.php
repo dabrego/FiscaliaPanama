@@ -15,7 +15,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Styles -->
  
 <style>
@@ -26,28 +27,12 @@
     background-size: cover;
 }
 
-.navcolor {
-  background-image: url('/images/choco.png');
-}
-table {
-  background-color: #F1EADA;
-   
-  
-    vertical-align: middle;
-    border-color: inherit;
-}
-thead{
-  background-color: #E2D6B9;
-   
-     display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
+
 </style>
     </head>
-    <body class="bgimg" >
+    <body class="bgimg">
 
-  <nav class="navcolor navbar navbar-default navbar-static-top">
+  <nav class=" navcolor navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -109,119 +94,69 @@ thead{
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 
-     <div class="container">
-
-          <h1>Reportes</h1>
-          </br>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    </div>
-    <ul class="nav navbar-nav">
-        <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+    <div class="container">
+    <div class="row">
+        <div class="panel-heading">Sistema de Expendientes « Dashboard {{ Auth::user()->name }}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="/seguimientos">Seguimientos</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez1">Reporte Por Juez</a></li>
-                                    <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
-
-                                    <li ><a href="/estadistica1">Estadísticas</a></li>
-
-                                    <li ><a href="/seguimientos/comentario">Seguimiento</a></li>
+                                    <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
+                            
+                                    <li ><a href="/estadistica">Estadísticas</a></li>
                                 </ul>
                             </li>
-    </ul>
-  
-  </div>
-</nav>
-</br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+                        </ul>
 
-    <!--<div class="btn-group btn-group-justified">
-  <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Panel de Mantenimiento</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Manejo de Usuarios</a>
-</div>-->
+                    
+                </nav>
+                <div class="panel-body">
+                    <div class='container'>
+                    <div class="row col-sm-12">
+                       <h1>Comentarios Sobre el Caso</h1>
+</br></br></br></br></br></br> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+            $('#comment').one("focus", function() {
+                $('#comment').parent().after('<div id="preview-box"><div class="comment-by">Live Comment Preview</div><div id="live-preview"></div></div>');
+            });
+            var $comment = '';
+            $('#comment').keyup(function() {
+            $comment = $(this).val();
+            $comment = $comment.replace(/\n/g, "<br />").replace(/\n\n+/g, '<br /><br />');
+            $('#live-preview').html( $comment );
+        });
+    });
+</script>
+<form action="/seguimientos" method="POST">
+    <p><textarea name="comentarios" id="comentarios" cols="100" rows="7"></textarea></p>
+     <input type="hidden" name="created_at" value="{{ Auth::user()->name }}">
+    <p><input name="submit" value="Submit" type="submit" /></p>
+</form>
 
-    <hr>
-        <div class="table-responsive">
-        @if($data)
-        <table class="table">
-        <thead>
-        <tr>
-            <td>Num.</td>
-            <td>Juez</td>
-            <td>Estado</td>
-            <td>Fecha de Creacion</td>
-          
-            <td></td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($data as $row)
-            <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-    
-                <td>{{ $row->created_at }}</td>
-
-                <td>
-
-               <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
+ <!--<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comentarios</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1501182040123");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); </script> /*-->
 
 
-                <td>
-                
-              
-                
-                <a href="{{url('/diagnosis',[$row->id])}}" class="btn-btn-info">Detalle</a>
-               
-                </td>-->
-            </tr>
-            </tbody>
-            @endforeach
-        </table>
-        @endif
-        </div>
-         <br>
-       <br>
-       <br>
-       <br>
-       <br>
+<div class="container">
+<div class="row">
+    <a class="btn btn-info" href="{{ url('/home') }}">Back</a>
+</div>    
+</div>
 
-        <br>
-       <br>
-       <br>
-       <br>
-           <div class="container">
-        <!-- <a href="{{ url('/index') }}">Panel de Registro</a>-->
-        <a class="btn btn-info" href="{{ url('/') }}">Back</a>
-            </div>
-              
-        </div>
-   
+</div>
 
    
-
-<!--<div class="container">
-        <div class="row">
-            <h1>Agregar Artículo</h1>
-            <form action="/articulo/add" method="post" name="frmadd">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="txttitulo" placeholder="Title">
-                </div>
-                
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="txtresumen" placeholder="description"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default" name="btnsubmit">Submit</button>
-            </form>
-        </div>
-
-    </div>-->
+ 
       
 
     </body>

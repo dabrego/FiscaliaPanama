@@ -14,6 +14,7 @@ use App\Court;
 use DB;
 use Auth;
 use Exception;
+use App\Reporteprovincia;
 
 class AbogadoController extends Controller
 {
@@ -40,6 +41,36 @@ class AbogadoController extends Controller
         }
         
         return redirect('/login');
+    }
+ public function showJuecesData()
+    {
+        
+        $data = Filerecords::all();
+        //Enviamos esos registros a la vista.
+
+        return view($this->path.'.reportejueces', compact('data'));
+    
+    }
+
+
+    public function showProvinData()
+    {
+        
+            $data = Reporteprovincia::all();
+        //Enviamos esos registros a la vista.
+
+        return view($this->path.'.reporteprovincia', compact('data'));
+    
+    }
+
+        public function showEstadisticData()
+    {
+        
+            $data = Estadistica::all();
+        //Enviamos esos registros a la vista.
+
+        return view($this->path.'.estadistica', compact('data'));
+    
     }
 
     /**

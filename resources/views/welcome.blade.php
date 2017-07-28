@@ -267,7 +267,7 @@ function showSlides(n) {
                     <a href="{{ url('/') }}">Sucursales</a>
                     <a href="{{ url('/') }}">Directorio Medico</a>
                    <a href="{{ url('/') }}">Atención al Cliente</a>
-                     <a href="{{ url('/dashboard') }}">Panel de Atención</a>
+                     <a href="{{ url('/home') }}">Panel de Atención</a>
 
                 </div>
                

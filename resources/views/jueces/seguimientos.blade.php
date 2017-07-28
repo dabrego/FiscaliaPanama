@@ -15,7 +15,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Styles -->
  
 <style>
@@ -26,28 +27,12 @@
     background-size: cover;
 }
 
-.navcolor {
-  background-image: url('/images/choco.png');
-}
-table {
-  background-color: #F1EADA;
-   
-  
-    vertical-align: middle;
-    border-color: inherit;
-}
-thead{
-  background-color: #E2D6B9;
-   
-     display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-}
+
 </style>
     </head>
-    <body class="bgimg" >
+    <body class="bgimg">
 
-  <nav class="navcolor navbar navbar-default navbar-static-top">
+  <nav class=" navcolor navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -109,119 +94,86 @@ thead{
 <!-------------------------------------------------------------->
 <!-------------------------------------------------------------->
 
-     <div class="container">
-
-          <h1>Reportes</h1>
-          </br>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    </div>
-    <ul class="nav navbar-nav">
-        <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
-<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
+    <div class="container">
+    <div class="row">
+        <div class="panel-heading">Sistema de Expendientes « Seguimiento {{$nombre}}</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <nav class="navbar navbar-inverse col-md-12">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ url('/home') }}">Inicio</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="/seguimientos">Seguimientos</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez1">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia1">Provincia vs estatus</a></li>
-
+                            
                                     <li ><a href="/estadistica1">Estadísticas</a></li>
-
-                                    <li ><a href="/seguimientos/comentario">Seguimiento</a></li>
                                 </ul>
                             </li>
-    </ul>
-  
-  </div>
-</nav>
-</br>
-    <h4><a href="{{ url('/ubicacion') }}">Crear Nueva Locacion</a></h4>
+                        </ul>
 
-    <!--<div class="btn-group btn-group-justified">
-  <a href="{{ url('/') }}" class="btn btn-primary">Home</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Panel de Mantenimiento</a>
-  <a href="{{ url('/') }}" class="btn btn-primary">Manejo de Usuarios</a>
-</div>-->
+                    
+                </nav>
 
-    <hr>
-        <div class="table-responsive">
-        @if($data)
-        <table class="table">
-        <thead>
-        <tr>
-            <td>Num.</td>
-            <td>Juez</td>
-            <td>Estado</td>
-            <td>Fecha de Creacion</td>
-          
-            <td></td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($data as $row)
-            <tr>
-             <td>{{ $row->id }}</td>
-              <td>{{ $row->provincia }}</td>
-                 <td>{{ $row->distrito }}</td>
-    
-                <td>{{ $row->created_at }}</td>
+                <div class="panel-body">
+                    <div class='container'>
+                    <div class="row col-sm-12">
+                     <h1>Seguimiento de Casos </h1>
+                        <div class="table-responsive">
+                            @if($data)
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>Titulo de Caso</td>
+                                        <td>No. de Juzgado</td>
+                                        <td>Juzgado</td>
+                                        <td>Descripción de Caso</td>
+                                        <td>Partes Involucradas</td>
+                                        <td>Fecha de Inicio</td>
+                                        <td>Estado</td>
+                                        <td>Ubicación: Provincia</td>
+                                        <td>Distrito</td>
+                                        <td>Corregimiento</td>
+                                        <td>Tipo de Caso</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($data as $row)
+                                    <tr>
+                                      <td>{{ $row->titulo }}</td>
+                                      <td>{{ $row->court_id }}</td>
+                                      <td>{{ $row->court_name }}</td>
+                                      <td>{{ $row->descripcion }}</td>
+                                      <td>{{ $row->involucrados }}</td>
+                                      <td>{{ $row->fecha_inicio }}</td>
+                                      <td>{{ $row->status }}</td>
+                                      <td>{{ $row->provinciafk }}</td>
+                                      <td>{{ $row->distritofk }}</td>
+                                      <td>{{ $row->corregimientofk }}</td>
+                                      <td>{{ $row->case_type }}</td>
+                                       <td><a href="{{url('/comments',[$row->id])}}"><i class="material-icons" style="font-size:30px;color:green">assignment</i></a><td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            @endif
+                        </div>
 
-                <td>
 
-               <!-- <a href="{{url('/carepanel',[$row->id])}}" class="btn-btn-info">Detalle</a></td>
+<div class="container">
+<div class="row">
+    <a class="btn btn-info" href="{{ url('/home') }}">Back</a>
+</div>    
+</div>
 
-
-                <td>
-                
-              
-                
-                <a href="{{url('/diagnosis',[$row->id])}}" class="btn-btn-info">Detalle</a>
-               
-                </td>-->
-            </tr>
-            </tbody>
-            @endforeach
-        </table>
-        @endif
-        </div>
-         <br>
-       <br>
-       <br>
-       <br>
-       <br>
-
-        <br>
-       <br>
-       <br>
-       <br>
-           <div class="container">
-        <!-- <a href="{{ url('/index') }}">Panel de Registro</a>-->
-        <a class="btn btn-info" href="{{ url('/') }}">Back</a>
-            </div>
-              
-        </div>
-   
+</div>
 
    
-
-<!--<div class="container">
-        <div class="row">
-            <h1>Agregar Artículo</h1>
-            <form action="/articulo/add" method="post" name="frmadd">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input type="text" class="form-control" id="title" name="txttitulo" placeholder="Title">
-                </div>
-                
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="txtresumen" placeholder="description"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default" name="btnsubmit">Submit</button>
-            </form>
-        </div>
-
-    </div>-->
+ 
       
 
     </body>

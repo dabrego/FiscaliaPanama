@@ -125,28 +125,32 @@ div.chart_div table {
       <a class="navbar-brand" href="{{ url('/dashboard') }}">Dashboard</a>
     </div>
     <ul class="nav navbar-nav">
-                            <li><a href="/seguimiento2">Casos Asignados</a></li>
-
-                            <li><a href="#">Seguimientos</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Usuarios<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showregistro">Ver Usuarios Registrados</a></li>
+                                    <li><a href="/createregistro">Crear Usuario</a></li>
+                                    <li><a href="/registrar">Usuarios con Registro Pendiente</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenimiento de Código<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/showubicacion">Ubicacion</a></li>
+                                    <li><a href="/showcourt">Juzgados</a></li>
+                     
+                                </ul>
+                            </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="/reportejuez">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
-                                    <li ><a href="/estadistica1">Estadísticas</a></li>
+                                    <li ><a href="/estadistica">Estadísticas</a></li>
+
+                                    <li ><a href="/estadistica">Seguimiento</a></li>
                                 </ul>
                             </li>
                         </ul>
-    <form class="navbar-form navbar-left">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search">
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
+   
   </div>
 </nav>
 </br>

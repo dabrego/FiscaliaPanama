@@ -23,7 +23,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="/showubicacion">Ubicacion</a></li>
                                     <li><a href="/showcourt">Juzgados</a></li>
-                                    <li><a href="/showregistro">Usuarios</a></li>
+                     
                                 </ul>
                             </li>
                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Biblioteca de Casos<span class="caret"></span></a>
@@ -31,9 +31,9 @@
                                     <li><a href="/reportejuez">Reporte Por Juez</a></li>
                                     <li><a href="/reporteprovincia">Provincia vs estatus</a></li>
 
-                                    <li ><a href="/estadistica1">Estadísticas</a></li>
+                                    <li ><a href="/estadistica">Estadísticas</a></li>
 
-                                    <li ><a href="/estadistica1">Seguimiento</a></li>
+                                    <li ><a href="/estadistica">Seguimiento</a></li>
                                 </ul>
                             </li>
                         </ul>
