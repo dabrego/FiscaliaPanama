@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2017 at 01:21 AM
+-- Generation Time: Jul 29, 2017 at 05:07 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -93,7 +93,13 @@ CREATE TABLE `comentarios_registros` (
 --
 
 INSERT INTO `comentarios_registros` (`id`, `comentarios`, `filerecord_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(7, 'Un comentario cualquiera', 4, 6, '2017-07-29 04:20:38', '2017-07-29 04:20:38');
+(7, 'Un comentario cualquiera', 4, 6, '2017-07-29 04:20:38', '2017-07-29 04:20:38'),
+(8, 'Este homicidio fue culposo', 3, 6, '2017-07-29 04:35:08', '2017-07-29 04:35:08'),
+(9, 'No,no lo creo mas bien ...', 3, 6, '2017-07-29 04:35:31', '2017-07-29 04:35:31'),
+(10, 'Comentario nuevo', 3, 6, '2017-07-29 04:54:29', '2017-07-29 04:54:29'),
+(11, 'asdfdsaf juez', 3, 12, '2017-07-29 05:07:45', '2017-07-29 05:07:45'),
+(12, 'El susodicho no era negro sino blanco caucasio vestido de negro con pasamontana negro.', 8, 6, '2017-07-29 05:26:07', '2017-07-29 05:26:07'),
+(13, 'Esta pena delictiva tiene una cuantia de 5 a 8 años de prision en carcel de maxima seguridad.', 8, 6, '2017-07-29 05:27:49', '2017-07-29 05:27:49');
 
 -- --------------------------------------------------------
 
@@ -122,6 +128,18 @@ INSERT INTO `court` (`id`, `court_name`, `created_at`, `updated_at`) VALUES
 (7, 'JUZGADO 1° DE CIRCUITO CIVIL, LA CHORRERA', '2017-07-17 10:30:39', '2017-07-17 10:30:39'),
 (8, 'JUZGADO 2° DE CIRCUITO CIVIL, LA CHORRERA', '2017-07-17 10:30:55', '2017-07-17 10:30:55'),
 (9, 'JUZGADO 1° DE CIRCUITO PENAL, LA CHORRERA', '2017-07-17 10:31:05', '2017-07-17 10:31:05');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `estadistica`
+--
+CREATE TABLE `estadistica` (
+`court_name` varchar(191)
+,`status` varchar(191)
+,`cantidad` bigint(21)
+,`case_type` varchar(191)
+);
 
 -- --------------------------------------------------------
 
@@ -155,7 +173,8 @@ INSERT INTO `filerecords` (`id`, `court_id`, `casetype_id`, `provinciafk`, `dist
 (4, 3, 2, '3', '2', '3', 'fssdgdsg', 'sdgdsgs', 'sdgsdfg', '2017-01-01', 'Pendiente', '2017-07-25 06:36:59', '2017-07-25 06:36:59'),
 (5, 1, 1, '3', '3', '3', 'sasdasfsa', 'asfsadf', 'asfsaf', '2017-01-01', 'Abierto', '2017-07-25 06:38:59', '2017-07-25 06:38:59'),
 (6, 3, 2, 'Panama', 'Panama', 'San Francisco', 'asdfasfd', 'asfsadf', 'asfsf', '2017-01-01', 'Pendiente', '2017-07-25 06:52:04', '2017-07-25 06:52:04'),
-(7, 3, 1, 'Panama', 'Panama', 'Rufina Alfaro', 'Robo de Casa', 'Robo de Television', 'Pedro ''lagartija'' Moreno', '2017-07-24', 'Pendiente', '2017-07-25 06:59:04', '2017-07-25 06:59:04');
+(7, 3, 1, 'Panama', 'Panama', 'Rufina Alfaro', 'Robo de Casa', 'Robo de Television', 'Pedro ''lagartija'' Moreno', '2017-07-24', 'Pendiente', '2017-07-25 06:59:04', '2017-07-25 06:59:04'),
+(8, 2, 1, 'Panama', 'Panama', 'Betania', 'Robo a mano armada', 'Negro azabache roba a jovencia blanca cauacsica de cabello rubio', 'jovencita y negro azabache', '2017-07-28', 'Abierto', '2017-07-29 05:22:41', '2017-07-29 05:22:41');
 
 -- --------------------------------------------------------
 
@@ -320,7 +339,36 @@ INSERT INTO `pivot` (`id`, `created_at`, `updated_at`, `role_id`, `user_id`, `fi
 (14, NULL, NULL, 7, 9, 6),
 (15, NULL, NULL, 8, 6, 7),
 (16, NULL, NULL, 8, 13, 7),
-(17, NULL, NULL, 7, 9, 7);
+(17, NULL, NULL, 7, 9, 7),
+(18, NULL, NULL, 8, 6, 8),
+(19, NULL, NULL, 8, 13, 8),
+(20, NULL, NULL, 7, 9, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reportejueces`
+--
+
+CREATE TABLE `reportejueces` (
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cantidad` bigint(21) NOT NULL,
+  `status` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reporteprovincia`
+--
+CREATE TABLE `reporteprovincia` (
+`provinciafk` varchar(191)
+,`distritofk` varchar(191)
+,`corregimientofk` varchar(191)
+,`status` varchar(191)
+,`cantidad` bigint(21)
+,`case_type` varchar(191)
+);
 
 -- --------------------------------------------------------
 
@@ -401,14 +449,32 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role_id`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@admin.com', '$2y$10$9qeBFuiZDHQezQi6gLsCseLHKmLuQwBQ79Y3G0tufL91JrnY8qeqC', 6, 'GruvJ95Sd5I4YrUcXduV6qu7WVgbdgNMxmHgBPBQJ4zZilyf5gurMAaIYeAO', '2017-07-20 15:53:59', '2017-07-20 15:53:59'),
-(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 6, 'i6JD8kG2BBqAGVOsYlKF1qBWGxSUFZ1L5O3AXfHXYug2UDGP4USM4mG3T1gY', '2017-07-20 15:56:06', '2017-07-20 15:56:06'),
-(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'YgqstfIYQsgiaBy2IOoSqwDgTDa8YJwxNW4WZVs0B80do8wgxqcVk2jVfLdn', '2017-07-20 18:45:26', '2017-07-20 18:45:26'),
-(6, 'Eudafio Fuentes', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 8, 'xZqVFJX3seQycqis0yrPHALprXFRgVra9mbR0tPq2UXBrREn6n1dVPcWJDvm', '2017-07-20 18:54:51', '2017-07-20 18:54:51'),
-(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 9, 'tfM5LiO3911CiedmmC8SmjVS8LhIU7ot2XpcubIHXMKLIt0lSo6WOYCypVja', '2017-07-20 18:54:51', '2017-07-20 18:54:51'),
+(4, 'dabrego', 'dabrego@gmail.com', '$2y$10$NG5sfpWv2SVSO8sDzYf.recsLkVwuaM.dTCYHVrvsCX1A1.IMAmg.', 6, 'cahF6MSkHU9QZ2orBolMqtx9Np49UDUvB3zGOcNwmJCBxynYHxvXKmKppESH', '2017-07-20 15:56:06', '2017-07-20 15:56:06'),
+(5, 'juez', 'juez@gmail.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'Nxde8ht4vxg92W8IJ13XDCPHAL3ijzBYsAgOa0wzfWOjyZivlonq9OqVAr3V', '2017-07-20 18:45:26', '2017-07-20 18:45:26'),
+(6, 'Eudafio Fuentes', 'abogado@gmail.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 8, 'hwimcNAsIeIeXaLp0OAqMILlknv4ahtv5HZ06KD43Vz7xz0UdDUqLGTYjiUo', '2017-07-20 18:54:51', '2017-07-20 18:54:51'),
+(7, 'user', 'user@gmail.com', '$2y$10$MR7LMOlv9R.7tqMncTLPQuTFAHcdh1AQn9l7zBq.Tgt6V.KwZw5/.', 9, 'DXz76c0Gt6HEDL5LbSZDltMDcqHmoVBVLq0eHfL3Sz7vJuC9zrh8T9hexenp', '2017-07-20 18:54:51', '2017-07-20 18:54:51'),
 (8, 'Venito Varsallo', 'userme@gmail.com', '$2y$10$hp/EQwAkazxNYmJumm1JBOJp2BI9xrr04yUcEK/v7fGHK49kENFNm', 9, 'rAUW1so9rc6IM3nhxdelGZ7CVS4KUFaMCvzwlQuWWDJFyd89eqJqf7JNmZw2', '2017-07-23 08:58:53', '2017-07-23 08:58:53'),
 (9, 'Gutierrez Alfredo', 'gutierrez@juez.com', '$2y$10$MaSHnAYnLlx4K6tDk2Gf3.4eNzHMrAI8g/IXIpnI5EUm7tWv7S5IO', 7, NULL, '2017-07-24 00:06:32', '2017-07-24 00:06:32'),
-(12, 'Ricardo Haynes', 'rhayness@juez.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'dJzYdwefM81O2PSYRkHk7rGxYk9gwYNrEePhBqgoYFUDo1tSPZ1TfdcC0ESb', '2017-07-20 23:45:26', '2017-07-20 23:45:26'),
+(12, 'Ricardo Haynes', 'rhayness@juez.com', '$2y$10$ruXxfNvXCLYzGWTL5b0X1OClg0D7ucfb7NqlEISkWbk8GWcu/KqqO', 7, 'dwNkz38eCP3KLElQYbymeoVgGL1k9uVhlkJIJ5NSuIfSWycUFfhOOE6ifWFW', '2017-07-20 23:45:26', '2017-07-20 23:45:26'),
 (13, 'Eufrates Donicio', 'eudoni@abogado.com', '$2y$10$RI1dMOZtQLI84Pv92SFMcuEPV6bzqfJ57jCOogOrc7IGTtwopR3kG', 8, 'Z1yNqUgOjghhwQrVey7kfn5ybvAUy0DsVvRrl6q14iqSXQkjlA9A4xMDSQaY', '2017-07-20 23:54:51', '2017-07-20 23:54:51');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `estadistica`
+--
+DROP TABLE IF EXISTS `estadistica`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `estadistica`  AS  (select `C`.`court_name` AS `court_name`,`A`.`status` AS `status`,count(`A`.`status`) AS `cantidad`,`B`.`case_type` AS `case_type` from ((`filerecords` `A` join `casetype` `B` on((`A`.`casetype_id` = `B`.`id`))) join `court` `C` on((`A`.`court_id` = `C`.`id`))) group by `C`.`court_name`,`A`.`status`,`B`.`case_type` order by `C`.`court_name`,`A`.`status`,`B`.`case_type`) ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reporteprovincia`
+--
+DROP TABLE IF EXISTS `reporteprovincia`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reporteprovincia`  AS  (select `A`.`provinciafk` AS `provinciafk`,`A`.`distritofk` AS `distritofk`,`A`.`corregimientofk` AS `corregimientofk`,`A`.`status` AS `status`,count(`A`.`status`) AS `cantidad`,`B`.`case_type` AS `case_type` from (`filerecords` `A` join `casetype` `B` on((`A`.`casetype_id` = `B`.`id`))) group by `A`.`provinciafk`,`A`.`distritofk`,`A`.`corregimientofk`,`A`.`status`,`B`.`case_type` order by `A`.`provinciafk`,`A`.`distritofk`,`A`.`corregimientofk`,`A`.`status`,`B`.`case_type`) ;
 
 --
 -- Indexes for dumped tables
@@ -535,7 +601,7 @@ ALTER TABLE `casetype`
 -- AUTO_INCREMENT for table `comentarios_registros`
 --
 ALTER TABLE `comentarios_registros`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `court`
 --
@@ -545,7 +611,7 @@ ALTER TABLE `court`
 -- AUTO_INCREMENT for table `filerecords`
 --
 ALTER TABLE `filerecords`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -575,7 +641,7 @@ ALTER TABLE `permission_user`
 -- AUTO_INCREMENT for table `pivot`
 --
 ALTER TABLE `pivot`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `roles`
 --
