@@ -16,7 +16,7 @@ use App\Court;
 use App\RoleUserModel;
 use DB;
 use Exception;
-use Reporteprovincia;
+// use Reporteprovincia;
 
 class User extends Authenticatable
 {
