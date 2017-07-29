@@ -58,15 +58,9 @@ class SeguimientoController extends Controller
         }
 
         if ($user->hasRole('juez')) { 
+            $data = Filerecords::allFileRecords_byProfile($user->id, $role[0]->role_id);
             $userRole = 'juez';
-            
-            if($debug){
-                echo "<pre>";
-                print_r($data);
-                echo "</pre>";
-            }
-            
-            return view('jueces.dashboard', 
+            return view('jueces.seguimientos', 
                 ['role' => $userRole, 'nombre'=>$user->name, 'data'=>$data]);
         }
 
