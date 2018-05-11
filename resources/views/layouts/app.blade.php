@@ -18,7 +18,7 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <style>
- .bgimg {
+/* .bgimg {
     background-image: url('/images/choco.png');
     min-height: 100%;
     background-position: center;
@@ -27,7 +27,7 @@
 
 .navcolor {
   background-image: url('/images/choco.png');
-}
+}*/
 
 </style>
 </head>

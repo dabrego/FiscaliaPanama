@@ -78,12 +78,12 @@
           margin: auto;
 
             }
-            .bgimg {
+/*            .bgimg {
     background-image: url('/images/choco.png');
     min-height: 100%;
     background-position: center;
     background-size: cover;
-}
+}*/
 
             /* Next & previous buttons */
             .prev, .next {
